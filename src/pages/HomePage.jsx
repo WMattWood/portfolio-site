@@ -12,53 +12,53 @@ import Startrek from '../assets/startrek.svg'
 
 function HomePage() {
 
-  const { accessToken } = useContext(GlobalContext)
-  const [ projects, setProjects ] = useState([])
-  const [ blogs, setBlogs ] = useState([])
+  const { projects, blogs, accessToken } = useContext(GlobalContext)
+  // const [ projects, setProjects ] = useState([])
+  // const [ blogs, setBlogs ] = useState([])
 
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
-  const getRepos = () => {
-    fetch("https://api.github.com/graphql", {
-      "method": "POST",
-      "headers": {
-        // "Content-Type": "application/json",
-        "Authorization": `Bearer ${accessToken}`,
-      },
-      "body": JSON.stringify({
-            query: `query {
-                      user(login: "wmattwood") {
-                                          pinnedItems(first: 6, types: REPOSITORY) {
-                                            nodes {
-                                              ... on Repository {
-                                                name
-                                              }
-                                            }
-                                          }
-                                        }
-                    }`
-            })
-    })
-    .then( res => res.json() )
-    .then( res => setProjects(res.data.user.pinnedItems.nodes) )
-  }
+  // const getRepos = () => {
+  //   fetch("https://api.github.com/graphql", {
+  //     "method": "POST",
+  //     "headers": {
+  //       // "Content-Type": "application/json",
+  //       "Authorization": `Bearer ${accessToken}`,
+  //     },
+  //     "body": JSON.stringify({
+  //           query: `query {
+  //                     user(login: "wmattwood") {
+  //                                         pinnedItems(first: 6, types: REPOSITORY) {
+  //                                           nodes {
+  //                                             ... on Repository {
+  //                                               name
+  //                                             }
+  //                                           }
+  //                                         }
+  //                                       }
+  //                   }`
+  //           })
+  //   })
+  //   .then( res => res.json() )
+  //   .then( res => setProjects(res.data.user.pinnedItems.nodes) )
+  // }
 
-  const getBlogs = () => {
-    fetch("https://rails-blog-api.herokuapp.com/posts", {
-      "method": "GET",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    })
-    .then(res => res.json())
-    .then(res => setBlogs([...res]))
-  }
+  // const getBlogs = () => {
+  //   fetch("https://rails-blog-api.herokuapp.com/posts", {
+  //     "method": "GET",
+  //     "headers": {
+  //       "Access-Control-Allow-Origin": "*"
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => setBlogs([...res]))
+  // }
 
-  useEffect( () => {
-      getRepos()
-      getBlogs()
-  }, [] )
+  // useEffect( () => {
+  //     getRepos()
+  //     getBlogs()
+  // }, [] )
 
   return (
     <div>
