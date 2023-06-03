@@ -347,6 +347,7 @@ const Headshot = styled.img`
 
 const Body = styled.div`
   background: var(--dark);
+  width: 100vw;
   /* padding: 12px; */
   padding-bottom: 12px;
   padding-left: 5%;
