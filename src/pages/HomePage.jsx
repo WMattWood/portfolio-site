@@ -172,12 +172,13 @@ const Highlight = styled.em`
   /* margin-bottom: 5px; */
 `
 const MySkills = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
   margin-bottom: 50px;
+  /* margin-right: 48px; */
 
   @media (min-width: 840px) {
       align-items: start;
@@ -255,12 +256,12 @@ const Skill = styled.div`
 `
 const MyBlog = styled.div`
   width: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
   margin-bottom: 50px;
+  margin-right: 48px;
 `
 
 const BlogBox = styled.div`
@@ -273,16 +274,13 @@ const BlogBox = styled.div`
 `
 
 const MyProjects = styled.div`
-  width: 100%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   padding-left: 12px;
   margin-bottom: 50px;
-  /* box-sizing: border-box;
-  border: 2px solid green; */
 `
 
 
@@ -369,7 +367,6 @@ const Body = styled.div`
 
 const Contents = styled.div`
   margin-left: 12px;
-
   display: flex;
   flex-direction: column;
   gap: 30px;
