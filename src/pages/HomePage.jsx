@@ -120,11 +120,13 @@ function HomePage() {
 
 const MyIntro = styled.div`
   margin-bottom: 84px;
+  margin-right: 48px;
 `
 const TopBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  /* margin-right: 24px; */
 `
 const TopBoxLeft = styled.div`
   width: 100%;
@@ -139,7 +141,8 @@ const TopBoxRight = styled.div`
 
   @media (min-width: 840px) {
       width: 35%;
-      display: block;
+      /* display: block; */
+      display: flex;
     }
 `
 
@@ -324,18 +327,19 @@ const TitleBox = styled.div`
 `
 
 const HeadshotBox = styled.div`
-  position: relative;
-  top: 50%;
+  /* position: relative; */
+  /* top: 50%; */
   margin-top: 24px;
   /* left: 50%; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   /* margin-bottom: 24px; */
-  
+  /* margin-right: 50px; */
 `
 const Headshot = styled.img`
-  width: 300px;
+  /* width: 300px; */
+  width: 90%;
   box-sizing: border-box;
   border: 3px solid black;
   border-radius: 5px;
