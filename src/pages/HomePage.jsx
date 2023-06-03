@@ -128,14 +128,13 @@ function HomePage() {
                 {listOfSkills.map( skill => <Skill key={`${skill}`}> {skill} </Skill> ) }
               </SkillsListBox>
               <BlurbBox>
-                <p>I have been using computers to learn, create and explore since I was a kid.  
-                  My first access to computerized networks was through BBS systems (all hail
-                  Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
+                <Blurb>I have been using computers to learn, create and explore since I was a kid.  
+                  My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
                   my grandparent's old Macintosh.  Over the past 20 years I've used computers
                   to create and perform electronic music - and in the past 5 I decided to 
                   focus full time on digging into the code behind the software that I've used
                   for so long.  
-                </p>
+                </Blurb>
 
                 <Keyword>More about me...</Keyword>
               </BlurbBox>
@@ -215,8 +214,9 @@ const MySkills = styled.div`
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
+  margin-bottom: 50px;
 
-  @media (min-width: 824px) {
+  @media (min-width: 840px) {
       align-items: start;
     } 
 `
@@ -226,7 +226,7 @@ const SkillsBox = styled.div`
   flex-direction: column;
   align-items: center;
   /* gap: 50px; */
-  @media (min-width: 824px) {
+  @media (min-width: 840px) {
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: start;
@@ -239,19 +239,43 @@ const BlurbBox = styled.div`
   flex-direction: column;
   justify-content: start;
   flex-wrap: wrap;
-  max-width: 650px;
+  /* max-width: 650px; */
   margin-bottom: 24px;
-  width: 65%;
+  /* width: 65%; */
+  width: 100%;
+
+  @media (min-width: 840) {
+    /* max-width: 500px; */
+    /* width: 65%; */
+    /* min-width: 5000px; */
+    width: 500px;
+  }
+`
+
+const Blurb = styled.p`
+  margin-bottom: 24px;
+  width: 100%;
+  @media (min-width: 840) {
+    /* max-width: 500px; */
+    /* width: 65%; */
+    width: 500px;
+    /* width: 500px; */
+  }
 `
 const SkillsListBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 100%;
   min-width: 300px;
   margin-bottom: 24px;
-  width: 35%;
+  /* width: 35%; */
+
+  @media (min-width: 840) {
+    max-width: 500px;
+    width: 35%;
+  }
 `
 const Skill = styled.div`
   background: black;
@@ -273,6 +297,7 @@ const MyBlog = styled.div`
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
+  margin-bottom: 50px;
 `
 
 const BlogBox = styled.div`
@@ -290,7 +315,9 @@ const MyProjects = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
   padding-left: 12px;
+  margin-bottom: 50px;
   /* box-sizing: border-box;
   border: 2px solid green; */
 `
