@@ -9,56 +9,13 @@ import Linkedin from '../assets/linkedin.svg'
 import Github from '../assets/github.svg'
 import Email from '../assets/email.svg'
 import Startrek from '../assets/startrek.svg'
+import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 function HomePage() {
 
   const { projects, blogs, accessToken } = useContext(GlobalContext)
-  // const [ projects, setProjects ] = useState([])
-  // const [ blogs, setBlogs ] = useState([])
-
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
-
-  // const getRepos = () => {
-  //   fetch("https://api.github.com/graphql", {
-  //     "method": "POST",
-  //     "headers": {
-  //       // "Content-Type": "application/json",
-  //       "Authorization": `Bearer ${accessToken}`,
-  //     },
-  //     "body": JSON.stringify({
-  //           query: `query {
-  //                     user(login: "wmattwood") {
-  //                                         pinnedItems(first: 6, types: REPOSITORY) {
-  //                                           nodes {
-  //                                             ... on Repository {
-  //                                               name
-  //                                             }
-  //                                           }
-  //                                         }
-  //                                       }
-  //                   }`
-  //           })
-  //   })
-  //   .then( res => res.json() )
-  //   .then( res => setProjects(res.data.user.pinnedItems.nodes) )
-  // }
-
-  // const getBlogs = () => {
-  //   fetch("https://rails-blog-api.herokuapp.com/posts", {
-  //     "method": "GET",
-  //     "headers": {
-  //       "Access-Control-Allow-Origin": "*"
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => setBlogs([...res]))
-  // }
-
-  // useEffect( () => {
-  //     getRepos()
-  //     getBlogs()
-  // }, [] )
 
   return (
     <div>
@@ -76,7 +33,7 @@ function HomePage() {
                   <Link href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
                   </Link>
-                  <Link href="https://www.linkedin.com/WMattWood" target="blank"> 
+                  <Link href="https://www.linkedin.com/li/WMattWood" target="blank"> 
                     <Icon src={Linkedin} alt="Linkedin Icon" /> 
                   </Link> 
                   <Link href="mailto:w.matthew.wood@gmail.com" target="blank"> 
@@ -86,24 +43,16 @@ function HomePage() {
                     <IconTrek src={Startrek} alt="Startrek Icon" /> 
                   </Link>  
                 </IconsBox> 
-
                 <IntroBlurb>
                   <p>It's nice to meet you!</p>
-
-                  {/* <p>I'm a software engineer based in Montreal.</p> */}
                   <br/>
-              
-
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
                   <p>Systemic world-view kinda guy.</p>
-
                   <br/>
                   <br/>
                   <br/>
-                 
-
-                  <Keyword>Check out my CV here!</Keyword>
+                  <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
                 
                 </IntroBlurb>
               </TopBoxLeft>
@@ -113,10 +62,6 @@ function HomePage() {
                 </HeadshotBox>
               </TopBoxRight>
             </TopBox>
-          
-
-
-
           </MyIntro>
 
           <MySkills>
@@ -196,6 +141,21 @@ const TopBoxRight = styled.div`
       width: 35%;
       display: block;
     }
+`
+
+const PdfLink = styled.a`
+  text-decoration: none var(--highlight-bright);
+  background: transparent;
+  font-weight: 600;
+  /* text-decoration-color: magenta; */
+  color: var(--highlight-bright);
+  /* text-decoration-color: var(--highlight-bright); */
+
+  :hover{
+    transition: 0.5s;
+    color: magenta;
+    text-decoration: underline magenta;
+  }
 `
 
 const Highlight = styled.em`
