@@ -228,7 +228,7 @@ const SkillsBox = styled.div`
   /* gap: 50px; */
   @media (min-width: 824px) {
       flex-direction: row-reverse;
-      justify-content: start;
+      justify-content: space-between;
       align-items: start;
     } 
 `
@@ -241,6 +241,7 @@ const BlurbBox = styled.div`
   flex-wrap: wrap;
   max-width: 650px;
   margin-bottom: 24px;
+  width: 65%;
 `
 const SkillsListBox = styled.div`
   display: flex;
@@ -250,6 +251,7 @@ const SkillsListBox = styled.div`
   max-width: 500px;
   min-width: 300px;
   margin-bottom: 24px;
+  width: 35%;
 `
 const Skill = styled.div`
   background: black;
