@@ -118,9 +118,41 @@ function HomePage() {
   )
 }
 
+//Page Structure Elements
+const Body = styled.div`
+  background: var(--dark);
+  width: 100vw;
+  padding-bottom: 12px;
+  padding-left: 5%;
+  padding-right: 5%;
+`
+
+const Contents = styled.div`
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`
+
+const Header = styled.div`
+  height: 200px;
+  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+`
+
+const Footer = styled.div`
+  height: 200px;
+  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+`
+
+//MyIntro Elements
 const MyIntro = styled.div`
   margin-bottom: 84px;
   margin-right: 48px;
+`
+const MainTitle = styled.h1`
+`
+const Subtitle = styled.h2`
+  margin-bottom:20px;
 `
 const TopBox = styled.div`
   display: flex;
@@ -145,32 +177,33 @@ const TopBoxRight = styled.div`
       display: flex;
     }
 `
-
-const PdfLink = styled.a`
-  text-decoration: none var(--highlight-bright);
-  background: transparent;
-  font-weight: 600;
-  /* text-decoration-color: magenta; */
-  color: var(--highlight-bright);
-  /* text-decoration-color: var(--highlight-bright); */
-
-  :hover{
-    transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
+const IconsBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+`
+const IntroBlurb = styled.div`
+  *{
+    font-size: 20px;
+    line-height: 28px;
+    margin: 5px;
   }
 `
-
-const Highlight = styled.em`
-  /* font-size: 24px; */
-  /* border-bottom: 2px solid var(--text); */
-  /* border-bottom: 3px solid red; */
-  /* box-sizing: border-box; */
-  /* border: 2px solid red; */
-  /* padding: 0px; */
-  /* line-height: 20px; */
-  /* margin-bottom: 5px; */
+const HeadshotBox = styled.div`
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `
+const Headshot = styled.img`
+  width: 90%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+`
+
+//MySkills Elements
 const MySkills = styled.div`
   width: 90%;
   display: flex;
@@ -178,18 +211,16 @@ const MySkills = styled.div`
   align-items: center;
   padding-left: 12px;
   margin-bottom: 50px;
-  /* margin-right: 48px; */
 
   @media (min-width: 840px) {
       align-items: start;
     } 
 `
-
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 50px; */
+
   @media (min-width: 840px) {
       flex-direction: row-reverse;
       justify-content: space-between;
@@ -203,27 +234,19 @@ const BlurbBox = styled.div`
   flex-direction: column;
   justify-content: start;
   flex-wrap: wrap;
-  /* max-width: 650px; */
   margin-bottom: 24px;
-  /* width: 65%; */
   width: 100%;
 
   @media (min-width: 840) {
-    /* max-width: 500px; */
-    /* width: 65%; */
-    /* min-width: 5000px; */
     width: 500px;
   }
 `
-
 const Blurb = styled.p`
   margin-bottom: 24px;
   width: 100%;
+
   @media (min-width: 840) {
-    /* max-width: 500px; */
-    /* width: 65%; */
     width: 500px;
-    /* width: 500px; */
   }
 `
 const SkillsListBox = styled.div`
@@ -234,7 +257,6 @@ const SkillsListBox = styled.div`
   max-width: 100%;
   min-width: 300px;
   margin-bottom: 24px;
-  /* width: 35%; */
 
   @media (min-width: 840) {
     max-width: 500px;
@@ -254,6 +276,8 @@ const Skill = styled.div`
     transition: 0.5s;
   }
 `
+
+//MyBlog Elements
 const MyBlog = styled.div`
   width: 100%;
   display: flex;
@@ -263,7 +287,6 @@ const MyBlog = styled.div`
   margin-bottom: 50px;
   margin-right: 48px;
 `
-
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -273,6 +296,7 @@ const BlogBox = styled.div`
     }
 `
 
+//MyProjects Elements
 const MyProjects = styled.div`
   width: 90%;
   display: flex;
@@ -282,40 +306,11 @@ const MyProjects = styled.div`
   padding-left: 12px;
   margin-bottom: 50px;
 `
-
-
-const IconsBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
+const ProjectBox = styled.div`
+  margin-left: 0px;
 `
 
-const IntroBlurb = styled.div`
-  *{
-    font-size: 20px;
-    line-height: 28px;
-    margin: 5px;
-  }
-`
-
-const WorkingStatus = styled.p`
-  
-`
-
-const Link = styled.a`
-  color: green;
-`
-const Icon = styled.img`
-  width: 34px;
-`
-
-const IconTrek = styled.img`
-  width: 44px;
-  position: relative;
-  top: -10%;
-`
-
-
+//Shared Elements
 const TitleBox = styled.div`
   align-self: flex-start;
   display: flex;
@@ -323,93 +318,36 @@ const TitleBox = styled.div`
   justify-content: start;
   margin-bottom: 24px;
 `
-
-const HeadshotBox = styled.div`
-  /* position: relative; */
-  /* top: 50%; */
-  margin-top: 24px;
-  /* left: 50%; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* margin-bottom: 24px; */
-  /* margin-right: 50px; */
-`
-const Headshot = styled.img`
-  /* width: 300px; */
-  width: 90%;
-  box-sizing: border-box;
-  border: 3px solid black;
-  border-radius: 5px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-`
-
-
-
-
-const Body = styled.div`
-  background: var(--dark);
-  width: 100vw;
-  /* padding: 12px; */
-  padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
-    
-  /* *{
-    flex-direction: col;
-    align-items: start;
-    @media (min-width: 1024px) {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-  } */
-`
-
-const Contents = styled.div`
-  margin-left: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`
-
-
-
-const Header = styled.div`
-  height: 200px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
-`
-
-const Footer = styled.div`
-  height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
-`
-
-const MainTitle = styled.h1`
-  /* margin-left: 12px; */
-`
-
-const Subtitle = styled.h2`
-  /* margin-left: 12px; */
-  margin-bottom:20px;
-`
-
 const SectionTitle = styled.h3`
-  
 `
-
-const H2box = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
-
-  /* @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: flex-start;
-  } */
+const Keyword = styled.b`
+  background: transparent;
+  font-weight: 600;
+  color: var(--highlight-bright);
 `
+const Link = styled.a`
+  color: green;
+`
+const PdfLink = styled.a`
+  text-decoration: none var(--highlight-bright);
+  background: transparent;
+  font-weight: 600;
+  color: var(--highlight-bright);
 
-
-
+  :hover{
+    transition: 0.5s;
+    color: magenta;
+    text-decoration: underline magenta;
+  }
+`
+const Icon = styled.img`
+  width: 34px;
+`
+const IconTrek = styled.img`
+  width: 44px;
+  position: relative;
+  top: -10%;
+`
 const Button = styled.button`
   padding: 12px;
   font-size: 14px;
@@ -435,34 +373,6 @@ const Button = styled.button`
     color: var(--highlight-dark);
     transform: translateY(-1px);
   }
-`
-
-const ProjectBox = styled.div`
-  margin-left: 0px;
-`
-
-const Card = styled.div`
-  background: var(--paragraph-box);
-  display: flex;
-  /* flex-direction: row; */
-  align-items: center;
-  /* justify-content: left; */
-  flex-wrap: wrap;
-  padding: 20px;
-  border-radius: 12px;
-  * {
-    background: transparent;
-  }
-`
-
-const CardText = styled.div`
-
-`
-
-const Keyword = styled.b`
-  background: transparent;
-  font-weight: 600;
-  color: var(--highlight-bright);
 `
 
 export default HomePage
