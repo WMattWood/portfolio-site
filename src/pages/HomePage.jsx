@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
 import ProjectCard from '../components/ProjectCard'
+import BlogCard from '../components/BlogCard'
 import Navbar from '../components/Navbar'
 import { GlobalContext } from '../GlobalContext'
 import Linkedin from '../assets/linkedin.svg'
@@ -141,14 +142,7 @@ function HomePage() {
             { ! blogs
               ? <p>"Loading"</p>
               : <BlogBox>
-                  { blogs.slice(0, 3).map( blog => {
-                    return  <BlogCard key={blog.id}>
-                              <h4>{blog.title}</h4>
-                              <p>{blog.content.substring(0, 600)}</p>
-                              <a href="https://google.com">...</a>
-                            </BlogCard>
-                    })
-                  }
+                  { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
           </MyBlog>
@@ -386,10 +380,7 @@ const H2box = styled.div`
   } */
 `
 
-const BlogCard = styled.div`
-  min-width: 280px;
-  margin: 12px;
-`
+
 
 const Button = styled.button`
   padding: 12px;
