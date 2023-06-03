@@ -92,10 +92,17 @@ function HomePage() {
 
                   {/* <p>I'm a software engineer based in Montreal.</p> */}
                   <br/>
+              
 
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
                   <p>Systemic world-view kinda guy.</p>
+
+                  <br/>
+                  <br/>
+                  <br/>
+                 
+
                   <Keyword>Check out my CV here!</Keyword>
                 
                 </IntroBlurb>
@@ -117,21 +124,22 @@ function HomePage() {
               <SectionTitle>My Skills</SectionTitle>
             </TitleBox>
             <SkillsBox>
-              {listOfSkills.map( skill => <Skill key={`${skill}`}> {skill} </Skill> ) }
-            </SkillsBox>
-            <BlurbBox>
-              <p>I have been using computers to learn, create and explore since I was a kid.  
-                My first access to computerized networks was through BBS systems (all hail
-                Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
-                my grandparent's old Macintosh.  Over the past 20 years I've used computers
-                to create and perform electronic music - and in the past 5 I decided to 
-                focus full time on digging into the code behind the software that I've used
-                for so long.  
-              </p>
+              <SkillsListBox>
+                {listOfSkills.map( skill => <Skill key={`${skill}`}> {skill} </Skill> ) }
+              </SkillsListBox>
+              <BlurbBox>
+                <p>I have been using computers to learn, create and explore since I was a kid.  
+                  My first access to computerized networks was through BBS systems (all hail
+                  Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
+                  my grandparent's old Macintosh.  Over the past 20 years I've used computers
+                  to create and perform electronic music - and in the past 5 I decided to 
+                  focus full time on digging into the code behind the software that I've used
+                  for so long.  
+                </p>
 
-              <Keyword>More about me...</Keyword>
-            </BlurbBox>
-            
+                <Keyword>More about me...</Keyword>
+              </BlurbBox>
+            </SkillsBox>
 
           </MySkills>
 
@@ -167,7 +175,39 @@ function HomePage() {
 }
 
 const MyIntro = styled.div`
-  
+  margin-bottom: 84px;
+`
+const TopBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`
+const TopBoxLeft = styled.div`
+  width: 100%;
+  @media (min-width: 840px) {
+      width: 60%;
+      display: inline;
+    }
+`
+const TopBoxRight = styled.div`
+  width: 0%;
+  display: none;
+
+  @media (min-width: 840px) {
+      width: 35%;
+      display: block;
+    }
+`
+
+const Highlight = styled.em`
+  /* font-size: 24px; */
+  /* border-bottom: 2px solid var(--text); */
+  /* border-bottom: 3px solid red; */
+  /* box-sizing: border-box; */
+  /* border: 2px solid red; */
+  /* padding: 0px; */
+  /* line-height: 20px; */
+  /* margin-bottom: 5px; */
 `
 const MySkills = styled.div`
   width: 100%;
@@ -176,11 +216,53 @@ const MySkills = styled.div`
   align-items: center;
   padding-left: 12px;
 
-  @media (min-width: 840px) {
-      flex-direction: row;
-      /* justify-content: space-between; */
-      /* align-items: flex-start; */
+  @media (min-width: 824px) {
+      align-items: start;
     } 
+`
+
+const SkillsBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 50px; */
+  @media (min-width: 824px) {
+      flex-direction: row-reverse;
+      justify-content: start;
+      align-items: start;
+    } 
+`
+const BlurbBox = styled.div`
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-wrap: wrap;
+  max-width: 650px;
+  margin-bottom: 24px;
+`
+const SkillsListBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 500px;
+  min-width: 300px;
+  margin-bottom: 24px;
+`
+const Skill = styled.div`
+  background: black;
+  color: var(--highlight-bright);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+
+  transition: 0.5s;
+  :hover{
+    color: magenta;
+    transition: 0.5s;
+  }
 `
 const MyBlog = styled.div`
   width: 100%;
@@ -207,27 +289,7 @@ const MyProjects = styled.div`
   /* box-sizing: border-box;
   border: 2px solid green; */
 `
-const TopBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`
-const TopBoxLeft = styled.div`
-  width: 100%;
-  @media (min-width: 840px) {
-      width: 60%;
-      display: inline;
-    }
-`
-const TopBoxRight = styled.div`
-  width: 0%;
-  display: none;
 
-  @media (min-width: 840px) {
-      width: 35%;
-      display: block;
-    }
-`
 
 const IconsBox = styled.div`
   display: flex;
@@ -238,6 +300,7 @@ const IconsBox = styled.div`
 const IntroBlurb = styled.div`
   *{
     font-size: 20px;
+    line-height: 28px;
     margin: 5px;
   }
 `
@@ -288,36 +351,7 @@ const Headshot = styled.img`
 `
 
 
-const SkillsBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 500px;
-  min-width: 300px;
-  margin-bottom: 24px;
-`
 
-const BlurbBox = styled.div`
-  font-size: 16px;
-  line-height: 18px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  flex-wrap: wrap;
-  max-width: 700px;
-  margin-bottom: 24px;
-`
-
-
-
-const Skill = styled.div`
-  background: black;
-  color: magenta;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 3px;
-`
 
 const Body = styled.div`
   background: var(--dark);
