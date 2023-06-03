@@ -115,7 +115,7 @@ const Card = styled.div`
     justify-content: space-between;
     align-items: start;
     padding: 12px;
-    margin: 12px;
+    /* margin: 12px; */
     margin-bottom: 24px;
     max-width: 1000px;
     min-width: 500px;

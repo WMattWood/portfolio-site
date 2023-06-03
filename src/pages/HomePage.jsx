@@ -272,11 +272,13 @@ const MyBlog = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 12px;
 `
 
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
+
   @media (min-width: 1220px) {
       flex-direction: row;
     }
@@ -288,6 +290,7 @@ const MyProjects = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 12px;
   /* box-sizing: border-box;
   border: 2px solid green; */
 `
