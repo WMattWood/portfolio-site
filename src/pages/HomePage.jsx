@@ -134,6 +134,10 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  @media (max-width: 500px) {
+    margin-left: 0px;
+  }
 `
 
 const Header = styled.div`
