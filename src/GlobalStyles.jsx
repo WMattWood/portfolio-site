@@ -60,6 +60,8 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         overflow-x: hidden;
+        position: fixed;
+        //test test test
         font-family: 'Montserrat', sans-serif;
         background: var(--highlight-dark);
         line-height: 1;
