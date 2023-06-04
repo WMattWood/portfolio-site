@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         overflow-x: hidden;
+        position: fixed;
         font-family: 'Montserrat', sans-serif;
         background: var(--highlight-dark);
         line-height: 1;
