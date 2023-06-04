@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
         /* --highlight-dark: #193D67; */
         /* --highlight-dark: #19376D; */
         /* --paragraph-box: #698F3F; */
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
     }
 
     html, body, div, span, applet, object, iframe,
