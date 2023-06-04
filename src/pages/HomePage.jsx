@@ -233,6 +233,7 @@ const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   @media (min-width: 840px) {
       flex-direction: row-reverse;
@@ -248,7 +249,7 @@ const BlurbBox = styled.div`
   justify-content: start;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  width: 100%;
+  /* width: 100%; */
 
   @media (min-width: 840) {
     width: 500px;
@@ -267,13 +268,14 @@ const SkillsListBox = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 100%;
+  /* max-width: 100%; */
   min-width: 300px;
+  width: 100%;
   margin-bottom: 24px;
 
   @media (min-width: 840) {
-    max-width: 500px;
-    width: 35%;
+    /* max-width: 500px; */
+    /* width: 35%; */
   }
 `
 const Skill = styled.div`
@@ -320,15 +322,18 @@ const MyProjects = styled.div`
   margin-bottom: 50px;
 `
 const ProjectBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-left: 0px;
 `
 
 //Shared Elements
 const TitleBox = styled.div`
   align-self: flex-start;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: start; */
   margin-bottom: 24px;
 `
 const SectionTitle = styled.h3`
