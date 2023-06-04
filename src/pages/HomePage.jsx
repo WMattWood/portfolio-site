@@ -44,14 +44,16 @@ function HomePage() {
                   </Link>  
                 </IconsBox> 
                 <IntroBlurb>
+                  <SubBlurb>
                   <p>It's nice to meet you!</p>
                   <br/>
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
                   <p>Systemic world-view kinda guy.</p>
+                  </SubBlurb>
+                  {/* <br/>
                   <br/>
-                  <br/>
-                  <br/>
+                  <br/> */}
                   <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
                 
                 </IntroBlurb>
@@ -137,6 +139,10 @@ const Contents = styled.div`
 const Header = styled.div`
   height: 200px;
   background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+
+  @media (max-width: 500px) {
+    height: 35vw;
+  }
 `
 
 const Footer = styled.div`
@@ -189,6 +195,13 @@ const IntroBlurb = styled.div`
     margin: 5px;
   }
 `
+const SubBlurb = styled.div`
+  margin-bottom: 51px;
+
+  @media (max-width: 500px) {
+    margin-bottom: 6vw;
+  }
+`
 const HeadshotBox = styled.div`
   margin-top: 24px;
   display: flex;
@@ -220,6 +233,7 @@ const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   @media (min-width: 840px) {
       flex-direction: row-reverse;
@@ -235,7 +249,7 @@ const BlurbBox = styled.div`
   justify-content: start;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  width: 100%;
+  /* width: 100%; */
 
   @media (min-width: 840) {
     width: 500px;
@@ -254,13 +268,14 @@ const SkillsListBox = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 100%;
+  /* max-width: 100%; */
   min-width: 300px;
+  width: 100%;
   margin-bottom: 24px;
 
   @media (min-width: 840) {
-    max-width: 500px;
-    width: 35%;
+    /* max-width: 500px; */
+    /* width: 35%; */
   }
 `
 const Skill = styled.div`
@@ -279,19 +294,19 @@ const Skill = styled.div`
 
 //MyBlog Elements
 const MyBlog = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
   margin-bottom: 50px;
-  margin-right: 48px;
+  /* margin-right: 48px; */
 `
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 1220px) {
+  width: 100%;
+  @media (min-width: 840px) {
       flex-direction: row;
     }
 `
@@ -307,15 +322,18 @@ const MyProjects = styled.div`
   margin-bottom: 50px;
 `
 const ProjectBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-left: 0px;
 `
 
 //Shared Elements
 const TitleBox = styled.div`
   align-self: flex-start;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: start; */
   margin-bottom: 24px;
 `
 const SectionTitle = styled.h3`

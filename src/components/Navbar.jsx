@@ -1,20 +1,41 @@
-import React from "react"
 import styled from "styled-components"
-import {useNavigate} from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import MediaQuery from 'react-responsive'
+import Hamburger from '../assets/hamburger.svg'
 import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 const Navbar = () => {
 
   const navigate = useNavigate()
+  const [showNav, setShowNav] = useState(false)
 
   return (
-    <Frame>
-        <Link onClick={ () => navigate("/about")}>About</Link>
-        <Link onClick={ () => navigate("/projects")}>Projects</Link>
-        <Link onClick={ () => navigate("/blog")}>Blog</Link>
-        <Link onClick={ () => navigate("/contact")}>Contact</Link>
-        <FileLink href={Pdf}><Link>CV</Link></FileLink>
-    </Frame>
+    <>
+        <MediaQuery minWidth={500}>
+          <Frame>
+            <Link onClick={ () => navigate("/about")}>About</Link>
+            <Link onClick={ () => navigate("/projects")}>Projects</Link>
+            <Link onClick={ () => navigate("/blog")}>Blog</Link>
+            <Link onClick={ () => navigate("/contact")}>Contact</Link>
+            <FileLink href={Pdf}><Link>CV</Link></FileLink>
+          </Frame>
+        </MediaQuery>
+
+        
+        <MediaQuery maxWidth={500}>
+          <FrameVertical>
+            <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/contact")}>Contact</Link>
+            <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
+          </FrameVertical>
+        </MediaQuery>
+
+        
+        </>
   )
 }
 
@@ -25,6 +46,24 @@ const Frame = styled.div`
   margin-right: 5%;
 `
 
+const FrameVertical = styled.div`
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-end;
+  /* margin-right: 5%; */
+  .clicked {
+  /* color: red !important; */
+  transition: 0.5s;
+  margin: 6px;
+  visibility: visible;
+  opacity: 1;
+}
+
+`
+
+// Shared Elements
 const Link = styled.h5`
   cursor: pointer;
   transition: 0.5s;
@@ -32,10 +71,21 @@ const Link = styled.h5`
   
   :hover{
     transition: 0.5s;
-    color:red;
+    color: red;
+  }
+
+  @media (max-width: 500px) {
+    cursor: pointer;
+    transition: 0.5s;
+    margin: -9px;
+    visibility: hidden;
+    opacity: 0;
   }
 `
+const Icon = styled.img`
+    width: 34px;
 
+`
 const FileLink = styled.a`
   text-decoration: none;
 `

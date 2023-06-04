@@ -91,37 +91,46 @@ const ProjectCard = ({name}) => {
 
   return (
     <Card>
-        {   !projectData
-            ? <p>"loading"</p>
-            : <>
-                <TextBox>
-                    <TitleBox>
-                        <h3>{projectData.title}</h3>
-                    </TitleBox>
-                    <InfoBox>
-                        <InfoBlurb>{projectData.blurb}</InfoBlurb>
-                    </InfoBox>
-                </TextBox>
-                <Image src={projectData.image}/>
-              </>
-        }
+    { !projectData
+      ? <p>"loading"</p>
+      : <>
+        <TextBox>
+          <TitleBox>
+            <h3>{projectData.title}</h3>
+          </TitleBox>
+          <InfoBox>
+            <InfoBlurb>{projectData.blurb}</InfoBlurb>
+          </InfoBox>
+          <a href="https://github.com/WMattWood">
+            <Button>View Live</Button>
+          </a>
+        </TextBox>
+        <Image src={projectData.image}/>
+        </>
+    }
     </Card>
   )
 }
 
 const Card = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: start;
     padding: 12px;
+    margin-right: 24px;;
     /* margin: 12px; */
     margin-bottom: 24px;
-    max-width: 1000px;
-    min-width: 500px;
+    /* max-width: 1000px;
+    min-width: 500px; */
     background: var(--text);
     border-radius: 5px;
     
+    @media (min-width: 840px) {
+        flex-direction: row;
+
+    }
+
     *{
         color: black;
     }
@@ -131,7 +140,11 @@ const TextBox = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 12px;
-    width: 60%;
+    width: 90%;
+
+    @media (min-width: 840px) {
+        width: 60%;
+    }
 `
 
 const InfoBox = styled.div`
@@ -144,11 +157,15 @@ const ImageFrame = styled.div`
 const Image = styled.img`
     position: relative;
     max-width: 500px;
-    width: 45%;
+    width: 90%;
     height: auto;
     border: 2px black;
     border-radius: 5px;
     display: inline;
+
+    @media (min-width: 840px) {
+        width: 45%;
+    }
 `
 
 const TitleBox = styled.div`
@@ -164,4 +181,31 @@ const h1 = styled.h1`
     color: red;
 `
 
+const Button = styled.button`
+  padding: 12px;
+  font-size: 14px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  
+
+  &:hover {
+    background-color: var(--highlight-bright);
+    box-shadow: 0px 3px 7px rgba(46, 229, 157, 0.4);
+    color: var(--highlight-dark);
+    transform: translateY(-1px);
+  }
+`
 export default ProjectCard

@@ -100,6 +100,10 @@ const GlobalStyle = createGlobalStyle`
         font-variation-settings: "wght" 450;
         background: transparent;
         /* -webkit-font-smoothing: antialiased; */
+
+        @media (max-width: 500px) {
+            font-size: 16vw;
+        }
     } 
     
     h2{
@@ -107,6 +111,10 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         font-size: 48px;
         font-variation-settings: "wght" 450;
+
+        @media (max-width: 500px) {
+            font-size: 10vw;
+        }
     }
 
     h3{
