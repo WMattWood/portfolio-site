@@ -44,14 +44,16 @@ function HomePage() {
                   </Link>  
                 </IconsBox> 
                 <IntroBlurb>
+                  <SubBlurb>
                   <p>It's nice to meet you!</p>
                   <br/>
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
                   <p>Systemic world-view kinda guy.</p>
+                  </SubBlurb>
+                  {/* <br/>
                   <br/>
-                  <br/>
-                  <br/>
+                  <br/> */}
                   <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
                 
                 </IntroBlurb>
@@ -137,6 +139,10 @@ const Contents = styled.div`
 const Header = styled.div`
   height: 200px;
   background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+
+  @media (max-width: 500px) {
+    height: 35vw;
+  }
 `
 
 const Footer = styled.div`
@@ -187,6 +193,13 @@ const IntroBlurb = styled.div`
     font-size: 20px;
     line-height: 28px;
     margin: 5px;
+  }
+`
+const SubBlurb = styled.div`
+  margin-bottom: 51px;
+
+  @media (max-width: 500px) {
+    margin-bottom: 6vw;
   }
 `
 const HeadshotBox = styled.div`
