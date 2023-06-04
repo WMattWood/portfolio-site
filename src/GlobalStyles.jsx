@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
         /* --highlight-dark: #193D67; */
         /* --highlight-dark: #19376D; */
         /* --paragraph-box: #698F3F; */
+        overflow-x: hidden;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -60,8 +61,6 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         overflow-x: hidden;
-        position: fixed;
-        //test test test
         font-family: 'Montserrat', sans-serif;
         background: var(--highlight-dark);
         line-height: 1;
