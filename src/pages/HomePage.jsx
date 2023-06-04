@@ -99,7 +99,7 @@ function HomePage() {
             }
           </MyBlog>
           
-          <MyProjects>
+          {/* <MyProjects>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -109,7 +109,7 @@ function HomePage() {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </MyProjects>
+          </MyProjects> */}
 
         </Contents>
       </Body>
