@@ -292,19 +292,19 @@ const Skill = styled.div`
 
 //MyBlog Elements
 const MyBlog = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 12px;
   margin-bottom: 50px;
-  margin-right: 48px;
+  /* margin-right: 48px; */
 `
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 1220px) {
+  width: 100%;
+  @media (min-width: 840px) {
       flex-direction: row;
     }
 `

@@ -11,14 +11,15 @@ function BlogCard({blog}) {
 }
 
 const Card = styled.div`
-  max-width: 85%;
+  /* max-width: 85%; */
   min-width: 25%;
   margin-bottom: 12px;
-  margin-right: 80px;
+  margin-right: 24px;
 
-  /* @media (min-width: 1220px) {
-    max-width: 100%;
-  } */
+  @media (min-width: 1220px) {
+    /* max-width: 100%; */
+    /* margin-right: 40px; */
+  }
 `
 
 const Title = styled.h4`
@@ -26,7 +27,8 @@ const Title = styled.h4`
 `
 
 const BlogPreview = styled.p`
-  
+  position: relative;
+  width: 100%;
 `
 
 const Keyword = styled.b`
