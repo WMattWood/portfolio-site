@@ -55,9 +55,11 @@ const GlobalStyle = createGlobalStyle`
         display: block;
     }
     html{
+        overflow-x: hidden;
         height: 100%;
     }
     body {
+        overflow-x: hidden;
         font-family: 'Montserrat', sans-serif;
         background: var(--highlight-dark);
         line-height: 1;
