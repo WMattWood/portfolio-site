@@ -96,7 +96,7 @@ const ProjectCard = ({name}) => {
       : <>
         <TextBox>
           <TitleBox>
-            <h3>{projectData.title}</h3>
+            <Title>{projectData.title}</Title>
           </TitleBox>
           <InfoBox>
             <InfoBlurb>{projectData.blurb}</InfoBlurb>
@@ -173,7 +173,19 @@ const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  margin-bottom: 24px;
+  
+`
+
+const Title = styled.h3`
+  font-size: 22px;
+  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+
+  @media (max-width: 500px) {
+    font-size: 1.8em;
+  }
 `
 
 
