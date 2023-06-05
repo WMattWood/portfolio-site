@@ -12,7 +12,10 @@ const Navbar = () => {
 
   return (
     <>
-        <MediaQuery minWidth={500}>
+        <TitleBox>
+          <Title onClick={ () => navigate("/")}>matthew wood</Title>
+        </TitleBox>
+        <MediaQuery minWidth={840}>
           <Frame>
             <Link onClick={ () => navigate("/about")}>About</Link>
             <Link onClick={ () => navigate("/projects")}>Projects</Link>
@@ -23,7 +26,7 @@ const Navbar = () => {
         </MediaQuery>
 
         
-        <MediaQuery maxWidth={500}>
+        <MediaQuery maxWidth={840}>
           <FrameVertical>
             <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
             <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
@@ -64,6 +67,22 @@ const FrameVertical = styled.div`
 `
 
 // Shared Elements
+const TitleBox = styled.div`
+  margin-left: 5%
+`
+const Title = styled.h5`
+  cursor: pointer;
+  margin-top: 12px;
+  margin-left: 12px;
+  position: absolute;
+  transition: 0.5s;
+
+  :hover{
+    transition: 0.5s;
+    color: red;
+  }
+`
+
 const Link = styled.h5`
   cursor: pointer;
   transition: 0.5s;
@@ -74,7 +93,7 @@ const Link = styled.h5`
     color: red;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 840px) {
     cursor: pointer;
     transition: 0.5s;
     margin: -9px;
@@ -83,8 +102,8 @@ const Link = styled.h5`
   }
 `
 const Icon = styled.img`
-    width: 34px;
-
+  /* margin-top: 12px; */
+  width: 34px;
 `
 const FileLink = styled.a`
   text-decoration: none;

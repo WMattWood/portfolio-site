@@ -18,28 +18,6 @@ const ProjectCard = ({name}) => {
     const [markdownHTML, setMarkdownHTML] = useState(null)
 
     useEffect( () => {
-        // fetch(`https://raw.githubusercontent.com/wmattwood/${name}/main/README.md`)
-        //     // .then( res => res.json() )
-        //     .then( res => res.text())
-        //     .then( res => res.substring(0, 600) + "...")
-        //     .then( res => setBlurb(res))
-
-        // fetch("https://api.github.com/graphql", {
-        //     "method": "POST",
-        //     "headers": {
-        //       // "Content-Type": "application/json",
-        //       "Authorization": `Bearer ${accessToken}`,
-        //     },
-        //     "body": JSON.stringify({
-        //         query:    `query { repository(owner: "wmattwood", name: "${name}") {
-        //                             openGraphImageUrl
-        //                         }
-        //                     }`
-        //         })
-        //     })
-        //     .then( res => res.json() )
-        //     .then( res => setImage(res.data.repository.openGraphImageUrl)
-        // )
 
         fetch("https://api.github.com/graphql", {
             "method": "POST",
@@ -50,6 +28,7 @@ const ProjectCard = ({name}) => {
             "body": JSON.stringify({
                 query:    `query { repository(owner: "wmattwood", name: "${name}") {
                                     openGraphImageUrl,
+                                    url,
                                     object(expression: "main:README.md") {
                                         ... on Blob {
                                             text
@@ -66,34 +45,29 @@ const ProjectCard = ({name}) => {
                     // setTitle(doc.querySelectorAll('h1')[0].textContent)
                     // setBlurb(doc.querySelectorAll('p')[0].textContent)
                     // setImage(res.data.repository.openGraphImageUrl)
+                    const githubUrl = res.data.repository.url
+                    const liveUrl = ( doc.querySelectorAll('a')[0] 
+                                      ? doc.querySelectorAll('a')[0].textContent 
+                                      : githubUrl )
                     setProjectData( {
                             title: doc.querySelectorAll('h1')[0].textContent,
                             image: res.data.repository.openGraphImageUrl,
-                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 500) + "..."
+                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 500) + "...",
+                            link: liveUrl,
+                            github: githubUrl
                         }
                     )
+                    
                 }
             )
-        
-
     }, [])
-
-    // useEffect( () => {
-    //     const el = document.querySelector('.react-markdown');
-    //     if (el) {
-    //         const mdHTML = el.childNodes;
-    //         setMarkdownHTML( {
-    //             "title": mdHTML[0],
-    //             "blurb": mdHTML[1]
-    //         })
-    //     }
-    // }, [markdown])
 
   return (
     <Card>
     { !projectData
       ? <p>"loading"</p>
       : <>
+        {console.log(projectData)}
         <TextBox>
           <TitleBox>
             <Title>{projectData.title}</Title>
@@ -101,11 +75,13 @@ const ProjectCard = ({name}) => {
           <InfoBox>
             <InfoBlurb>{projectData.blurb}</InfoBlurb>
           </InfoBox>
-          <a href="https://github.com/WMattWood">
-            <Button>View Live</Button>
+          <a href={projectData.github}>
+            <Button>View Code on Github</Button>
           </a>
         </TextBox>
-        <Image src={projectData.image}/>
+        <ImageLink href={projectData.link}>
+          <Image src={projectData.image}/>
+        </ImageLink>
         </>
     }
     </Card>
@@ -119,10 +95,7 @@ const Card = styled.div`
     align-items: start;
     padding: 12px;
     margin-right: 24px;;
-    /* margin: 12px; */
     margin-bottom: 24px;
-    /* max-width: 1000px;
-    min-width: 500px; */
     background: var(--text);
     border-radius: 5px;
     
@@ -152,19 +125,24 @@ const InfoBox = styled.div`
 `
 const InfoBlurb = styled.p`
 `
-const ImageFrame = styled.div`   
+
+const ImageLink = styled.a`
+  /* width: 90%; */
+  /* @media (min-width: 840px) {
+          width: 45%;
+      } */
 `
 const Image = styled.img`
-    position: relative;
+    /* position: relative; */
     max-width: 500px;
-    width: 90%;
+    width: 100%;
     height: auto;
     border: 2px black;
     border-radius: 5px;
-    display: inline;
+    /* display: inline; */
 
     @media (min-width: 840px) {
-        width: 45%;
+        /* width: 45%; */
     }
 `
 
@@ -173,13 +151,11 @@ const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  
 `
 
 const Title = styled.h3`
   font-size: 22px;
   margin-bottom: 12px;
-  /* margin-bottom: 12px; */
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
 
@@ -188,35 +164,32 @@ const Title = styled.h3`
   }
 `
 
-
-const h1 = styled.h1`
-    color: red;
-`
-
 const Button = styled.button`
   padding: 12px;
   font-size: 14px;
   margin-top: 12px;
   margin-bottom: 12px;
-  width: 140px;
-  height: 45px;
-  font-family: 'Roboto', sans-serif;
+  width: 260px;
+  height: 35px;
+  font-weight: 800;
+  /* font-family: 'Roboto', sans-serif; */
   text-transform: uppercase;
   letter-spacing: 2.5px;
   color: #000;
   background-color: #fff;
   border: none;
   border-radius: 45px;
-  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
+  /* box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2); */
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .2);
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  
+  -webkit-font-smoothing: antialiased;
 
   &:hover {
-    background-color: var(--highlight-bright);
-    box-shadow: 0px 3px 7px rgba(46, 229, 157, 0.4);
-    color: var(--highlight-dark);
+    /* background-color: var(--highlight-bright); */
+    box-shadow: 2px 2px 10px rgba(46, 229, 157, 0.4);
+    /* color: var(--highlight-dark); */
     transform: translateY(-1px);
   }
 `

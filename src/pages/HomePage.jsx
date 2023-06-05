@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
 import ProjectCard from '../components/ProjectCard'
@@ -13,6 +14,7 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 function HomePage() {
 
+  const navigate = useNavigate()
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
@@ -49,7 +51,7 @@ function HomePage() {
                   <br/>
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
-                  <p>Systemic world-view kinda guy.</p>
+                  <LastLine>Systemic world-view kinda guy.</LastLine>
                   </SubBlurb>
                   {/* <br/>
                   <br/>
@@ -66,7 +68,7 @@ function HomePage() {
             </TopBox>
           </MyIntro>
 
-          <MySkills>
+          <Section>
             <TitleBox>
               <SectionTitle>My Skills</SectionTitle>
             </TitleBox>
@@ -83,25 +85,13 @@ function HomePage() {
                   for so long.  
                 </Blurb>
 
-                <Keyword>More about me...</Keyword>
+                <Link onClick={ () => navigate("/about")}><Keyword>More about me...</Keyword></Link>
               </BlurbBox>
             </SkillsBox>
 
-          </MySkills>
+          </Section>
 
-          <MyBlog>
-            <TitleBox>
-              <SectionTitle>My Blog</SectionTitle>
-            </TitleBox>
-            { ! blogs
-              ? <p>"Loading"</p>
-              : <BlogBox>
-                  { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
-                </BlogBox>
-            }
-          </MyBlog>
-          
-          <MyProjects>
+          <Section>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -111,8 +101,20 @@ function HomePage() {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </MyProjects>
+          </Section>
 
+          <Section>
+            <TitleBox>
+              <SectionTitle>My Blog</SectionTitle>
+            </TitleBox>
+            { ! blogs
+              ? <p>"Loading"</p>
+              : <BlogBox>
+                  { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
+                </BlogBox>
+            }
+          </Section>
+          
         </Contents>
       </Body>
       <Footer></Footer>
@@ -140,6 +142,19 @@ const Contents = styled.div`
   }
 `
 
+const Section = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 12px;
+  margin-bottom: 50px;
+
+  @media (max-width: 500px) {
+      margin-bottom: 40px;
+    } 
+`
+
 const Header = styled.div`
   height: 200px;
   background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
@@ -158,6 +173,10 @@ const Footer = styled.div`
 const MyIntro = styled.div`
   margin-bottom: 84px;
   margin-right: 48px;
+
+  @media (max-width: 500px) {
+      margin-bottom: 74px;
+    } 
 `
 const MainTitle = styled.h1`
 `
@@ -221,18 +240,18 @@ const Headshot = styled.img`
 `
 
 //MySkills Elements
-const MySkills = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 50px;
+// const MySkills = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding-left: 12px;
+//   margin-bottom: 50px;
 
-  @media (min-width: 840px) {
-      align-items: start;
-    } 
-`
+//   /* @media (min-width: 840px) {
+//       align-items: start;
+//     }  */
+// `
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -277,7 +296,8 @@ const SkillsListBox = styled.div`
   width: 100%;
   margin-bottom: 24px;
 
-  @media (min-width: 840) {
+  @media (max-width: 500px) {
+    justify-content: start;
     /* max-width: 500px; */
     /* width: 35%; */
   }
@@ -297,34 +317,35 @@ const Skill = styled.div`
 `
 
 //MyBlog Elements
-const MyBlog = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 50px;
-  /* margin-right: 48px; */
-`
+// const MyBlog = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding-left: 12px;
+//   margin-bottom: 50px;
+//   /* margin-right: 48px; */
+// `
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   @media (min-width: 840px) {
       flex-direction: row;
     }
 `
 
 //MyProjects Elements
-const MyProjects = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  padding-left: 12px;
-  margin-bottom: 50px;
-`
+// const MyProjects = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   /* justify-content: start; */
+//   padding-left: 12px;
+//   margin-bottom: 50px;
+// `
 const ProjectBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -395,6 +416,10 @@ const Button = styled.button`
     color: var(--highlight-dark);
     transform: translateY(-1px);
   }
+`
+
+const LastLine = styled.p`
+  width: 220px;
 `
 
 export default HomePage
