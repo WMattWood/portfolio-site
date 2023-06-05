@@ -1,9 +1,10 @@
-import ScrollToTop from "./utilities/scrollToTop";
-import { BrowserRouter, Routes as Pages, Route, useLocation } from "react-router-dom"
+
+import { BrowserRouter, Routes as Pages, Route } from "react-router-dom"
 import AboutPage from './pages/AboutPage'
 import Blogpage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
 import ProjectPage from './pages/ProjectPage'
+import ScrollToTop from './utilities/scrollToTop';
 import GlobalStyle from './GlobalStyles'
 
 function App() {
