@@ -1,10 +1,14 @@
 import styled from "styled-components"
+import { useNavigate } from 'react-router-dom'
 
 function BlogCard({blog}) {
+
+  const navigate = useNavigate()
+
   return (
     <Card>
         <Title>{blog.title}</Title>
-        <Link href="https://google.com">
+        <Link onClick={ () => navigate("/blog")} >
           <Text>
             <BlogPreview>{blog.content.substring(0, 300).trim()}<Keyword>...</Keyword></BlogPreview>
           </Text>
