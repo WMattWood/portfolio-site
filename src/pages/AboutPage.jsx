@@ -9,7 +9,7 @@ function AboutPage() {
       </Header>
       <Body>
         <Contents>
-
+          <Title>About me</Title>
             <BlurbBox>
               <Blurb>I have been using computers to learn, create and explore since I was a kid.  
                 My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
@@ -54,6 +54,9 @@ function AboutPage() {
                 Bootcamp were some of the most intense weeks of my life!  By the end of it, I came out with a strong mental model for a 
                 modern React based SPA design, as well as a strong comprehension of what goes in to Frontend and Back End elements.
               </Blurb>
+
+              <Keyword>Does this sound like someone you could work with?</Keyword>
+              <Keyword>Let's get in touch!</Keyword>
             </BlurbBox>
 
         </Contents>
@@ -81,6 +84,12 @@ const Contents = styled.div`
   gap: 30px;
 `
 
+const Title = styled.h3`
+  margin-top: 24px;
+  font-size: 44px;
+  width: 230px;
+`
+
 const Header = styled.div`
   height: 100px;
   background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
@@ -102,13 +111,28 @@ const BlurbBox = styled.div`
   margin-bottom: 24px;
   width: 100%;
 
-  @media (min-width: 840) {
+  /* @media (min-width: 840) {
     width: 500px;
-  }
+  } */
 `
+
+const Section = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 12px;
+  margin-bottom: 50px;
+
+  @media (max-width: 500px) {
+      margin-bottom: 40px;
+    } 
+`
+
 const Blurb = styled.p`
   margin-bottom: 24px;
-  width: 100%;
+  /* width: 100%; */
+  margin-right: 48px;
 
   @media (min-width: 840) {
     width: 500px;
@@ -128,6 +152,7 @@ const SectionTitle = styled.h3`
 `
 const Keyword = styled.b`
   background: transparent;
+  margin-bottom: 24px;
   font-weight: 600;
   color: var(--highlight-bright);
 `
