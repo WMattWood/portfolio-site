@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
             <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
             <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
-            <Link to="/#contact">Contact</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/#contact")}>Contact</Link>
             <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
           </FrameVertical>
         </MediaQuery>
