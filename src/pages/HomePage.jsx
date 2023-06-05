@@ -419,7 +419,10 @@ const Button = styled.button`
 `
 
 const LastLine = styled.p`
-  width: 220px;
+
+  @media (max-width: 500px) {
+    width: 220px;
+  }
 `
 
 export default HomePage
