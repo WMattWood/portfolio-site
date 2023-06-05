@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState, useContext} from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
 import ProjectCard from '../components/ProjectCard'
@@ -18,6 +18,28 @@ function HomePage() {
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
+
+  const { pathname, hash, key } = useLocation();
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({behaviour: "smooth"});
+          // window.scrollTo( {
+          //   behavior: element ? "smooth" : "auto",
+          //   top: element ? element.offsetTop : 0
+          // })
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]); // do this on route change
 
   return (
     <div>
@@ -85,7 +107,7 @@ function HomePage() {
                   for so long.  
                 </Blurb>
 
-                <Link onClick={ () => navigate("/about")}><Keyword>More about me...</Keyword></Link>
+                <PdfLink onClick={ () => navigate("/about")}>More about me...</PdfLink>
               </BlurbBox>
             </SkillsBox>
 
@@ -115,6 +137,9 @@ function HomePage() {
             }
           </Section>
           
+          <Section>
+            <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w.matthew.wood@gmail.com" target="blank"> Let's chat!</ContactLink> </Contact>
+          </Section>
         </Contents>
       </Body>
       <Footer></Footer>
@@ -265,13 +290,15 @@ const SkillsBox = styled.div`
     } 
 `
 const BlurbBox = styled.div`
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 19px;
+  line-height: 22px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   flex-wrap: wrap;
   margin-bottom: 24px;
+  /* -webkit-font-smoothing: antialiased; */
+  font-weight: 400;
   /* width: 100%; */
 
   @media (min-width: 840) {
@@ -372,11 +399,12 @@ const Link = styled.a`
   color: green;
 `
 const PdfLink = styled.a`
+  cursor: pointer;
   text-decoration: none var(--highlight-bright);
   background: transparent;
   font-weight: 600;
   color: var(--highlight-bright);
-
+  font-size: 20px;
   :hover{
     transition: 0.5s;
     color: magenta;
@@ -422,6 +450,25 @@ const LastLine = styled.p`
 
   @media (max-width: 500px) {
     width: 220px;
+  }
+`
+
+const Contact = styled.p`
+  font-size: 33px;
+  font-weight: 600;
+`
+
+const ContactLink = styled.a`
+  cursor: pointer;
+  text-decoration: none var(--highlight-bright);
+  background: transparent;
+  font-weight: 600;
+  color: var(--highlight-bright);
+  font-size: 33px;
+  :hover{
+    transition: 0.5s;
+    color: magenta;
+    text-decoration: underline magenta;
   }
 `
 
