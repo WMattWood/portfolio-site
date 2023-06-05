@@ -66,7 +66,7 @@ function HomePage() {
             </TopBox>
           </MyIntro>
 
-          <MySkills>
+          <Section>
             <TitleBox>
               <SectionTitle>My Skills</SectionTitle>
             </TitleBox>
@@ -87,21 +87,9 @@ function HomePage() {
               </BlurbBox>
             </SkillsBox>
 
-          </MySkills>
+          </Section>
 
-          <MyBlog>
-            <TitleBox>
-              <SectionTitle>My Blog</SectionTitle>
-            </TitleBox>
-            { ! blogs
-              ? <p>"Loading"</p>
-              : <BlogBox>
-                  { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
-                </BlogBox>
-            }
-          </MyBlog>
-          
-          <MyProjects>
+          <Section>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -111,8 +99,20 @@ function HomePage() {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </MyProjects>
+          </Section>
 
+          <Section>
+            <TitleBox>
+              <SectionTitle>My Blog</SectionTitle>
+            </TitleBox>
+            { ! blogs
+              ? <p>"Loading"</p>
+              : <BlogBox>
+                  { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
+                </BlogBox>
+            }
+          </Section>
+          
         </Contents>
       </Body>
       <Footer></Footer>
@@ -221,7 +221,7 @@ const Headshot = styled.img`
 `
 
 //MySkills Elements
-const MySkills = styled.div`
+const Section = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -229,9 +229,9 @@ const MySkills = styled.div`
   padding-left: 12px;
   margin-bottom: 50px;
 
-  @media (min-width: 840px) {
+  /* @media (min-width: 840px) {
       align-items: start;
-    } 
+    }  */
 `
 const SkillsBox = styled.div`
   display: flex;
@@ -277,7 +277,8 @@ const SkillsListBox = styled.div`
   width: 100%;
   margin-bottom: 24px;
 
-  @media (min-width: 840) {
+  @media (max-width: 500px) {
+    justify-content: start;
     /* max-width: 500px; */
     /* width: 35%; */
   }
@@ -310,6 +311,7 @@ const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
   @media (min-width: 840px) {
       flex-direction: row;
     }
@@ -321,7 +323,7 @@ const MyProjects = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  /* justify-content: start; */
   padding-left: 12px;
   margin-bottom: 50px;
 `
