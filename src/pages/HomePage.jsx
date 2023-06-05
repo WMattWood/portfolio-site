@@ -85,7 +85,7 @@ function HomePage() {
                   for so long.  
                 </Blurb>
 
-                <Link onClick={ () => navigate("/about")}><Keyword>More about me...</Keyword></Link>
+                <PdfLink onClick={ () => navigate("/about")}>More about me...</PdfLink>
               </BlurbBox>
             </SkillsBox>
 

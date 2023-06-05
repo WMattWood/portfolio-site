@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import ScrollToTop from "./utilities/scrollToTop";
 import { BrowserRouter, Routes as Pages, Route } from "react-router-dom"
 import AboutPage from './pages/AboutPage'
 import Blogpage from './pages/BlogPage'
@@ -9,6 +9,7 @@ import GlobalStyle from './GlobalStyles'
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
     <GlobalStyle />
       <Pages>
         <Route path="/" element={<HomePage />} />
