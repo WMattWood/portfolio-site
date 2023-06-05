@@ -58,9 +58,11 @@ const GlobalStyle = createGlobalStyle`
     html{
         overflow-x: hidden;
         height: 100%;
+        /* scroll-behavior: smooth; */
     }
     body {
         overflow-x: hidden;
+        /* scroll-behavior: smooth; */
         font-family: 'Montserrat', sans-serif;
         background: var(--highlight-dark);
         line-height: 1;
