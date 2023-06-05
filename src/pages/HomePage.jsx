@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
 import ProjectCard from '../components/ProjectCard'
@@ -13,6 +14,7 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 function HomePage() {
 
+  const navigate = useNavigate()
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
@@ -49,7 +51,7 @@ function HomePage() {
                   <br/>
                   <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
                   <p>I like working with Ruby, Python, and Javascript.</p> 
-                  <p>Systemic world-view kinda guy.</p>
+                  <LastLine>Systemic world-view kinda guy.</LastLine>
                   </SubBlurb>
                   {/* <br/>
                   <br/>
@@ -83,7 +85,7 @@ function HomePage() {
                   for so long.  
                 </Blurb>
 
-                <Keyword>More about me...</Keyword>
+                <Link onClick={ () => navigate("/about")}><Keyword>More about me...</Keyword></Link>
               </BlurbBox>
             </SkillsBox>
 
@@ -414,6 +416,10 @@ const Button = styled.button`
     color: var(--highlight-dark);
     transform: translateY(-1px);
   }
+`
+
+const LastLine = styled.p`
+  width: 220px;
 `
 
 export default HomePage
