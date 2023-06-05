@@ -140,6 +140,19 @@ const Contents = styled.div`
   }
 `
 
+const Section = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 12px;
+  margin-bottom: 50px;
+
+  @media (max-width: 500px) {
+      margin-bottom: 40px;
+    } 
+`
+
 const Header = styled.div`
   height: 200px;
   background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
@@ -158,6 +171,10 @@ const Footer = styled.div`
 const MyIntro = styled.div`
   margin-bottom: 84px;
   margin-right: 48px;
+
+  @media (max-width: 500px) {
+      margin-bottom: 74px;
+    } 
 `
 const MainTitle = styled.h1`
 `
@@ -221,18 +238,18 @@ const Headshot = styled.img`
 `
 
 //MySkills Elements
-const Section = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 50px;
+// const MySkills = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding-left: 12px;
+//   margin-bottom: 50px;
 
-  /* @media (min-width: 840px) {
-      align-items: start;
-    }  */
-`
+//   /* @media (min-width: 840px) {
+//       align-items: start;
+//     }  */
+// `
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -298,15 +315,15 @@ const Skill = styled.div`
 `
 
 //MyBlog Elements
-const MyBlog = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 50px;
-  /* margin-right: 48px; */
-`
+// const MyBlog = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding-left: 12px;
+//   margin-bottom: 50px;
+//   /* margin-right: 48px; */
+// `
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -318,15 +335,15 @@ const BlogBox = styled.div`
 `
 
 //MyProjects Elements
-const MyProjects = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: start; */
-  padding-left: 12px;
-  margin-bottom: 50px;
-`
+// const MyProjects = styled.div`
+//   width: 90%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   /* justify-content: start; */
+//   padding-left: 12px;
+//   margin-bottom: 50px;
+// `
 const ProjectBox = styled.div`
   display: flex;
   flex-direction: column;
