@@ -28,6 +28,7 @@ const ProjectCard = ({name}) => {
             "body": JSON.stringify({
                 query:    `query { repository(owner: "wmattwood", name: "${name}") {
                                     openGraphImageUrl,
+                                    url,
                                     object(expression: "main:README.md") {
                                         ... on Blob {
                                             text
@@ -44,12 +45,19 @@ const ProjectCard = ({name}) => {
                     // setTitle(doc.querySelectorAll('h1')[0].textContent)
                     // setBlurb(doc.querySelectorAll('p')[0].textContent)
                     // setImage(res.data.repository.openGraphImageUrl)
+                    const githubUrl = res.data.repository.url
+                    const liveUrl = ( doc.querySelectorAll('a')[0] 
+                                      ? doc.querySelectorAll('a')[0].textContent 
+                                      : githubUrl )
                     setProjectData( {
                             title: doc.querySelectorAll('h1')[0].textContent,
                             image: res.data.repository.openGraphImageUrl,
-                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 500) + "..."
+                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 500) + "...",
+                            link: liveUrl,
+                            github: githubUrl
                         }
                     )
+                    
                 }
             )
     }, [])
@@ -59,6 +67,7 @@ const ProjectCard = ({name}) => {
     { !projectData
       ? <p>"loading"</p>
       : <>
+        {console.log(projectData)}
         <TextBox>
           <TitleBox>
             <Title>{projectData.title}</Title>
@@ -66,11 +75,13 @@ const ProjectCard = ({name}) => {
           <InfoBox>
             <InfoBlurb>{projectData.blurb}</InfoBlurb>
           </InfoBox>
-          <a href="https://github.com/WMattWood">
+          <a href={projectData.github}>
             <Button>View Code on Github</Button>
           </a>
         </TextBox>
-        <Image src={projectData.image}/>
+        <ImageLink href={projectData.link}>
+          <Image src={projectData.image}/>
+        </ImageLink>
         </>
     }
     </Card>
@@ -114,17 +125,24 @@ const InfoBox = styled.div`
 `
 const InfoBlurb = styled.p`
 `
+
+const ImageLink = styled.a`
+  /* width: 90%; */
+  /* @media (min-width: 840px) {
+          width: 45%;
+      } */
+`
 const Image = styled.img`
-    position: relative;
+    /* position: relative; */
     max-width: 500px;
-    width: 90%;
+    width: 100%;
     height: auto;
     border: 2px black;
     border-radius: 5px;
-    display: inline;
+    /* display: inline; */
 
     @media (min-width: 840px) {
-        width: 45%;
+        /* width: 45%; */
     }
 `
 
