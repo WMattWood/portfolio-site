@@ -4,14 +4,14 @@ import AboutPage from './pages/AboutPage'
 import Blogpage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
 import ProjectPage from './pages/ProjectPage'
-import ScrollToTop from './utilities/scrollToTop';
+// import ScrollToTop from './utilities/scrollToTop';
 import GlobalStyle from './GlobalStyles'
 
 function App() {
 
   return (
     <BrowserRouter>
-    <ScrollToTop />
+    {/* <ScrollToTop /> */}
     <GlobalStyle />
       <Pages>
         <Route path="/" element={<HomePage />} />
