@@ -2,15 +2,14 @@ import styled from "styled-components"
 
 function BlogCard({blog}) {
   return (
-    <Link href="https://google.com">
     <Card>
         <Title>{blog.title}</Title>
-        <Text>
-        <BlogPreview>{blog.content.substring(0, 300).trim()}<Keyword>...</Keyword></BlogPreview>
-          {/* <Keyword>Click to read more!</Keyword> */}
-        </Text>
+        <Link href="https://google.com">
+          <Text>
+            <BlogPreview>{blog.content.substring(0, 300).trim()}<Keyword>...</Keyword></BlogPreview>
+          </Text>
+        </Link>
     </Card>
-    </Link>
   )
 }
 
@@ -20,6 +19,7 @@ const Card = styled.div`
   margin-bottom: 40px;
   margin-right: 24px;
   /* padding: 12px; */
+  /* width: 30%; */
   
   @media (min-width: 1220px) {
     /* max-width: 100%; */
@@ -76,6 +76,7 @@ const Keyword = styled.span`
 
 const Link = styled.a`
   text-decoration: none;
+  /* width: 30%; */
 `
 
 export default BlogCard

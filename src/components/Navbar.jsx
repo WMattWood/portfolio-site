@@ -83,8 +83,8 @@ const Link = styled.h5`
   }
 `
 const Icon = styled.img`
-    width: 34px;
-
+  /* margin-top: 12px; */
+  width: 34px;
 `
 const FileLink = styled.a`
   text-decoration: none;
