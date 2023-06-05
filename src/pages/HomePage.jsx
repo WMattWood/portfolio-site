@@ -297,7 +297,7 @@ const SkillsListBox = styled.div`
   margin-bottom: 24px;
 
   @media (max-width: 500px) {
-    justify-content: start;
+    /* justify-content: start; */
     /* max-width: 500px; */
     /* width: 35%; */
   }
