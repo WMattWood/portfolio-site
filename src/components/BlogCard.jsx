@@ -51,9 +51,9 @@ const Text = styled.div`
   :hover{
     transition: 0.1s;
     transform: translateY(-2px) translateX(-2px);
-    outline: 3px solid silver;
+    /* outline: 3px solid silver; */
     box-sizing: content;
-    box-shadow: 5px 5px 5px 5px silver;
+    /* box-shadow: 3px 3px 3px 1px white; */
 
     *{
       color: rgba(0, 0, 0, 1);
