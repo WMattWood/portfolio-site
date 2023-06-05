@@ -66,7 +66,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 12px;
+  /* padding-left: 12px; */
   margin-bottom: 50px;
 
   @media (max-width: 500px) {

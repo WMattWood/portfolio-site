@@ -74,6 +74,7 @@ const TitleBox = styled.div`
   flex-direction: row;
   justify-content: start;
   margin-bottom: 24px;
+  margin-top: 24px;
 `
 const SectionTitle = styled.h3`
 `
