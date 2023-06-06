@@ -37,9 +37,8 @@ function HomePage() {
             behavior: element ? "smooth" : "auto",
             top: element ? document.body.scrollHeight : 0
           })
-          console.log(document.body.scrollHeight)
         }
-      }, 300);
+      }, 500);
     }
   }, [pathname, hash, key]); // do this on route change
 
