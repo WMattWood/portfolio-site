@@ -102,7 +102,7 @@ function HomePage() {
                 <Blurb>I have been using computers to learn, create and explore since I was a kid.  
                   My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
                   my grandparent's old Macintosh.  Over the past 20 years I've used computers
-                  to create and perform electronic music - and in the past 5 I decided to 
+                  to create and perform electronic music - and in the past 5 years I decided to 
                   focus full time on digging into the code behind the software that I've used
                   for so long.  
                 </Blurb>
