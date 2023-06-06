@@ -94,7 +94,7 @@ const Card = styled.div`
     align-items: start;
     padding: 12px;
     margin-right: 24px;;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     background: var(--text);
     border-radius: 5px;
     
@@ -120,9 +120,10 @@ const TextBox = styled.div`
 `
 
 const InfoBox = styled.div`
-    display: flex;
+  display: flex;
 `
 const InfoBlurb = styled.p`
+  font-size: 18px;
 `
 
 const ImageLink = styled.a`
