@@ -38,7 +38,7 @@ function HomePage() {
             top: element ? document.body.scrollHeight : 0
           })
         }
-      }, 500);
+      }, 1000);
     }
   }, [pathname, hash, key]); // do this on route change
 
