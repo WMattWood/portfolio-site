@@ -94,7 +94,7 @@ const Card = styled.div`
     align-items: start;
     padding: 12px;
     margin-right: 24px;;
-    margin-bottom: 48px;
+    margin-bottom: 30px;
     background: var(--text);
     border-radius: 5px;
     
