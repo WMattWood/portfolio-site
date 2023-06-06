@@ -69,7 +69,7 @@ const FrameVertical = styled.div`
 
 // Shared Elements
 const TitleBox = styled.div`
-  margin-left: 5%
+  margin-left: 5%;
 `
 const Title = styled.h5`
   cursor: pointer;
@@ -88,6 +88,7 @@ const Link = styled.h5`
   cursor: pointer;
   transition: 0.5s;
   margin: 12px;
+  z-index: 1;
   
   :hover{
     transition: 0.5s;
@@ -102,11 +103,14 @@ const Link = styled.h5`
     opacity: 0;
   }
 `
+const FileLink = styled.a`
+  text-decoration: none;
+  z-index: 1;
+`
+
 const Icon = styled.img`
   /* margin-top: 12px; */
   width: 34px;
 `
-const FileLink = styled.a`
-  text-decoration: none;
-`
+
 export default Navbar
