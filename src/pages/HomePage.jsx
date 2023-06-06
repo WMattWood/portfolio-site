@@ -16,7 +16,7 @@ function HomePage() {
 
   const ref = useRef(null)
   const navigate = useNavigate()
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
@@ -24,11 +24,11 @@ function HomePage() {
   
   // Manage direct scroll to hash id on page load
   const scrollToElement = () => {
-    // if no hash present scroll to top
+
+    // if hash present, execute scroll
     if (hash !== '') {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
-      
       // REF TECHNIQUE WITH A 500ms LOWER BOUND FOR UNIFORM UI EXPERIENCE
       setTimeout( () => {
         if (ref.current ) {
@@ -38,13 +38,12 @@ function HomePage() {
           })
         }
       }, 500)
-
     }
   }
 
   useEffect( () => {
     scrollToElement()
-  }, [pathname, hash] )
+  }, [pathname, hash, key] )
 
   return (
     <div>
@@ -74,15 +73,12 @@ function HomePage() {
                 </IconsBox> 
                 <IntroBlurb>
                   <SubBlurb>
-                  <p>It's nice to meet you!</p>
-                  <br/>
-                  <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
-                  <p>I like working with Ruby, Python, and Javascript.</p> 
-                  <LastLine>Systemic world-view kinda guy.</LastLine>
+                    <p>It's nice to meet you!</p>
+                    <br/>
+                    <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
+                    <p>I like working with Ruby, Python, and Javascript.</p> 
+                    <LastLine>Systemic world-view kinda guy.</LastLine>
                   </SubBlurb>
-                  {/* <br/>
-                  <br/>
-                  <br/> */}
                   <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
                 
                 </IntroBlurb>
@@ -124,8 +120,7 @@ function HomePage() {
             </TitleBox> 
             { ! projects
               ? <p>"Loading"</p>
-              : // <ProjectBox ref={projectRef}>  
-                <ProjectBox>
+              : <ProjectBox>
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
@@ -137,8 +132,7 @@ function HomePage() {
             </TitleBox>
             { ! blogs
               ? <p>"Loading"</p>
-              : //<BlogBox ref={blogRef}>
-                <BlogBox ref={ref}>
+              : <BlogBox ref={ref}>
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
@@ -473,6 +467,7 @@ const ContactLink = styled.a`
   font-weight: 600;
   color: var(--highlight-bright);
   font-size: 33px;
+
   :hover{
     transition: 0.5s;
     color: magenta;
