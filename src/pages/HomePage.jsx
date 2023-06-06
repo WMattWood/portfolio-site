@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext} from 'react'
+import { useEffect, useState, useContext, useRef} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
@@ -14,33 +14,36 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 function HomePage() {
 
+  const ref = useRef(null)
   const navigate = useNavigate()
+  const { pathname, hash, key } = useLocation();
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
+  
   // Manage direct scroll to hash id on page load
-  const { pathname, hash, key } = useLocation();
-  useEffect(() => {
-    // if not a hash link, scroll to top
-    if (hash === '') {
-      window.scrollTo(0, 0);
-    }
-    // else scroll to id
-    else {
-      setTimeout(() => {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          // element.scrollIntoView({behaviour: "smooth"});
+  const scrollToElement = () => {
+
+    // if hash present, execute scroll
+    if (hash !== '') {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      // REF TECHNIQUE WITH A 500ms LOWER BOUND FOR UNIFORM UI EXPERIENCE
+      setTimeout( () => {
+        if (ref.current ) {
           window.scrollTo( {
             behavior: element ? "smooth" : "auto",
             top: element ? document.body.scrollHeight : 0
           })
         }
-      }, 500);
+      }, 500)
     }
-  }, [pathname, hash, key]); // do this on route change
+  }
+
+  useEffect( () => {
+    scrollToElement()
+  }, [pathname, hash, key] )
 
   return (
     <div>
@@ -70,15 +73,12 @@ function HomePage() {
                 </IconsBox> 
                 <IntroBlurb>
                   <SubBlurb>
-                  <p>It's nice to meet you!</p>
-                  <br/>
-                  <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
-                  <p>I like working with Ruby, Python, and Javascript.</p> 
-                  <LastLine>Systemic world-view kinda guy.</LastLine>
+                    <p>It's nice to meet you!</p>
+                    <br/>
+                    <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
+                    <p>I like working with Ruby, Python, and Javascript.</p> 
+                    <LastLine>Systemic world-view kinda guy.</LastLine>
                   </SubBlurb>
-                  {/* <br/>
-                  <br/>
-                  <br/> */}
                   <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
                 
                 </IntroBlurb>
@@ -120,7 +120,7 @@ function HomePage() {
             </TitleBox> 
             { ! projects
               ? <p>"Loading"</p>
-              : <ProjectBox>  
+              : <ProjectBox>
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
@@ -132,7 +132,7 @@ function HomePage() {
             </TitleBox>
             { ! blogs
               ? <p>"Loading"</p>
-              : <BlogBox>
+              : <BlogBox ref={ref}>
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
@@ -467,6 +467,7 @@ const ContactLink = styled.a`
   font-weight: 600;
   color: var(--highlight-bright);
   font-size: 33px;
+
   :hover{
     transition: 0.5s;
     color: magenta;

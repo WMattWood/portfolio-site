@@ -47,7 +47,7 @@ const ProjectCard = ({name}) => {
                     // setImage(res.data.repository.openGraphImageUrl)
                     const githubUrl = res.data.repository.url
                     const liveUrl = ( doc.querySelectorAll('a')[0] 
-                                      ? doc.querySelectorAll('a')[0].textContent 
+                                      ? doc.querySelectorAll('a')[0].href 
                                       : githubUrl )
                     setProjectData( {
                             title: doc.querySelectorAll('h1')[0].textContent,
