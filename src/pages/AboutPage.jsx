@@ -11,7 +11,7 @@ function AboutPage() {
       <Body>
         <Contents>
           <Title>About me</Title>
-          <BlurbBox>
+          <Section>
             <Blurb>I have been using computers to learn, create and explore since I was a kid.  
               My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
               my grandparent's old Macintosh.  Over the past 20 years I've used computers
@@ -58,7 +58,7 @@ function AboutPage() {
 
             <Keyword>Does this sound like someone you could work with?</Keyword>
             <Keyword>Let's get in touch!</Keyword>
-          </BlurbBox>
+          </Section>
 
         </Contents>
       </Body>
@@ -117,12 +117,22 @@ const BlurbBox = styled.div`
   } */
 `
 
+const Blurb = styled.p`
+  margin-bottom: 24px;
+  /* width: 100%; */
+  /* margin-right: 48px; */
+
+  @media (min-width: 840) {
+    width: 500px;
+  }
+`
+
 const Section = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
+  align-items: start;
+  /* padding-left: 12px; */
   margin-bottom: 50px;
 
   @media (max-width: 500px) {
@@ -130,15 +140,7 @@ const Section = styled.div`
     } 
 `
 
-const Blurb = styled.p`
-  margin-bottom: 24px;
-  /* width: 100%; */
-  margin-right: 48px;
 
-  @media (min-width: 840) {
-    width: 500px;
-  }
-`
 
 
 //Shared Elements
