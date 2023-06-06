@@ -16,20 +16,16 @@ function HomePage() {
 
   const ref = useRef(null)
   const navigate = useNavigate()
+  const { pathname, hash } = useLocation();
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
-  const { pathname, hash } = useLocation();
+  
   // Manage direct scroll to hash id on page load
   const scrollToElement = () => {
-    // if not a hash link, scroll to top
-    if (hash === '') {
-      window.scrollTo(0, 0);
-    }
-
-    // else scroll to id
-    else {
+    // if no hash present scroll to top
+    if (hash !== '') {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
       
