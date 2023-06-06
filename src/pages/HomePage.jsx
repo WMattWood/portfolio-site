@@ -19,6 +19,7 @@ function HomePage() {
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
+  // Manage direct scroll to hash id on page load
   const { pathname, hash, key } = useLocation();
   useEffect(() => {
     // if not a hash link, scroll to top

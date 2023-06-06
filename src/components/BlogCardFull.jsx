@@ -47,7 +47,7 @@ function BlogCardFull({blog}) {
 
 
   return (
-    <Card>
+    <Card id={`${blog.id}`}>
         <Title>{blog.title}</Title>
         <ReactMarkdown 
           // children={cssMarkdownCodeblock}
@@ -111,7 +111,7 @@ function BlogCardFull({blog}) {
           // }}
           
 />
-        <a href="https://google.com"><Keyword>(...)</Keyword></a>
+        {/* <a href="https://google.com"><Keyword>(...)</Keyword></a> */}
     </Card>
   )
 }
@@ -130,7 +130,7 @@ function BlogCardFull({blog}) {
 const Card = styled.div`
   max-width: 85%;
   min-width: 25%;
-  margin-bottom: 12px;
+  margin-bottom: 84px;
   margin-right: 80px;
 
   /* @media (min-width: 1220px) {
@@ -148,7 +148,8 @@ const Card = styled.div`
   }
 `
 
-const Title = styled.h4`
+const Title = styled.h5`
+  font-size: 33px;
   margin-bottom: 12px;
 `
 

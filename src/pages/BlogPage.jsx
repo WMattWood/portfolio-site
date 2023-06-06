@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import BlogCardFull from '../components/BlogCardFull'
 import {GlobalContext} from '../GlobalContext'
@@ -7,6 +8,29 @@ import {GlobalContext} from '../GlobalContext'
 function BlogPage() {
 
   const { blogs } = useContext(GlobalContext)
+
+  // Manage direct scroll to hash id on page load
+  const { pathname, hash, key } = useLocation();
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === '') {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          // element.scrollIntoView({behaviour: "smooth"});
+          window.scrollTo( {
+            behavior: element ? "smooth" : "auto",
+            top: element ? element.offsetTop - 100 : 0
+          })
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]); // do this on route change
 
   return (
     <div>
