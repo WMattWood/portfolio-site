@@ -28,7 +28,7 @@ function BlogPage() {
             top: element ? element.offsetTop - 40 : 0
           })
         }
-      }, 0);
+      }, 500);
     }
   }, [pathname, hash, key]); // do this on route change
 
