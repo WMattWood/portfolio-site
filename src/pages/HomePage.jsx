@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext} from 'react'
+import { useEffect, useState, useContext, useRef} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
@@ -14,33 +14,83 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 
 function HomePage() {
 
+  const ref = useRef(null)
   const navigate = useNavigate()
   const { projects, blogs, accessToken } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
-  // Manage direct scroll to hash id on page load
   const { pathname, hash, key } = useLocation();
-  useEffect(() => {
+  // Manage direct scroll to hash id on page load
+  const scrollToElement = () => {
     // if not a hash link, scroll to top
     if (hash === '') {
       window.scrollTo(0, 0);
     }
+
     // else scroll to id
     else {
-      setTimeout(() => {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          // element.scrollIntoView({behaviour: "smooth"});
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      
+      // REF TECHNIQUE WITH A 500ms LOWER BOUND FOR UNIFORM UI EXPERIENCE
+      setTimeout( () => {
+        if (ref.current ) {
           window.scrollTo( {
             behavior: element ? "smooth" : "auto",
             top: element ? document.body.scrollHeight : 0
           })
         }
-      }, 1000);
+      }, 500)
+
+
+      // REF TECHNIQUE - MORE RELIABLE, AVOIDS RACE CONDITIONS
+      // if ( ref.current ) {
+      //     window.scrollTo( {
+      //       behavior: element ? "smooth" : "auto",
+      //       top: element ? document.body.scrollHeight : 0
+      //     })
+      //   }
+
+      // SET TIMEOUT 500ms HACK
+      // setTimeout(() => {
+      //   const id = hash.replace('#', '');
+      //   const element = document.getElementById(id);
+      //   if (element) {
+      //     // element.scrollIntoView({behaviour: "smooth"});
+      //     window.scrollTo( {
+      //       behavior: element ? "smooth" : "auto",
+      //       top: element ? document.body.scrollHeight : 0
+      //     })
+    //     }
+    //   }, 500);
     }
-  }, [pathname, hash, key]); // do this on route change
+  }
+
+  // useEffect(() => {
+  //   // if not a hash link, scroll to top
+  //   if (hash === '') {
+  //     window.scrollTo(0, 0);
+  //   }
+  //   // else scroll to id
+  //   else {
+  //     setTimeout(() => {
+  //       const id = hash.replace('#', '');
+  //       const element = document.getElementById(id);
+  //       if (element) {
+  //         // element.scrollIntoView({behaviour: "smooth"});
+  //         window.scrollTo( {
+  //           behavior: element ? "smooth" : "auto",
+  //           top: element ? document.body.scrollHeight : 0
+  //         })
+  //       }
+  //     }, 500);
+  //   }
+  // }, [pathname, hash, key]); // do this on route change
+
+  useEffect( () => {
+    scrollToElement()
+  }, [pathname, hash] )
 
   return (
     <div>
@@ -120,7 +170,8 @@ function HomePage() {
             </TitleBox> 
             { ! projects
               ? <p>"Loading"</p>
-              : <ProjectBox>  
+              : // <ProjectBox ref={projectRef}>  
+                <ProjectBox>
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
@@ -132,7 +183,8 @@ function HomePage() {
             </TitleBox>
             { ! blogs
               ? <p>"Loading"</p>
-              : <BlogBox>
+              : //<BlogBox ref={blogRef}>
+                <BlogBox ref={ref}>
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
