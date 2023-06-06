@@ -15,7 +15,7 @@ const ProjectPage = () => {
       </Header>
       <Body>
         <Contents>
-          {/* <Section> */}
+          <Section>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -25,7 +25,7 @@ const ProjectPage = () => {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          {/* </Section> */}
+          </Section>
         </Contents>
       </Body>
       <Footer>
@@ -67,7 +67,8 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   /* padding-left: 12px; */
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  /* gap: 30px; */
 
   @media (max-width: 500px) {
       margin-bottom: 40px;
@@ -78,7 +79,6 @@ const ProjectBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 0px;
 `
 
 //Shared Elements
@@ -87,7 +87,7 @@ const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  margin-bottom: 12px;
+  margin-bottom: 40px;
   margin-top: 24px;
 `
 const SectionTitle = styled.h3`

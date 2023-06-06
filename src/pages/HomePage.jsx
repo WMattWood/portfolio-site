@@ -376,7 +376,6 @@ const ProjectBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
 `
 
 // MyBlog Section
