@@ -130,7 +130,7 @@ function BlogCardFull({blog}) {
 const Card = styled.div`
   max-width: 85%;
   min-width: 25%;
-  margin-bottom: 84px;
+  margin-bottom: 100px;
   margin-right: 80px;
 
   /* @media (min-width: 1220px) {

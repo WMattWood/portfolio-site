@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
 import Hamburger from '../assets/hamburger.svg'
 import Pdf from '../assets/Matthew_Wood_CV.pdf';
@@ -8,6 +8,7 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 const Navbar = () => {
 
   const navigate = useNavigate()
+  
   const [showNav, setShowNav] = useState(false)
 
   return (

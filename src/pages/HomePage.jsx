@@ -32,13 +32,14 @@ function HomePage() {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({behaviour: "smooth"});
-          // window.scrollTo( {
-          //   behavior: element ? "smooth" : "auto",
-          //   top: element ? element.offsetTop : 0
-          // })
+          // element.scrollIntoView({behaviour: "smooth"});
+          window.scrollTo( {
+            behavior: element ? "smooth" : "auto",
+            top: element ? document.body.scrollHeight : 0
+          })
+          console.log(document.body.scrollHeight)
         }
-      }, 0);
+      }, 300);
     }
   }, [pathname, hash, key]); // do this on route change
 
@@ -58,7 +59,7 @@ function HomePage() {
                   <Link href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
                   </Link>
-                  <Link href="https://www.linkedin.com/li/WMattWood" target="blank"> 
+                  <Link href="https://www.linkedin.com/in/WMattWood" target="blank"> 
                     <Icon src={Linkedin} alt="Linkedin Icon" /> 
                   </Link> 
                   <Link href="mailto:w.matthew.wood@gmail.com" target="blank"> 
@@ -457,6 +458,7 @@ const LastLine = styled.p`
 const Contact = styled.p`
   font-size: 33px;
   font-weight: 600;
+  margin-bottom: 20px;
 `
 
 const ContactLink = styled.a`
