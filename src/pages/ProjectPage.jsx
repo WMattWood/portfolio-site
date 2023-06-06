@@ -15,7 +15,7 @@ const ProjectPage = () => {
       </Header>
       <Body>
         <Contents>
-          <Section>
+          {/* <Section> */}
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -25,7 +25,7 @@ const ProjectPage = () => {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </Section>
+          {/* </Section> */}
         </Contents>
       </Body>
       <Footer>
@@ -87,7 +87,7 @@ const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   margin-top: 24px;
 `
 const SectionTitle = styled.h3`

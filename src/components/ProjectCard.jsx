@@ -120,9 +120,10 @@ const TextBox = styled.div`
 `
 
 const InfoBox = styled.div`
-    display: flex;
+  display: flex;
 `
 const InfoBlurb = styled.p`
+  font-size: 18px;
 `
 
 const ImageLink = styled.a`

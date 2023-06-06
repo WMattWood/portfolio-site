@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useRef} from 'react'
+import { useEffect, useContext, useRef} from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import headshot from '../assets/headshot.jpeg'
@@ -203,6 +203,8 @@ const TitleBox = styled.div`
 const SectionTitle = styled.h3`
 `
 
+
+
 //MyIntro Elements
 const MyIntro = styled.div`
   margin-bottom: 84px;
@@ -240,6 +242,21 @@ const TopBoxRight = styled.div`
       display: flex;
     }
 `
+const IconsBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+`
+const IconLink = styled.a`
+`
+const Icon = styled.img`
+  width: 34px;
+`
+const IconTrek = styled.img`
+  width: 44px;
+  position: relative;
+  top: -10%;
+`
 const IntroBlurb = styled.div`
   *{
     font-size: 20px;
@@ -266,6 +283,7 @@ const PdfLink = styled.a`
   font-weight: 600;
   color: var(--highlight-bright);
   font-size: 20px;
+  
   :hover{
     transition: 0.5s;
     color: magenta;
@@ -284,23 +302,6 @@ const Headshot = styled.img`
   border: 3px solid black;
   border-radius: 5px;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-`
-
-// Icons Section
-const IconsBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
-`
-const IconLink = styled.a`
-`
-const Icon = styled.img`
-  width: 34px;
-`
-const IconTrek = styled.img`
-  width: 44px;
-  position: relative;
-  top: -10%;
 `
 
 // MySkills Section
@@ -388,6 +389,7 @@ const BlogBox = styled.div`
       flex-direction: row;
     }
 `
+
 
 // Contact Section
 const Contact = styled.p`
