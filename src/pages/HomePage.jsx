@@ -58,18 +58,18 @@ function HomePage() {
                 <MainTitle>Matthew Wood</MainTitle>
                 <Subtitle>Software Engineer</Subtitle> 
                 <IconsBox>
-                  <Link href="https://github.com/WMattWood" target="blank"> 
+                  <IconLink href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/WMattWood" target="blank"> 
+                  </IconLink>
+                  <IconLink href="https://www.linkedin.com/in/WMattWood" target="blank"> 
                     <Icon src={Linkedin} alt="Linkedin Icon" /> 
-                  </Link> 
-                  <Link href="mailto:w.matthew.wood@gmail.com" target="blank"> 
+                  </IconLink> 
+                  <IconLink href="mailto:w.matthew.wood@gmail.com" target="blank"> 
                     <Icon src={Email} alt="Generic Email Icon" /> 
-                  </Link>  
-                  <Link href="https://www.youtube.com/watch?v=ZPoqNeR3_UA" target="blank"> 
+                  </IconLink>  
+                  <IconLink href="https://www.youtube.com/watch?v=ZPoqNeR3_UA" target="blank"> 
                     <IconTrek src={Startrek} alt="Startrek Icon" /> 
-                  </Link>  
+                  </IconLink>  
                 </IconsBox> 
                 <IntroBlurb>
                   <SubBlurb>
@@ -91,7 +91,7 @@ function HomePage() {
             </TopBox>
           </MyIntro>
 
-          <Section>
+          <SectionContainer>
             <TitleBox>
               <SectionTitle>My Skills</SectionTitle>
             </TitleBox>
@@ -112,9 +112,9 @@ function HomePage() {
               </BlurbBox>
             </SkillsBox>
 
-          </Section>
+          </SectionContainer>
 
-          <Section>
+          <SectionContainer>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -124,9 +124,9 @@ function HomePage() {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </Section>
+          </SectionContainer>
 
-          <Section>
+          <SectionContainer>
             <TitleBox>
               <SectionTitle>My Blog</SectionTitle>
             </TitleBox>
@@ -136,11 +136,11 @@ function HomePage() {
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
-          </Section>
+          </SectionContainer>
           
-          <Section>
+          <SectionContainer>
             <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w.matthew.wood@gmail.com" target="blank"> Let's chat!</ContactLink> </Contact>
-          </Section>
+          </SectionContainer>
         </Contents>
       </Body>
       <Footer></Footer>
@@ -168,7 +168,7 @@ const Contents = styled.div`
   }
 `
 
-const Section = styled.div`
+const SectionContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -189,10 +189,18 @@ const Header = styled.div`
     height: 35vw;
   }
 `
-
 const Footer = styled.div`
   height: 200px;
   background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+`
+const TitleBox = styled.div`
+  align-self: flex-start;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: start; */
+  margin-bottom: 24px;
+`
+const SectionTitle = styled.h3`
 `
 
 //MyIntro Elements
@@ -232,11 +240,6 @@ const TopBoxRight = styled.div`
       display: flex;
     }
 `
-const IconsBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
-`
 const IntroBlurb = styled.div`
   *{
     font-size: 20px;
@@ -249,6 +252,24 @@ const SubBlurb = styled.div`
 
   @media (max-width: 500px) {
     margin-bottom: 6vw;
+  }
+`
+const LastLine = styled.p`
+  @media (max-width: 500px) {
+    width: 220px;
+  }
+`
+const PdfLink = styled.a`
+  cursor: pointer;
+  text-decoration: none var(--highlight-bright);
+  background: transparent;
+  font-weight: 600;
+  color: var(--highlight-bright);
+  font-size: 20px;
+  :hover{
+    transition: 0.5s;
+    color: magenta;
+    text-decoration: underline magenta;
   }
 `
 const HeadshotBox = styled.div`
@@ -265,19 +286,24 @@ const Headshot = styled.img`
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 `
 
-//MySkills Elements
-// const MySkills = styled.div`
-//   width: 90%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding-left: 12px;
-//   margin-bottom: 50px;
+// Icons Section
+const IconsBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+`
+const IconLink = styled.a`
+`
+const Icon = styled.img`
+  width: 34px;
+`
+const IconTrek = styled.img`
+  width: 44px;
+  position: relative;
+  top: -10%;
+`
 
-//   /* @media (min-width: 840px) {
-//       align-items: start;
-//     }  */
-// `
+// MySkills Section
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -344,16 +370,15 @@ const Skill = styled.div`
   }
 `
 
-//MyBlog Elements
-// const MyBlog = styled.div`
-//   width: 90%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding-left: 12px;
-//   margin-bottom: 50px;
-//   /* margin-right: 48px; */
-// `
+// MyProjects Section
+const ProjectBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+`
+
+// MyBlog Section
 const BlogBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -364,102 +389,12 @@ const BlogBox = styled.div`
     }
 `
 
-//MyProjects Elements
-// const MyProjects = styled.div`
-//   width: 90%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   /* justify-content: start; */
-//   padding-left: 12px;
-//   margin-bottom: 50px;
-// `
-const ProjectBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: 0px;
-`
-
-//Shared Elements
-const TitleBox = styled.div`
-  align-self: flex-start;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: start; */
-  margin-bottom: 24px;
-`
-const SectionTitle = styled.h3`
-`
-const Keyword = styled.b`
-  background: transparent;
-  font-weight: 600;
-  color: var(--highlight-bright);
-`
-const Link = styled.a`
-  color: green;
-`
-const PdfLink = styled.a`
-  cursor: pointer;
-  text-decoration: none var(--highlight-bright);
-  background: transparent;
-  font-weight: 600;
-  color: var(--highlight-bright);
-  font-size: 20px;
-  :hover{
-    transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
-  }
-`
-const Icon = styled.img`
-  width: 34px;
-`
-const IconTrek = styled.img`
-  width: 44px;
-  position: relative;
-  top: -10%;
-`
-const Button = styled.button`
-  padding: 12px;
-  font-size: 14px;
-  margin: 12px;
-  width: 140px;
-  height: 45px;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  
-
-  &:hover {
-    background-color: var(--highlight-bright);
-    box-shadow: 0px 3px 7px rgba(46, 229, 157, 0.4);
-    color: var(--highlight-dark);
-    transform: translateY(-1px);
-  }
-`
-
-const LastLine = styled.p`
-
-  @media (max-width: 500px) {
-    width: 220px;
-  }
-`
-
+// Contact Section
 const Contact = styled.p`
   font-size: 33px;
   font-weight: 600;
   margin-bottom: 20px;
 `
-
 const ContactLink = styled.a`
   cursor: pointer;
   text-decoration: none var(--highlight-bright);
