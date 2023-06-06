@@ -20,7 +20,7 @@ function HomePage() {
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
-  const { pathname, hash, key } = useLocation();
+  const { pathname, hash } = useLocation();
   // Manage direct scroll to hash id on page load
   const scrollToElement = () => {
     // if not a hash link, scroll to top
@@ -43,50 +43,8 @@ function HomePage() {
         }
       }, 500)
 
-
-      // REF TECHNIQUE - MORE RELIABLE, AVOIDS RACE CONDITIONS
-      // if ( ref.current ) {
-      //     window.scrollTo( {
-      //       behavior: element ? "smooth" : "auto",
-      //       top: element ? document.body.scrollHeight : 0
-      //     })
-      //   }
-
-      // SET TIMEOUT 500ms HACK
-      // setTimeout(() => {
-      //   const id = hash.replace('#', '');
-      //   const element = document.getElementById(id);
-      //   if (element) {
-      //     // element.scrollIntoView({behaviour: "smooth"});
-      //     window.scrollTo( {
-      //       behavior: element ? "smooth" : "auto",
-      //       top: element ? document.body.scrollHeight : 0
-      //     })
-    //     }
-    //   }, 500);
     }
   }
-
-  // useEffect(() => {
-  //   // if not a hash link, scroll to top
-  //   if (hash === '') {
-  //     window.scrollTo(0, 0);
-  //   }
-  //   // else scroll to id
-  //   else {
-  //     setTimeout(() => {
-  //       const id = hash.replace('#', '');
-  //       const element = document.getElementById(id);
-  //       if (element) {
-  //         // element.scrollIntoView({behaviour: "smooth"});
-  //         window.scrollTo( {
-  //           behavior: element ? "smooth" : "auto",
-  //           top: element ? document.body.scrollHeight : 0
-  //         })
-  //       }
-  //     }, 500);
-  //   }
-  // }, [pathname, hash, key]); // do this on route change
 
   useEffect( () => {
     scrollToElement()
