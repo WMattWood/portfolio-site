@@ -8,9 +8,9 @@ function BlogCard({blog}) {
   return (
     <Card>
         <Title>{blog.title}</Title>
-        <Link onClick={ () => navigate("/blog")} >
+        <Link onClick={ () => navigate(`/blog#${blog.id}`)} >
           <Text>
-            <BlogPreview>{blog.content.substring(0, 300).trim()}<Keyword>...</Keyword></BlogPreview>
+            <BlogPreview>{blog.content.substring(0, 300).trim() + "..."}</BlogPreview>
           </Text>
         </Link>
     </Card>
@@ -40,6 +40,7 @@ const Title = styled.h4`
 
 
 const Text = styled.div`
+  cursor: pointer;
   padding: 12px;
   background: var(--text);
   border-radius: 5px;

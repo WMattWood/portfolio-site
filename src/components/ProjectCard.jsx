@@ -67,7 +67,6 @@ const ProjectCard = ({name}) => {
     { !projectData
       ? <p>"loading"</p>
       : <>
-        {console.log(projectData)}
         <TextBox>
           <TitleBox>
             <Title>{projectData.title}</Title>
