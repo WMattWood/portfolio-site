@@ -92,7 +92,8 @@ const Card = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    padding: 12px;
+    padding: 20px;
+    gap: 10px;
     margin-right: 24px;;
     margin-bottom: 30px;
     background: var(--text);
@@ -127,10 +128,6 @@ const InfoBlurb = styled.p`
 `
 
 const ImageLink = styled.a`
-  /* width: 90%; */
-  /* @media (min-width: 840px) {
-          width: 45%;
-      } */
 `
 const Image = styled.img`
     /* position: relative; */
@@ -143,6 +140,14 @@ const Image = styled.img`
 
     @media (min-width: 840px) {
         /* width: 45%; */
+    }
+
+    transition: 0.1s;
+    :hover{
+      cursor: pointer;
+      transition: 0.1s;
+      transform: translateX(2px);
+      /* overlay: white; */
     }
 `
 

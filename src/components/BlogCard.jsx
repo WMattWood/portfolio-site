@@ -55,13 +55,14 @@ const Text = styled.div`
 
   :hover{
     transition: 0.1s;
-    transform: translateY(-2px) translateX(-2px);
-    /* outline: 3px solid silver; */
+    transform: translateX(2px);
+    /* outline: 3px solid white; */
+    background-color: rgba(255, 255, 255, 0.9);
     box-sizing: content;
     /* box-shadow: 3px 3px 3px 1px white; */
 
     *{
-      color: rgba(0, 0, 0, 1);
+      /* color: rgba(0, 0, 0, 1); */
       /* -webkit-font-smoothing: none; */
     }
   }
