@@ -146,9 +146,10 @@ const Card = styled.div`
   margin-bottom: 100px;
   margin-right: 80px;
 
-  /* @media (min-width: 1220px) {
-    max-width: 100%;
-  } */
+  @media (max-width: 500px) {
+    /* max-width: 100%; */
+    margin-right: 40px;
+  }
 
   * {
     .inline-code-block {
