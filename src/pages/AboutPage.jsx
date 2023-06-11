@@ -19,16 +19,16 @@ function AboutPage() {
               <Blurb>I have been using computers to learn, create and explore since I was a kid.  
                 My first access to computerized networks was through BBS systems ( Dragon's Lair!)
                 and some of my earliest memories were playing a copy of Rogue on my grandparents' 
-                old Macintosh.  Over the past 20 years I've used computers to create and perform 
+                old Macintosh. Over the past 20 years I've used computers to create and perform 
                 electronic music and computers have always been a big part of my life.
               </Blurb> 
 
               <Blurb>  
-                In my previous career, my expertise in audio and audio related software led me te 
-                become  a source of technical expertise in North America for some of the world's
-                top professional audio brands. I truly loved working with audio!  But after solving 
+                In my previous career my expertise in audio and audio related software led me te 
+                become a source of technical expertise in North America for some of the world's
+                top professional audio brands. I truly loved working with audio! But after solving 
                 problems related to all kinds of professional audio equipment and software for over 
-                10 years, I had finally started to feel as though I had run out of new things to learn. 
+                10 years I had finally started to feel as though I had run out of new things to learn. 
               </Blurb>
 
               <Keyword>I wanted a new challenge!</Keyword>
@@ -40,7 +40,7 @@ function AboutPage() {
                 kinds of software used (VSCode, Atom, Notepad++), and common techniques and terms
                 (Version Control, Looping, O.O.P, Recursion, Data Structures). After several months 
                 of taking Codecademy courses during the evenings and weekends, I realized that I had 
-                a genuine passion for programming.  The most enjoyable parts of my day were when I 
+                a genuine passion for programming. The most enjoyable parts of my day were when I 
                 would brew a pot of tea, put on some ambient background noise, and spend a few solid 
                 hours in an almost meditative zone of study and practice. At times it was frustrating, 
                 but that made the reward of solving a problem that much more enjoyable.
@@ -49,8 +49,8 @@ function AboutPage() {
               <Keyword>I loved working with code.</Keyword>
 
               <Blurb>
-                The decision was made to pursue software development as a new career path.  I signed up 
-                with an online learning program called Launch School, and spent the better part of two 
+                The decision was made to pursue software development as a new career path. I signed up 
+                with an online learning program called Launch School and spent the better part of two 
                 years in their program building up my fundamentals. This was one of the best decisions 
                 I made. Launch School was designed not just to teach you "enough to get a job", but rather
                 was focused on teaching a mastery of the subject matter. I developed an intuitive understanding 
