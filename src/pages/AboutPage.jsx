@@ -20,15 +20,15 @@ function AboutPage() {
                 My first access to computerized networks was through BBS systems ( Dragon's Lair!)
                 and some of my earliest memories were playing a copy of Rogue on my grandparents' 
                 old Macintosh.  Over the past 20 years I've used computers to create and perform 
-                electronic music, so computers have always been a big part of my life.
+                electronic music and computers have always been a big part of my life.
               </Blurb> 
 
               <Blurb>  
-                In my previous career, my expertise is audio and audio related software brought me 
-                to work as a source of technical expertise in North America for some of the world's
-                top professional audio brands. I truly loved working with audio.  But after solving 
+                In my previous career, my expertise in audio and audio related software led me te 
+                become  a source of technical expertise in North America for some of the world's
+                top professional audio brands. I truly loved working with audio!  But after solving 
                 problems related to all kinds of professional audio equipment and software for over 
-                10 years, I had finally started to feel as though I had run out of problems to solve. 
+                10 years, I had finally started to feel as though I had run out of new things to learn. 
               </Blurb>
 
               <Keyword>I wanted a new challenge!</Keyword>
@@ -52,10 +52,10 @@ function AboutPage() {
                 The decision was made to pursue software development as a new career path.  I signed up 
                 with an online learning program called Launch School, and spent the better part of two 
                 years in their program building up my fundamentals. This was one of the best decisions 
-                I made. Launch School was designed not to just teach you "enough to get a job", but was
-                focused on teaching mastery of the subject matter. I developed an intuitive understanding for 
-                topics like "Pass by reference vs. Pass by value", "Polymorphism/Encapsulation/Inheritance",
-                "Mutation vs. Assignment".  I also became comfortable using Git and the CLI and even spent
+                I made. Launch School was designed not just to teach you "enough to get a job", but rather
+                was focused on teaching a mastery of the subject matter. I developed an intuitive understanding 
+                for topics like "Pass by reference vs. Pass by value", "Polymorphism/Encapsulation/Inheritance",
+                and "Mutation vs. Assignment". I also became comfortable using Git and the CLI and even spent
                 time learning how to properly navigate documentation. These were all important concepts 
                 which I felt could be easily missed in a high speed Bootcamp environment. Taking the time to 
                 really understand these topics was invaluable.
