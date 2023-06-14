@@ -71,7 +71,7 @@ function AboutPage() {
 
             {/* </BlurbBox> */}
             <Keyword>Does this sound like someone you could work with?</Keyword>
-            <ContactLink href="mailto:w.matthew.wood@gmail.com" target="blank">Let's get in touch!</ContactLink>
+            <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank">Let's get in touch!</ContactLink>
           </SectionContainer>
 
         </Contents>
