@@ -395,6 +395,7 @@ const Contact = styled.p`
   font-size: 33px;
   font-weight: 600;
   margin-bottom: 20px;
+  line-height: 38px;
 `
 const ContactLink = styled.a`
   cursor: pointer;
