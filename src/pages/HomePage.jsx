@@ -139,7 +139,7 @@ function HomePage() {
           </SectionContainer>
           
           <SectionContainer>
-            <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w.matthew.wood@gmail.com" target="blank"> Let's chat!</ContactLink> </Contact>
+            <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank"> Let's chat!</ContactLink> </Contact>
           </SectionContainer>
         </Contents>
       </Body>
