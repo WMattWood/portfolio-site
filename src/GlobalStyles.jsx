@@ -148,7 +148,7 @@ const GlobalStyle = createGlobalStyle`
     p{
         overflow-wrap: break-word;
         margin-bottom: 18px;
-        line-height: 20px;
+        line-height: 25px;
     }
     
 `

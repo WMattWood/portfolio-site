@@ -14,6 +14,7 @@ function App() {
     <ScrollToTop />
     <GlobalStyle />
       <Pages>
+        <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectPage />} />
