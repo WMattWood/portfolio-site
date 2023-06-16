@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
-import { useNavigate } from 'react-router-dom'
 
-function AboutPage() {
-
-  const navigate = useNavigate()
+const AboutPage = () => {
 
   return (
     <div>
@@ -101,7 +98,6 @@ const Contents = styled.div`
 
 const Title = styled.h3`
   margin-top: 24px;
-  /* font-size: 44px; */
   width: 250px;
 `
 
@@ -137,8 +133,6 @@ const BlurbBox = styled.div`
 
 const Blurb = styled.p`
   margin-bottom: 24px;
-  /* width: 100%; */
-  /* margin-right: 48px; */
 
   @media (min-width: 840) {
     width: 500px;
@@ -147,13 +141,11 @@ const Blurb = styled.p`
 
 const SectionContainer = styled.div`
   width: 90%;
-  /* font-size: 18px; */
   display: flex;
   flex-direction: column;
   align-items: start;
   margin-bottom: 50px;
 `
-
 
 
 
@@ -165,11 +157,6 @@ const Keyword = styled.p`
   color: var(--highlight-bright);
 `
 
-const Contact = styled.p`
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 20px;
-`
 const ContactLink = styled.a`
   cursor: pointer;
   text-decoration: none var(--highlight-bright);
