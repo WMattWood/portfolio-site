@@ -8,42 +8,42 @@ import Pdf from '../assets/Matthew_Wood_CV.pdf';
 const Navbar = () => {
 
   const navigate = useNavigate()
-  
   const [showNav, setShowNav] = useState(false)
 
   return (
     <>
-        <TitleBox>
-          <Title onClick={ () => navigate("/")}>matthew wood</Title>
-        </TitleBox>
-        <MediaQuery minWidth={840}>
-          <Frame>
-            <Link onClick={ () => navigate("/about")}>About</Link>
-            <Link onClick={ () => navigate("/projects")}>Projects</Link>
-            <Link onClick={ () => navigate("/blog")}>Blog</Link>
-            <Link onClick={ () => navigate("/#contact")}>Contact</Link>
-            <FileLink href={Pdf}><Link>CV</Link></FileLink>
-          </Frame>
-        </MediaQuery>
+      <TitleBox>
+        <Title onClick={ () => navigate("/")}>matthew wood</Title>
+      </TitleBox>
 
-        
-        <MediaQuery maxWidth={840}>
-          <FrameVertical>
-            <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
-            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
-            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
-            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
-            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/#contact")}>Contact</Link>
-            <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
-          </FrameVertical>
-        </MediaQuery>
+      {/* navigation links when window is wide */}
+      <MediaQuery minWidth={840}>
+        <FrameHorizontal>
+          <Link onClick={ () => navigate("/about")}>About</Link>
+          <Link onClick={ () => navigate("/projects")}>Projects</Link>
+          <Link onClick={ () => navigate("/blog")}>Blog</Link>
+          <Link onClick={ () => navigate("/#contact")}>Contact</Link>
+          <FileLink href={Pdf}><Link>CV</Link></FileLink>
+        </FrameHorizontal>
+      </MediaQuery>
 
-        
-        </>
+      {/* navigation links when window is small */}
+      <MediaQuery maxWidth={840}>
+        <FrameVertical>
+          <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
+          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
+          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
+          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
+          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/#contact")}>Contact</Link>
+          <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
+        </FrameVertical>
+      </MediaQuery>
+
+    </>
   )
 }
 
-const Frame = styled.div`
+const FrameHorizontal = styled.div`
   width: 95%;
   display: flex;
   justify-content: flex-end;
@@ -56,14 +56,13 @@ const FrameVertical = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: flex-end;
-  /* margin-right: 5%; */
+
   .clicked {
-  /* color: red !important; */
-  transition: 0.5s;
-  margin: 6px;
-  visibility: visible;
-  opacity: 1;
-}
+    transition: 0.5s;
+    margin: 6px;
+    visibility: visible;
+    opacity: 1;
+  }
 
 `
 
@@ -109,7 +108,6 @@ const FileLink = styled.a`
 `
 
 const Icon = styled.img`
-  /* margin-top: 12px; */
   width: 34px;
 `
 

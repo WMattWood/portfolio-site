@@ -18,17 +18,9 @@ function BlogCard({blog}) {
 }
 
 const Card = styled.div`
-  /* max-width: 85%; */
   min-width: 25%;
   margin-bottom: 40px;
   margin-right: 24px;
-  /* padding: 12px; */
-  /* width: 30%; */
-  
-  @media (min-width: 1220px) {
-    /* max-width: 100%; */
-    /* margin-right: 40px; */
-  }
 `
 
 const Title = styled.h4`
@@ -37,7 +29,6 @@ const Title = styled.h4`
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
 `
-
 
 const Text = styled.div`
   cursor: pointer;
@@ -56,33 +47,17 @@ const Text = styled.div`
   :hover{
     transition: 0.1s;
     transform: translateX(2px);
-    /* outline: 3px solid white; */
     background-color: rgba(255, 255, 255, 0.9);
     box-sizing: content;
-    /* box-shadow: 3px 3px 3px 1px white; */
-
-    *{
-      /* color: rgba(0, 0, 0, 1); */
-      /* -webkit-font-smoothing: none; */
-    }
   }
 `
 
 const BlogPreview = styled.p`
-  /* position: relative; */
-  /* margin-bottom: 12px; */
   width: 100%;
-`
-
-const Keyword = styled.span`
-  background: transparent;
-  font-weight: 800;
-
 `
 
 const Link = styled.a`
   text-decoration: none;
-  /* width: 30%; */
 `
 
 export default BlogCard

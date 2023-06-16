@@ -4,21 +4,12 @@ import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import {micromark} from 'micromark'
 
-
-
 const ProjectCard = ({name}) => {
 
     const { accessToken } = useContext(GlobalContext)
-
-    const [blurb, setBlurb] = useState(null)
-    const [image, setImage] = useState(null)
-    const [title, setTitle] = useState(null)
     const [projectData, setProjectData] = useState(null)
-    const [markdown, setMarkdown] = useState(null)
-    const [markdownHTML, setMarkdownHTML] = useState(null)
 
     useEffect( () => {
-
         fetch("https://api.github.com/graphql", {
             "method": "POST",
             "headers": {
@@ -42,13 +33,12 @@ const ProjectCard = ({name}) => {
             .then( res => {
                     const md = micromark(res.data.repository.object.text)
                     const doc = new DOMParser().parseFromString(md, "text/html")
-                    // setTitle(doc.querySelectorAll('h1')[0].textContent)
-                    // setBlurb(doc.querySelectorAll('p')[0].textContent)
-                    // setImage(res.data.repository.openGraphImageUrl)
                     const githubUrl = res.data.repository.url
                     const liveUrl = ( doc.querySelectorAll('a')[0] 
                                       ? doc.querySelectorAll('a')[0].href 
-                                      : githubUrl )
+                                      : githubUrl 
+                                    )
+
                     setProjectData( {
                             title: doc.querySelectorAll('h1')[0].textContent,
                             image: res.data.repository.openGraphImageUrl,
@@ -64,60 +54,60 @@ const ProjectCard = ({name}) => {
 
   return (
     <Card>
-    { !projectData
-      ? <p>"loading"</p>
-      : <>
-        <TextBox>
-          <TitleBox>
-            <Title>{projectData.title}</Title>
-          </TitleBox>
-          <InfoBox>
-            <InfoBlurb>{projectData.blurb}</InfoBlurb>
-          </InfoBox>
-          <a href={projectData.github}>
-            <Button>View Code on Github</Button>
-          </a>
-        </TextBox>
-        <ImageLink href={projectData.link}>
-          <Image src={projectData.image}/>
-        </ImageLink>
-        </>
-    }
+      { !projectData
+        ? <p>"loading"</p>
+        : <>
+            <TextBox>
+              <TitleBox>
+                <Title>{projectData.title}</Title>
+              </TitleBox>
+              <InfoBox>
+                <InfoBlurb>{projectData.blurb}</InfoBlurb>
+              </InfoBox>
+              <a href={projectData.github}>
+                <Button>View Code on Github</Button>
+              </a>
+            </TextBox>
+            <ImageLink href={projectData.link}>
+              <Image src={projectData.image}/>
+            </ImageLink>
+          </>
+      }
     </Card>
   )
 }
 
 const Card = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    padding: 20px;
-    gap: 10px;
-    margin-right: 24px;;
-    margin-bottom: 30px;
-    background: var(--text);
-    border-radius: 5px;
-    
-    @media (min-width: 840px) {
-        flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px;
+  gap: 10px;
+  margin-right: 24px;;
+  margin-bottom: 30px;
+  background: var(--text);
+  border-radius: 5px;
+  
+  @media (min-width: 840px) {
+    flex-direction: row;
 
-    }
+  }
 
-    *{
-        color: black;
-    }
+  *{
+    color: black;
+  }
 `
 
 const TextBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-right: 12px;
-    width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 12px;
+  width: 90%;
 
-    @media (min-width: 840px) {
-        width: 60%;
-    }
+  @media (min-width: 840px) {
+      width: 60%;
+  }
 `
 
 const InfoBox = styled.div`
@@ -130,25 +120,18 @@ const InfoBlurb = styled.p`
 const ImageLink = styled.a`
 `
 const Image = styled.img`
-    /* position: relative; */
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    border: 2px black;
-    border-radius: 5px;
-    /* display: inline; */
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border: 2px black;
+  border-radius: 5px;
+  transition: 0.1s;
 
-    @media (min-width: 840px) {
-        /* width: 45%; */
-    }
-
+  :hover{
+    cursor: pointer;
     transition: 0.1s;
-    :hover{
-      cursor: pointer;
-      transition: 0.1s;
-      transform: translateX(2px);
-      /* overlay: white; */
-    }
+    transform: translateX(2px);
+  }
 `
 
 const TitleBox = styled.div`
@@ -177,14 +160,12 @@ const Button = styled.button`
   width: 260px;
   height: 35px;
   font-weight: 800;
-  /* font-family: 'Roboto', sans-serif; */
   text-transform: uppercase;
   letter-spacing: 2.5px;
   color: #000;
   background-color: #fff;
   border: none;
   border-radius: 45px;
-  /* box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2); */
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .2);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -192,9 +173,7 @@ const Button = styled.button`
   -webkit-font-smoothing: antialiased;
 
   &:hover {
-    /* background-color: var(--highlight-bright); */
     box-shadow: 2px 2px 10px rgba(46, 229, 157, 0.4);
-    /* color: var(--highlight-dark); */
     transform: translateY(-1px);
   }
 `
