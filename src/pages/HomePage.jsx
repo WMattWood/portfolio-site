@@ -17,7 +17,7 @@ function HomePage() {
   const ref = useRef(null)
   const navigate = useNavigate()
   const { pathname, hash, key } = useLocation();
-  const { projects, blogs, accessToken } = useContext(GlobalContext)
+  const { projects, blogs } = useContext(GlobalContext)
   const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
                         "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
 
@@ -195,9 +195,6 @@ const Footer = styled.div`
 `
 const TitleBox = styled.div`
   align-self: flex-start;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: start; */
   margin-bottom: 24px;
 `
 const SectionTitle = styled.h3`
@@ -223,7 +220,6 @@ const TopBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* margin-right: 24px; */
 `
 const TopBoxLeft = styled.div`
   width: 100%;
@@ -238,7 +234,6 @@ const TopBoxRight = styled.div`
 
   @media (min-width: 840px) {
       width: 35%;
-      /* display: block; */
       display: flex;
     }
 `
@@ -325,9 +320,7 @@ const BlurbBox = styled.div`
   justify-content: start;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  /* -webkit-font-smoothing: antialiased; */
   font-weight: 400;
-  /* width: 100%; */
 
   @media (min-width: 840) {
     width: 500px;
@@ -346,16 +339,9 @@ const SkillsListBox = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  /* max-width: 100%; */
   min-width: 300px;
   width: 100%;
   margin-bottom: 24px;
-
-  @media (max-width: 500px) {
-    /* justify-content: start; */
-    /* max-width: 500px; */
-    /* width: 35%; */
-  }
 `
 const Skill = styled.div`
   background: black;
