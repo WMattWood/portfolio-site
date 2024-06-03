@@ -56,7 +56,7 @@ function HomePage() {
             <TopBox>
               <TopBoxLeft>
                 <MainTitle>Matthew Wood</MainTitle>
-                <Subtitle>Software Engineer</Subtitle> 
+                <Subtitle>Fullstack Web Developer</Subtitle> 
                 <IconsBox>
                   <IconLink href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
