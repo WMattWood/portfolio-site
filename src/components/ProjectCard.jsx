@@ -95,7 +95,7 @@ const Card = styled.div`
   }
 
   *{
-    color: black;
+    color: var(--primary);
   }
 `
 

@@ -61,7 +61,7 @@ function BlogPage() {
 
 //Page Structure Elements
 const Body = styled.div`
-  background: var(--dark);
+  background: var(--secondary);
   width: 100vw;
   padding-bottom: 12px;
   padding-left: 5%;
@@ -77,12 +77,12 @@ const Contents = styled.div`
 
 const Header = styled.div`
   height: 100px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+  background: var(--secondary);
 `
 
 const Footer = styled.div`
   height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+  background: var(--secondary);
 `
 
 //Page Specific Elements

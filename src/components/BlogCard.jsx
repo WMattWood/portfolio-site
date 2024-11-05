@@ -38,7 +38,7 @@ const Text = styled.div`
   transition: 0.1s;
 
   *{
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--primary);
     font-weight: 500;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
@@ -47,7 +47,7 @@ const Text = styled.div`
   :hover{
     transition: 0.1s;
     transform: translateX(2px);
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--text);
     box-sizing: content;
   }
 `

@@ -46,17 +46,17 @@ function HomePage() {
   }, [pathname, hash, key] )
 
   return (
-    <div>
-      <Header>
+    <div class="container">
+      
         <Navbar/>
-      </Header>
-      <Body>
-        <Contents>
+      
+
+        {/* <Contents> */}
           <MyIntro>
             <TopBox>
               <TopBoxLeft>
-                <MainTitle>Matthew Wood</MainTitle>
-                <Subtitle>Software Engineer</Subtitle> 
+                <h1>Matthew Wood</h1>
+                <h2>&nbsp;Fullstack Developer</h2>
                 <IconsBox>
                   <IconLink href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
@@ -73,21 +73,16 @@ function HomePage() {
                 </IconsBox> 
                 <IntroBlurb>
                   <SubBlurb>
-                    <p>It's nice to meet you!</p>
-                    <br/>
-                    <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
-                    <p>I like working with Ruby, Python, and Javascript.</p> 
-                    <LastLine>Systemic world-view kinda guy.</LastLine>
+                    {/* <p>Web developer with expertise in legacy system migration and managing small teams.  Specializing in translation of complex systems.</p>  */}
+                    <p>Web developer specializing in translation and documentation of complex systems.</p>
                   </SubBlurb>
-                  <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
+                  <PdfLink href={Pdf}>Check out my CV here</PdfLink>
                 
                 </IntroBlurb>
               </TopBoxLeft>
-              <TopBoxRight>
-                <HeadshotBox>
-                  <Headshot src={headshot}/>
-                </HeadshotBox>
-              </TopBoxRight>
+              <HeadshotBox>
+                <Headshot src={headshot}/>
+              </HeadshotBox>
             </TopBox>
           </MyIntro>
 
@@ -141,8 +136,8 @@ function HomePage() {
           <SectionContainer>
             <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank"> Let's chat!</ContactLink> </Contact>
           </SectionContainer>
-        </Contents>
-      </Body>
+        {/* </Contents> */}
+   
       <Footer></Footer>
     </div>
   )
@@ -150,18 +145,12 @@ function HomePage() {
 
 //Page Structure Elements
 const Body = styled.div`
-  background: var(--dark);
-  width: 100vw;
   padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
 `
 
-const Contents = styled.div`
-  margin-left: 12px;
+const Contents = styled.body`
   display: flex;
   flex-direction: column;
-  gap: 30px;
 
   @media (max-width: 500px) {
     margin-left: 0px;
@@ -169,7 +158,7 @@ const Contents = styled.div`
 `
 
 const SectionContainer = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,8 +171,8 @@ const SectionContainer = styled.div`
 `
 
 const Header = styled.div`
-  height: 200px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+  height: 240px;
+  background: var(--secondary);
 
   @media (max-width: 500px) {
     height: 35vw;
@@ -191,7 +180,7 @@ const Header = styled.div`
 `
 const Footer = styled.div`
   height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+  background: var(--secondary);
 `
 const TitleBox = styled.div`
   align-self: flex-start;
@@ -205,7 +194,7 @@ const SectionTitle = styled.h3`
 //MyIntro Elements
 const MyIntro = styled.div`
   margin-bottom: 84px;
-  margin-right: 48px;
+
 
   @media (max-width: 500px) {
       margin-bottom: 74px;
@@ -214,12 +203,13 @@ const MyIntro = styled.div`
 const MainTitle = styled.h1`
 `
 const Subtitle = styled.h2`
-  margin-bottom:20px;
+
 `
 const TopBox = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
 `
 const TopBoxLeft = styled.div`
   width: 100%;
@@ -228,18 +218,20 @@ const TopBoxLeft = styled.div`
       display: inline;
     }
 `
-const TopBoxRight = styled.div`
-  width: 0%;
-  display: none;
+// const TopBoxRight = styled.div`
+//   width: 0%;
+//   display: none;
 
-  @media (min-width: 840px) {
-      width: 35%;
-      display: flex;
-    }
-`
+//   @media (min-width: 840px) {
+//       width: 35%;
+//       display: flex;
+//     }
+// `
 const IconsBox = styled.div`
+  margin: 24px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 200px;
 `
 const IconLink = styled.a`
@@ -266,37 +258,35 @@ const SubBlurb = styled.div`
     margin-bottom: 6vw;
   }
 `
-const LastLine = styled.p`
-  @media (max-width: 500px) {
-    width: 220px;
-  }
-`
 const PdfLink = styled.a`
   cursor: pointer;
-  text-decoration: none var(--highlight-bright);
+  text-decoration: none var(--emphasis);
   background: transparent;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
   font-size: 20px;
   
   :hover{
     transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
+    color: var(--links);
+    text-decoration: underline var(--links);
   }
 `
 const HeadshotBox = styled.div`
-  margin-top: 24px;
+  width: 50%;
+  margin-left: 5%; 
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
+  align-items: start;
 `
 const Headshot = styled.img`
+  max-width: 300px;
   width: 90%;
   box-sizing: border-box;
-  border: 3px solid black;
-  border-radius: 5px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  /* border: 3px solid black; */
+  border-radius: 2px;
+  /* margin-right: 3px; */
 `
 
 // MySkills Section
@@ -345,14 +335,14 @@ const SkillsListBox = styled.div`
 `
 const Skill = styled.div`
   background: black;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
   border-radius: 5px;
   padding: 5px;
   margin: 3px;
 
   transition: 0.5s;
   :hover{
-    color: magenta;
+    color: var(--links);
     transition: 0.5s;
   }
 `
@@ -385,16 +375,16 @@ const Contact = styled.p`
 `
 const ContactLink = styled.a`
   cursor: pointer;
-  text-decoration: none var(--highlight-bright);
+  text-decoration: none var(--emphasis);
   background: transparent;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
   font-size: 33px;
 
   :hover{
     transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
+    color: var(--links);
+    text-decoration: underline var(--links);
   }
 `
 

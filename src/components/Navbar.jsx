@@ -11,43 +11,45 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false)
 
   return (
-    <>
-      <TitleBox>
-        <Title onClick={ () => navigate("/")}>matthew wood</Title>
-      </TitleBox>
+    <div class="container">
+      <Header>
+        <TitleBox>
+            <Title onClick={ () => navigate("/")}>Home</Title>
+        </TitleBox>
 
-      {/* navigation links when window is wide */}
-      <MediaQuery minWidth={840}>
-        <FrameHorizontal>
-          <Link onClick={ () => navigate("/about")}>About</Link>
-          <Link onClick={ () => navigate("/projects")}>Projects</Link>
-          <Link onClick={ () => navigate("/blog")}>Blog</Link>
-          <Link onClick={ () => navigate("/#contact")}>Contact</Link>
-          <FileLink href={Pdf}><Link>CV</Link></FileLink>
-        </FrameHorizontal>
-      </MediaQuery>
+        {/* navigation links when window is wide */}
+        <MediaQuery minWidth={840}>
+            <FrameHorizontal>
+            <Link onClick={ () => navigate("/about")}>About</Link>
+            <Link onClick={ () => navigate("/projects")}>Projects</Link>
+            <Link onClick={ () => navigate("/blog")}>Blog</Link>
+            <Link onClick={ () => navigate("/#contact")}>Contact</Link>
+            <FileLink href={Pdf}><Link>CV</Link></FileLink>
+            </FrameHorizontal>
+        </MediaQuery>
 
-      {/* navigation links when window is small */}
-      <MediaQuery maxWidth={840}>
-        <FrameVertical>
-          <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
-          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
-          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
-          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
-          <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/#contact")}>Contact</Link>
-          <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
-        </FrameVertical>
-      </MediaQuery>
-
-    </>
+        {/* navigation links when window is small */}
+        <MediaQuery maxWidth={840}>
+            <FrameVertical>
+            <Icon src={Hamburger} onClick={ () => setShowNav(!showNav)} />
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/about")}>About</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/projects")}>Projects</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link>
+            <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/#contact")}>Contact</Link>
+            <FileLink  href={Pdf}><Link className={ showNav ? "clicked" : null }>CV</Link></FileLink> 
+            </FrameVertical>
+        </MediaQuery>
+      </Header>
+    </div>
   )
 }
 
+const Header = styled.header`
+    height: 120px;
+`
 const FrameHorizontal = styled.div`
-  width: 95%;
   display: flex;
   justify-content: flex-end;
-  margin-right: 5%;
 `
 
 const FrameVertical = styled.div`
@@ -68,7 +70,6 @@ const FrameVertical = styled.div`
 
 // Shared Elements
 const TitleBox = styled.div`
-  margin-left: 5%;
 `
 const Title = styled.h5`
   cursor: pointer;
@@ -86,7 +87,7 @@ const Title = styled.h5`
 const Link = styled.h5`
   cursor: pointer;
   transition: 0.5s;
-  margin: 12px;
+  margin: 12px 0px 12px 24px;
   z-index: 1;
   
   :hover{

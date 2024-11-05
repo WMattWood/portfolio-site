@@ -82,7 +82,7 @@ const AboutPage = () => {
 
 //Page Structure Elements
 const Body = styled.div`
-  background: var(--dark);
+  background: var(--secondary);
   width: 100vw;
   padding-bottom: 12px;
   padding-left: 5%;
@@ -97,18 +97,17 @@ const Contents = styled.div`
 `
 
 const Title = styled.h3`
-  margin-top: 24px;
   width: 250px;
 `
 
 const Header = styled.div`
-  height: 100px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+  
+  background: var(--secondary);
 `
 
 const Footer = styled.div`
   height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+  background: var(--secondary);
 `
 
 // Page Specific Elements
@@ -154,22 +153,19 @@ const Keyword = styled.p`
   background: transparent;
   margin-bottom: 24px;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
 `
 
 const ContactLink = styled.a`
   cursor: pointer;
-  text-decoration: none var(--highlight-bright);
   background: transparent;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
   font-size: 33px;
-  text-decoration: underline;
 
   :hover{
     transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
+    color: var(--links);
   }
 `
 
