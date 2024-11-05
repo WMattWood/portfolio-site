@@ -42,7 +42,7 @@ const ProjectCard = ({name}) => {
                     setProjectData( {
                             title: doc.querySelectorAll('h1')[0].textContent,
                             image: res.data.repository.openGraphImageUrl,
-                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 500) + "...",
+                            blurb: doc.querySelectorAll('p')[0].textContent.substring(0, 250) + "...",
                             link: liveUrl,
                             github: githubUrl
                         }
@@ -68,9 +68,9 @@ const ProjectCard = ({name}) => {
                 <Button>View Code on Github</Button>
               </a>
             </TextBox>
-            <ImageLink href={projectData.link}>
+            <ImageBox href={projectData.link}>
               <Image src={projectData.image}/>
-            </ImageLink>
+            </ImageBox>
           </>
       }
     </Card>
@@ -82,11 +82,11 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  padding: 20px;
+  /* padding: 20px; */
   gap: 10px;
-  margin-right: 24px;;
-  margin-bottom: 30px;
-  background: var(--text);
+  /* margin-right: 24px; */
+  margin-bottom: 50px;
+  /* background: var(--primary); */
   border-radius: 5px;
   
   @media (min-width: 840px) {
@@ -95,7 +95,7 @@ const Card = styled.div`
   }
 
   *{
-    color: var(--primary);
+    color: var(--text);
   }
 `
 
@@ -117,20 +117,23 @@ const InfoBlurb = styled.p`
   font-size: 18px;
 `
 
-const ImageLink = styled.a`
+const ImageBox = styled.a`
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+    /* height: 320px; */
 `
 const Image = styled.img`
   max-width: 500px;
   width: 100%;
   height: auto;
-  border: 2px black;
+  /* border: 2px black; */
   border-radius: 5px;
   transition: 0.1s;
 
   :hover{
     cursor: pointer;
-    transition: 0.1s;
-    transform: translateX(2px);
+    /* transition: 0.1s;
+    transform: translateX(2px); */
   }
 `
 
@@ -153,12 +156,12 @@ const Title = styled.h3`
 `
 
 const Button = styled.button`
-  padding: 12px;
+  /* padding: 12px; */
   font-size: 14px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  /* margin-top: 12px; */
+  /* margin-bottom: 12px; */
   width: 260px;
-  height: 35px;
+  height: 32px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2.5px;

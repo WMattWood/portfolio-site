@@ -18,8 +18,9 @@ function HomePage() {
   const navigate = useNavigate()
   const { pathname, hash, key } = useLocation();
   const { projects, blogs } = useContext(GlobalContext)
-  const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
-                        "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
+  const listOfSkills = [ "Javascript", "CSS", "HTML", "Python", "Ruby", "ASP", ".NET", "VBScript", "Ruby on Rails", 
+                         "SQL", "Node.js", "React", "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", 
+                         "Zoho CRM", "GraphQL", "REST", "Azure Devops",  "ADODB", "Powershell", "Bash/Zsh"]   
 
   
   // Manage direct scroll to hash id on page load
@@ -46,17 +47,15 @@ function HomePage() {
   }, [pathname, hash, key] )
 
   return (
-    <div class="container">
-      
+    <>
         <Navbar/>
-      
-
         {/* <Contents> */}
-          <MyIntro>
-            <TopBox>
-              <TopBoxLeft>
-                <h1>Matthew Wood</h1>
-                <h2>&nbsp;Fullstack Developer</h2>
+          {/* <MyIntro> */}
+          <Section>
+            <Columns>
+              <ColumnsLeft>
+                <Title>Matthew Wood</Title>
+                <Subtitle>Fullstack Developer</Subtitle>
                 <IconsBox>
                   <IconLink href="https://github.com/WMattWood" target="blank"> 
                     <Icon src={Github} alt="Github Icon" /> 
@@ -71,45 +70,48 @@ function HomePage() {
                     <IconTrek src={Startrek} alt="Startrek Icon" /> 
                   </IconLink>  
                 </IconsBox> 
-                <IntroBlurb>
-                  <SubBlurb>
+                <Tagline>
+                
                     {/* <p>Web developer with expertise in legacy system migration and managing small teams.  Specializing in translation of complex systems.</p>  */}
                     <p>Web developer specializing in translation and documentation of complex systems.</p>
-                  </SubBlurb>
-                  <PdfLink href={Pdf}>Check out my CV here</PdfLink>
+           
+                  
                 
-                </IntroBlurb>
-              </TopBoxLeft>
+                </Tagline>
+                <PdfLink href={Pdf}>Check out my CV here</PdfLink>
+              </ColumnsLeft>
               <HeadshotBox>
                 <Headshot src={headshot}/>
               </HeadshotBox>
-            </TopBox>
-          </MyIntro>
+            </Columns>
+          </Section>
+          {/* </MyIntro> */}
 
-          <SectionContainer>
+          <Section>
             <TitleBox>
               <SectionTitle>My Skills</SectionTitle>
             </TitleBox>
-            <SkillsBox>
+            {/* <SkillsBox> */}
+              
+              {/* <BlurbBox> */}
+                <Blurb>4+ years of experience in a variety of languages and frameworks, specializing
+                     in web development.  I have worked on e-commerce sites, institutional web sites,
+                     implemented forms, database handlers, backend code, and worked with both server
+                     side rendered web pages and client side rendered web applications (SPAs). 
+                </Blurb>
+
+                
+              {/* </BlurbBox> */}
+
               <SkillsListBox>
                 {listOfSkills.map( skill => <Skill key={`${skill}`}> {skill} </Skill> ) }
               </SkillsListBox>
-              <BlurbBox>
-                <Blurb>I have been using computers to learn, create and explore since I was a kid.  
-                  My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
-                  my grandparent's old Macintosh.  Over the past 20 years I've used computers
-                  to create and perform electronic music - and in the past 5 years I decided to 
-                  focus full time on digging into the code behind the software that I've used
-                  for so long.  
-                </Blurb>
+              <PdfLink onClick={ () => navigate("/about")}>More about me...</PdfLink>
+            {/* </SkillsBox> */}
 
-                <PdfLink onClick={ () => navigate("/about")}>More about me...</PdfLink>
-              </BlurbBox>
-            </SkillsBox>
+          </Section>
 
-          </SectionContainer>
-
-          <SectionContainer>
+          <Section>
             <TitleBox>
               <SectionTitle>My Projects</SectionTitle>
             </TitleBox> 
@@ -119,9 +121,9 @@ function HomePage() {
                   { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
                 </ProjectBox>
             }
-          </SectionContainer>
+          </Section>
 
-          <SectionContainer>
+          <Section>
             <TitleBox>
               <SectionTitle>My Blog</SectionTitle>
             </TitleBox>
@@ -131,15 +133,15 @@ function HomePage() {
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
-          </SectionContainer>
+          </Section>
           
-          <SectionContainer>
+          <Section>
             <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank"> Let's chat!</ContactLink> </Contact>
-          </SectionContainer>
+          </Section>
         {/* </Contents> */}
    
-      <Footer></Footer>
-    </div>
+      {/* <Footer></Footer> */}
+    </>
   )
 }
 
@@ -157,12 +159,12 @@ const Contents = styled.body`
   }
 `
 
-const SectionContainer = styled.div`
+const Section = styled.section`
   width: 100%;
-  display: flex;
+  display: flex; 
   flex-direction: column;
   align-items: center;
-  padding-left: 12px;
+  /* padding-left: 12px; */
   margin-bottom: 50px;
 
   @media (max-width: 500px) {
@@ -200,25 +202,25 @@ const MyIntro = styled.div`
       margin-bottom: 74px;
     } 
 `
-const MainTitle = styled.h1`
+const Title = styled.h1`
 `
 const Subtitle = styled.h2`
-
+    /* margin-left: 14px; */
 `
-const TopBox = styled.div`
+const Columns = styled.div`
   display: flex;
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
 `
-const TopBoxLeft = styled.div`
+const ColumnsLeft = styled.div`
   width: 100%;
   @media (min-width: 840px) {
       width: 60%;
       display: inline;
     }
 `
-// const TopBoxRight = styled.div`
+// const ColumnsRight = styled.div`
 //   width: 0%;
 //   display: none;
 
@@ -244,16 +246,12 @@ const IconTrek = styled.img`
   position: relative;
   top: -10%;
 `
-const IntroBlurb = styled.div`
-  *{
+const Tagline= styled.div`
+    margin-bottom: 51px;
     font-size: 20px;
     line-height: 28px;
-    margin: 5px;
-  }
-`
-const SubBlurb = styled.div`
-  margin-bottom: 51px;
-
+    /* margin: 5px; */
+    /* margin-left: 14px; */
   @media (max-width: 500px) {
     margin-bottom: 6vw;
   }
@@ -261,7 +259,6 @@ const SubBlurb = styled.div`
 const PdfLink = styled.a`
   cursor: pointer;
   text-decoration: none var(--emphasis);
-  background: transparent;
   font-weight: 600;
   color: var(--emphasis);
   font-size: 20px;
@@ -269,7 +266,6 @@ const PdfLink = styled.a`
   :hover{
     transition: 0.5s;
     color: var(--links);
-    text-decoration: underline var(--links);
   }
 `
 const HeadshotBox = styled.div`
@@ -279,11 +275,13 @@ const HeadshotBox = styled.div`
   flex-direction: row;
   justify-content: end;
   align-items: start;
+  height: 80px;
 `
 const Headshot = styled.img`
   max-width: 300px;
   width: 90%;
   box-sizing: border-box;
+  object-fit: cover;
   /* border: 3px solid black; */
   border-radius: 2px;
   /* margin-right: 3px; */
@@ -303,20 +301,22 @@ const SkillsBox = styled.div`
     } 
 `
 const BlurbBox = styled.div`
-  font-size: 19px;
-  line-height: 22px;
+
   display: flex;
   flex-direction: column;
   justify-content: start;
   flex-wrap: wrap;
   margin-bottom: 24px;
-  font-weight: 400;
+  
 
   @media (min-width: 840) {
     width: 500px;
   }
 `
 const Blurb = styled.p`
+  font-size: 19px;
+  line-height: 22px;
+  font-weight: 400;
   margin-bottom: 24px;
   width: 100%;
 
@@ -330,7 +330,7 @@ const SkillsListBox = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   min-width: 300px;
-  width: 100%;
+  max-width: 800px;
   margin-bottom: 24px;
 `
 const Skill = styled.div`
@@ -372,6 +372,7 @@ const Contact = styled.p`
   font-weight: 600;
   margin-bottom: 20px;
   line-height: 38px;
+  align-self: start;
 `
 const ContactLink = styled.a`
   cursor: pointer;

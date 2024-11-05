@@ -34,9 +34,9 @@ function BlogPage() {
 
   return (
     <div>
-      <Header>
+      {/* <Header> */}
         <Navbar/>
-      </Header>
+      {/* </Header> */}
       <Body>
         <Contents>
 
@@ -62,10 +62,10 @@ function BlogPage() {
 //Page Structure Elements
 const Body = styled.div`
   background: var(--secondary);
-  width: 100vw;
+  /* width: 100vw; */
   padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
 `
 
 const Contents = styled.div`

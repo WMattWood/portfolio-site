@@ -5,12 +5,14 @@ const AboutPage = () => {
 
   return (
     <div>
-      <Header>
+      {/* <Header> */}
         <Navbar/>
-      </Header>
+      {/* </Header> */}
       <Body>
         <Contents>
-          <Title>About me</Title>
+            <TitleBox>
+                <Title>About me</Title>
+            </TitleBox>
           <SectionContainer>
             {/* <BlurbBox> */}
               <Blurb>I have been using computers to learn, create and explore since I was a kid.  
@@ -73,9 +75,7 @@ const AboutPage = () => {
 
         </Contents>
       </Body>
-      <Footer>
-
-      </Footer>
+      {/* <Footer></Footer> */}
     </div>
   )
 }
@@ -83,10 +83,10 @@ const AboutPage = () => {
 //Page Structure Elements
 const Body = styled.div`
   background: var(--secondary);
-  width: 100vw;
+  /* width: 100vw; */
   padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
 `
 
 const Contents = styled.div`
@@ -99,7 +99,13 @@ const Contents = styled.div`
 const Title = styled.h3`
   width: 250px;
 `
-
+const TitleBox = styled.div`
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-top: 24px;
+`
 const Header = styled.div`
   
   background: var(--secondary);

@@ -44,6 +44,30 @@ export const GlobalProvider = ({children}) => {
         .then(res => res.json())
         .then(res => setBlogs([...res]))
       }
+
+    // const getBlogs = () => {
+    //     fetch("https://api.github.com/graphql", {
+    //       "method": "POST",
+    //       "headers": {
+    //         "Authorization": `Bearer ${accessToken}`,
+    //       },
+    //       "body": JSON.stringify({
+    //             query: `query {
+    //                       user(login: "wmattwood") {
+    //                                           pinnedItems(first: 6, types: REPOSITORY) {
+    //                                             nodes {
+    //                                               ... on Repository {
+    //                                                 name
+    //                                               }
+    //                                             }
+    //                                           }
+    //                                         }
+    //                     }`
+    //             })
+    //     })
+    //     .then( res => res.json() )
+    //     .then( res => setProjects(res.data.user.pinnedItems.nodes) )
+    //   }
     
       useEffect( () => {
           getRepos()

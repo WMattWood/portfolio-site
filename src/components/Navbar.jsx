@@ -11,7 +11,7 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false)
 
   return (
-    <div class="container">
+    // <div class="container">
       <Header>
         <TitleBox>
             <Title onClick={ () => navigate("/")}>Home</Title>
@@ -40,7 +40,7 @@ const Navbar = () => {
             </FrameVertical>
         </MediaQuery>
       </Header>
-    </div>
+    // </div>
   )
 }
 
@@ -74,7 +74,7 @@ const TitleBox = styled.div`
 const Title = styled.h5`
   cursor: pointer;
   margin-top: 12px;
-  margin-left: 12px;
+  margin-left: 4px;
   position: absolute;
   transition: 0.5s;
 

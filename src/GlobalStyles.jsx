@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
         --tertiary: #B0C8A7;
         --emphasis: #a92b2b;
         --text: #dfeed9;
-        --links: blue;
+        --links: #ffffff;
 
         /*v1        
         --dark: #1B5A57;
