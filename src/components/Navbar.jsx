@@ -22,7 +22,7 @@ const Navbar = () => {
             <FrameHorizontal>
             <Link onClick={ () => navigate("/about")}>About</Link>
             <Link onClick={ () => navigate("/projects")}>Projects</Link>
-            <Link onClick={ () => navigate("/blog")}>Blog</Link>
+            {/* <Link onClick={ () => navigate("/blog")}>Blog</Link> */}
             <Link onClick={ () => navigate("/#contact")}>Contact</Link>
             <FileLink href={Pdf}><Link>CV</Link></FileLink>
             </FrameHorizontal>

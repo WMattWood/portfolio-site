@@ -123,7 +123,7 @@ function HomePage() {
             }
           </Section>
 
-          <Section>
+          {/* <Section>
             <TitleBox>
               <SectionTitle>My Blog</SectionTitle>
             </TitleBox>
@@ -133,7 +133,7 @@ function HomePage() {
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
-          </Section>
+          </Section> */}
           
           <Section>
             <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank"> Let's chat!</ContactLink> </Contact>
