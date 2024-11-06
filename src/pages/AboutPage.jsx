@@ -1,19 +1,18 @@
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
-import { useNavigate } from 'react-router-dom'
 
-function AboutPage() {
-
-  const navigate = useNavigate()
+const AboutPage = () => {
 
   return (
     <div>
-      <Header>
+      {/* <Header> */}
         <Navbar/>
-      </Header>
+      {/* </Header> */}
       <Body>
         <Contents>
-          <Title>About me</Title>
+            <TitleBox>
+                <Title>About me</Title>
+            </TitleBox>
           <SectionContainer>
             {/* <BlurbBox> */}
               <Blurb>I have been using computers to learn, create and explore since I was a kid.  
@@ -76,20 +75,18 @@ function AboutPage() {
 
         </Contents>
       </Body>
-      <Footer>
-
-      </Footer>
+      {/* <Footer></Footer> */}
     </div>
   )
 }
 
 //Page Structure Elements
 const Body = styled.div`
-  background: var(--dark);
-  width: 100vw;
+  background: var(--secondary);
+  /* width: 100vw; */
   padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
 `
 
 const Contents = styled.div`
@@ -100,19 +97,23 @@ const Contents = styled.div`
 `
 
 const Title = styled.h3`
-  margin-top: 24px;
-  /* font-size: 44px; */
   width: 250px;
 `
-
+const TitleBox = styled.div`
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-top: 24px;
+`
 const Header = styled.div`
-  height: 100px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+  
+  background: var(--secondary);
 `
 
 const Footer = styled.div`
   height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+  background: var(--secondary);
 `
 
 // Page Specific Elements
@@ -137,8 +138,6 @@ const BlurbBox = styled.div`
 
 const Blurb = styled.p`
   margin-bottom: 24px;
-  /* width: 100%; */
-  /* margin-right: 48px; */
 
   @media (min-width: 840) {
     width: 500px;
@@ -147,7 +146,6 @@ const Blurb = styled.p`
 
 const SectionContainer = styled.div`
   width: 90%;
-  /* font-size: 18px; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -156,33 +154,24 @@ const SectionContainer = styled.div`
 
 
 
-
 //Shared Elements
 const Keyword = styled.p`
   background: transparent;
   margin-bottom: 24px;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
 `
 
-const Contact = styled.p`
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 20px;
-`
 const ContactLink = styled.a`
   cursor: pointer;
-  text-decoration: none var(--highlight-bright);
   background: transparent;
   font-weight: 600;
-  color: var(--highlight-bright);
+  color: var(--emphasis);
   font-size: 33px;
-  text-decoration: underline;
 
   :hover{
     transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
+    color: var(--links);
   }
 `
 

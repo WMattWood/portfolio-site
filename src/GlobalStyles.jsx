@@ -7,12 +7,23 @@ const GlobalStyle = createGlobalStyle`
     /* https://colorhunt.co/palette/0c134f1d267d5c469cd4adfc */
 
     :root{
+
+        /*v2*/
+        --primary: #345995;
+        --secondary: #091132;
+        --tertiary: #B0C8A7;
+        --emphasis: #a92b2b;
+        --text: #dfeed9;
+        --links: #ffffff;
+
+        /*v1        
         --dark: #1B5A57;
         --bright: #FFFFFF;
         --text: rgba(255, 255, 255, 0.7);
         --highlight-bright: #67f5dd;
         --highlight-dark: #576CBC;
         --paragraph-box: #204c6d;
+        */
         /* --dark: #193D67; */
         /* --dark: #0B2447; */
         /* --dark: #1C1056; */
@@ -64,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         /* scroll-behavior: smooth; */
         font-family: 'Montserrat', sans-serif;
-        background: var(--highlight-dark);
+        background: var(--secondary);
         line-height: 1;
     }
     ol, ul {
@@ -82,7 +93,10 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
-    
+    .container {
+        max-width: 1024px;
+        margin: auto;
+    }
 
 
     
@@ -95,8 +109,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h1{
-        padding-top: 20px;
-        color: var(--bright);
+        padding-bottom: 20px;
+        color: var(--text);
         font-weight: 500;
         font-size: 80px;
         font-variation-settings: "wght" 450;
@@ -109,7 +123,7 @@ const GlobalStyle = createGlobalStyle`
     } 
     
     h2{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 500;
         font-size: 48px;
         font-variation-settings: "wght" 450;
@@ -120,25 +134,23 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h3{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 500;
         font-size: 48px;
         font-variation-settings: "wght" 450;
-        border-bottom: 3px solid black;
     }
 
     h4{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 600;
         font-size: 20px;
         font-variation-settings: "wght" 450;
-        /* border-bottom: 3px solid black; */
     }
 
     h5{
-        border-bottom: 2px solid;
+
         padding-bottom: 2px;
-        /* color: var(--bright);
+        /* color: var(--text);
         font-weight: 600;
         font-size: 20px;
         font-variation-settings: "wght" 450;

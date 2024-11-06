@@ -10,9 +10,11 @@ import GlobalStyle from './GlobalStyles'
 function App() {
 
   return (
+    <div class="container">
     <BrowserRouter>
     <ScrollToTop />
     <GlobalStyle />
+      
       <Pages>
         <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
@@ -20,7 +22,9 @@ function App() {
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/blog" element={<Blogpage />} />
       </Pages>
+      
     </BrowserRouter>
+    </div>
   )
 }
 

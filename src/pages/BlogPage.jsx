@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useId } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import BlogCardFull from '../components/BlogCardFull'
@@ -34,9 +34,9 @@ function BlogPage() {
 
   return (
     <div>
-      <Header>
+      {/* <Header> */}
         <Navbar/>
-      </Header>
+      {/* </Header> */}
       <Body>
         <Contents>
 
@@ -46,7 +46,7 @@ function BlogPage() {
             { ! blogs
               ? <p>"Loading"</p>
               : <BlogBox>
-                  { blogs.map( blog => <BlogCardFull key={blog.id} blog={blog}/> ) }
+                  { blogs.map( blog => <BlogCardFull key={ useId() } blog={blog}/> ) }
                 </BlogBox>
             }
 
@@ -61,11 +61,11 @@ function BlogPage() {
 
 //Page Structure Elements
 const Body = styled.div`
-  background: var(--dark);
-  width: 100vw;
+  background: var(--secondary);
+  /* width: 100vw; */
   padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
+  /* padding-left: 5%; */
+  /* padding-right: 5%; */
 `
 
 const Contents = styled.div`
@@ -77,12 +77,12 @@ const Contents = styled.div`
 
 const Header = styled.div`
   height: 100px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
+  background: var(--secondary);
 `
 
 const Footer = styled.div`
   height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
+  background: var(--secondary);
 `
 
 //Page Specific Elements
@@ -97,7 +97,6 @@ const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  /* margin-bottom: 30px; */
   margin-top: 24px;
 `
 const SectionTitle = styled.h3`
