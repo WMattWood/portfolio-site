@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useId } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import BlogCardFull from '../components/BlogCardFull'
@@ -46,7 +46,7 @@ function BlogPage() {
             { ! blogs
               ? <p>"Loading"</p>
               : <BlogBox>
-                  { blogs.map( blog => <BlogCardFull key={blog.id} blog={blog}/> ) }
+                  { blogs.map( blog => <BlogCardFull key={ useId() } blog={blog}/> ) }
                 </BlogBox>
             }
 
