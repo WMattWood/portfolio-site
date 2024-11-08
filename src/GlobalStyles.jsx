@@ -96,6 +96,10 @@ const GlobalStyle = createGlobalStyle`
     .container {
         max-width: 1024px;
         margin: auto;
+        padding: 5%;
+        /* @media (max-width: 895px) {
+            max-width: 500px;
+        } */
     }
 
 

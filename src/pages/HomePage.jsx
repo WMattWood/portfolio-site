@@ -70,6 +70,7 @@ function HomePage() {
                     <IconTrek src={Startrek} alt="Startrek Icon" /> 
                   </IconLink>  
                 </IconsBox> 
+                
                 <Tagline>
                 
                     {/* <p>Web developer with expertise in legacy system migration and managing small teams.  Specializing in translation of complex systems.</p>  */}
@@ -79,10 +80,12 @@ function HomePage() {
                 
                 </Tagline>
                 <PdfLink href={Pdf}>Check out my CV here</PdfLink>
+                <Headshot2 src={headshot}/>
               </ColumnsLeft>
-              <HeadshotBox>
+              {/* <ColumnsRight> */}
                 <Headshot src={headshot}/>
-              </HeadshotBox>
+              {/* </ColumnsRight> */}
+              
             </Columns>
           </Section>
           {/* </MyIntro> */}
@@ -155,7 +158,7 @@ const Contents = styled.body`
   flex-direction: column;
 
   @media (max-width: 500px) {
-    margin-left: 0px;
+    /* margin-left: 0px; */
   }
 `
 
@@ -205,7 +208,23 @@ const MyIntro = styled.div`
 const Title = styled.h1`
 `
 const Subtitle = styled.h2`
+    min-width: 490px;
     /* margin-left: 14px; */
+    @media (max-width: 550px) {
+        min-width: 200px;
+    }
+`
+const Tagline= styled.div`
+    min-width: 490px;
+    margin-bottom: 51px;
+    font-size: 20px;
+    line-height: 28px;
+    /* margin: 5px; */
+    /* margin-left: 14px; */
+  @media (max-width: 550px) {
+    margin-bottom: 6vw;
+    min-width: 100%;
+  }
 `
 const Columns = styled.div`
   display: flex;
@@ -214,10 +233,12 @@ const Columns = styled.div`
   justify-content: space-between;
 `
 const ColumnsLeft = styled.div`
-  width: 100%;
-  @media (min-width: 840px) {
-      width: 60%;
+  
+  width: 60%;
       display: inline;
+  @media (max-width: 550px) {
+    width: 100%;
+   
     }
 `
 // const ColumnsRight = styled.div`
@@ -246,16 +267,7 @@ const IconTrek = styled.img`
   position: relative;
   top: -10%;
 `
-const Tagline= styled.div`
-    margin-bottom: 51px;
-    font-size: 20px;
-    line-height: 28px;
-    /* margin: 5px; */
-    /* margin-left: 14px; */
-  @media (max-width: 500px) {
-    margin-bottom: 6vw;
-  }
-`
+
 const PdfLink = styled.a`
   cursor: pointer;
   text-decoration: none var(--emphasis);
@@ -263,20 +275,32 @@ const PdfLink = styled.a`
   color: var(--emphasis);
   font-size: 20px;
   
+  margin-bottom: 200px;
+
   :hover{
     transition: 0.5s;
     color: var(--links);
   }
 `
-const HeadshotBox = styled.div`
+const ColumnsRight = styled.div`
   width: 50%;
-  margin-left: 5%; 
+  margin-left: 2%; 
   display: flex;
   flex-direction: row;
   justify-content: end;
   align-items: start;
   height: 80px;
+
+  @media (min-width: 1024px) {
+      margin-left: 0%; 
+      width: 30%;
+    }
+
+  @media (max-width: 8950px) {
+    display: none;
+  }
 `
+
 const Headshot = styled.img`
   max-width: 300px;
   width: 90%;
@@ -285,6 +309,22 @@ const Headshot = styled.img`
   /* border: 3px solid black; */
   border-radius: 2px;
   /* margin-right: 3px; */
+  @media (max-width: 895px) {
+    display: none;
+  }
+`
+
+const Headshot2 = styled.img`
+  max-width: 300px;
+  width: 90%;
+  /* box-sizing: border-box; */
+  object-fit: cover;
+  /* border: 3px solid black; */
+  border-radius: 2px;
+  margin-top: 24px;
+  @media (min-width: 550px) {
+    display: none;
+  }
 `
 
 // MySkills Section
