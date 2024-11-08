@@ -65,7 +65,7 @@ const ProjectCard = ({name}) => {
                 <InfoBlurb>{projectData.blurb}</InfoBlurb>
               </InfoBox>
               <a href={projectData.github}>
-                <Button>View Code on Github</Button>
+                View Code on Github
               </a>
             </TextBox>
             <ImageBox href={projectData.link}>
