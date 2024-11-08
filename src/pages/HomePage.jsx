@@ -274,8 +274,6 @@ const PdfLink = styled.a`
   font-weight: 600;
   color: var(--emphasis);
   font-size: 20px;
-  
-  /* margin-bottom: 200px; */
 
   :hover{
     transition: 0.5s;
