@@ -1,7 +1,7 @@
 import { useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import headshot from "../assets/headshot2.jpeg";
+import headshot from "../assets/headshot.jpeg";
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
 import Navbar from "../components/Navbar";
