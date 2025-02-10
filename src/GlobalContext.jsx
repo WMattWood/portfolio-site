@@ -44,12 +44,47 @@ export const GlobalProvider = ({children}) => {
         .then(res => res.json())
         .then(res => setBlogs([...res]))
       }
+
+    // const getBlogs = () => {
+    //     fetch("https://api.github.com/graphql", {
+    //         "method": "POST",
+    //         "headers": {
+    //             "Authorization": `Bearer ${accessToken}`,
+    //         },
+    //         "body": JSON.stringify({
+    //             query: `{ repository(owner: "WMattWood", name: "blog") {
+    //                         object(expression: "main:content/posts") {
+    //                             ... on Tree {
+    //                             entries {
+    //                                 name
+    //                                 type
+    //                                 object {
+    //                                     ... on Blob {
+    //                                         text
+    //                                     }
+    //                                 }
+    //                             }
+    //                             }
+    //                         }
+    //                     }`
+    //         })
+    //     })
+    //     .then( res => res.json() )
+    //     .then( res => {
+    //         data = res.data.repository.object.entries
+    //         blogObject.id = data.
+    //         setBlogs([...res])
+    //     }
+    //   }
     
       useEffect( () => {
           getRepos()
           getBlogs()
       }, [] )
 
+    // const stripFrontMatter = (mdFile) => {
+    //     frontMatter = mdFile
+    // }
 
     return (
         <GlobalContext.Provider value={ {accessToken, blogs, projects} }> {children} </GlobalContext.Provider>

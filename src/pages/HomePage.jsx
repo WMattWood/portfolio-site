@@ -1,401 +1,382 @@
-import { useEffect, useContext, useRef} from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import styled from 'styled-components'
-import headshot from '../assets/headshot.jpeg'
-import ProjectCard from '../components/ProjectCard'
-import BlogCard from '../components/BlogCard'
-import Navbar from '../components/Navbar'
-import { GlobalContext } from '../GlobalContext'
-import Linkedin from '../assets/linkedin.svg'
-import Github from '../assets/github.svg'
-import Email from '../assets/email.svg'
-import Startrek from '../assets/startrek.svg'
-import Pdf from '../assets/Matthew_Wood_CV.pdf';
+import { useEffect, useContext, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import headshot from "../assets/headshot.jpeg";
+import ProjectCard from "../components/ProjectCard";
+import BlogCard from "../components/BlogCard";
+import Navbar from "../components/Navbar";
+import { GlobalContext } from "../GlobalContext";
+import Linkedin from "../assets/linkedin.svg";
+import Github from "../assets/github.svg";
+import Email from "../assets/email.svg";
+import Startrek from "../assets/startrek.svg";
+import Pdf from "../assets/Matthew_Wood_CV.pdf";
 
 function HomePage() {
+    const ref = useRef(null);
+    const navigate = useNavigate();
+    const { pathname, hash, key } = useLocation();
+    const { projects, blogs } = useContext(GlobalContext);
+    const listOfSkills = [
+        "Javascript",
+        "CSS",
+        "HTML",
+        "Python",
+        "Ruby",
+        "ASP",
+        ".NET",
+        "VBScript",
+        "Ruby on Rails",
+        "SQL",
+        "Node.js",
+        "React",
+        "Jest",
+        "Mocha",
+        "Minitest",
+        "CLI",
+        "Github",
+        "MongoDB",
+        "Firebase",
+        "Zoho CRM",
+        "GraphQL",
+        "REST",
+        "Azure Devops",
+        "ADODB",
+        "Powershell",
+        "Bash/Zsh",
+    ];
 
-  const ref = useRef(null)
-  const navigate = useNavigate()
-  const { pathname, hash, key } = useLocation();
-  const { projects, blogs } = useContext(GlobalContext)
-  const listOfSkills = [ "Javascript", "CSS", "HTML", "Ruby", "Ruby on Rails", "SQL", "PostgresQL", "Node.js", "React", "Python",
-                        "Jest", "Mocha", "Minitest", "CLI", "Github", "MongoDB", "Firebase", "Zoho CRM", "GraphQL", "REST"]   
-
-  
-  // Manage direct scroll to hash id on page load
-  const scrollToElement = () => {
-
-    // if hash present, execute scroll
-    if (hash !== '') {
-      const id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      // REF TECHNIQUE WITH A 500ms LOWER BOUND FOR UNIFORM UI EXPERIENCE
-      setTimeout( () => {
-        if (ref.current ) {
-          window.scrollTo( {
-            behavior: element ? "smooth" : "auto",
-            top: element ? document.body.scrollHeight : 0
-          })
+    // Manage direct scroll to hash id on page load
+    const scrollToElement = () => {
+        // if hash present, execute scroll
+        if (hash !== "") {
+            const id = hash.replace("#", "");
+            const element = document.getElementById(id);
+            // REF TECHNIQUE WITH A 500ms LOWER BOUND FOR UNIFORM UI EXPERIENCE
+            setTimeout(() => {
+                if (ref.current) {
+                    window.scrollTo({
+                        behavior: element ? "smooth" : "auto",
+                        top: element ? document.body.scrollHeight : 0,
+                    });
+                }
+            }, 500);
         }
-      }, 500)
-    }
-  }
+    };
 
-  useEffect( () => {
-    scrollToElement()
-  }, [pathname, hash, key] )
+    useEffect(() => {
+        scrollToElement();
+    }, [pathname, hash, key]);
 
-  return (
-    <div>
-      <Header>
-        <Navbar/>
-      </Header>
-      <Body>
-        <Contents>
-          <MyIntro>
-            <TopBox>
-              <TopBoxLeft>
-                <MainTitle>Matthew Wood</MainTitle>
-                <Subtitle>Software Engineer</Subtitle> 
-                <IconsBox>
-                  <IconLink href="https://github.com/WMattWood" target="blank"> 
-                    <Icon src={Github} alt="Github Icon" /> 
-                  </IconLink>
-                  <IconLink href="https://www.linkedin.com/in/WMattWood" target="blank"> 
-                    <Icon src={Linkedin} alt="Linkedin Icon" /> 
-                  </IconLink> 
-                  <IconLink href="mailto:w.matthew.wood@gmail.com" target="blank"> 
-                    <Icon src={Email} alt="Generic Email Icon" /> 
-                  </IconLink>  
-                  <IconLink href="https://www.youtube.com/watch?v=ZPoqNeR3_UA" target="blank"> 
-                    <IconTrek src={Startrek} alt="Startrek Icon" /> 
-                  </IconLink>  
-                </IconsBox> 
-                <IntroBlurb>
-                  <SubBlurb>
-                    <p>It's nice to meet you!</p>
-                    <br/>
-                    <p>Lifelong learner, unstoppable problem solver, creator of solutions.  </p>
-                    <p>I like working with Ruby, Python, and Javascript.</p> 
-                    <LastLine>Systemic world-view kinda guy.</LastLine>
-                  </SubBlurb>
-                  <PdfLink href={Pdf}>Check out my CV here!</PdfLink>
-                
-                </IntroBlurb>
-              </TopBoxLeft>
-              <TopBoxRight>
-                <HeadshotBox>
-                  <Headshot src={headshot}/>
-                </HeadshotBox>
-              </TopBoxRight>
-            </TopBox>
-          </MyIntro>
+    return (
+        <>
+            <Navbar />
+            <Section>
+                <Columns>
+                    <ColumnsLeft>
+                        <Name>Matthew Wood</Name>
+                        <JobRole>Fullstack Developer</JobRole>
+                        <IconsBox>
+                            <IconLink
+                                href="https://github.com/WMattWood"
+                                target="blank"
+                            >
+                                <Icon src={Github} alt="Github Icon" />
+                            </IconLink>
+                            <IconLink
+                                href="https://www.linkedin.com/in/WMattWood"
+                                target="blank"
+                            >
+                                <Icon src={Linkedin} alt="Linkedin Icon" />
+                            </IconLink>
+                            <IconLink
+                                href="mailto:w.matthew.wood@gmail.com"
+                                target="blank"
+                            >
+                                <Icon src={Email} alt="Generic Email Icon" />
+                            </IconLink>
+                            <IconLink
+                                href="https://www.youtube.com/watch?v=ZPoqNeR3_UA"
+                                target="blank"
+                            >
+                                <IconTrek src={Startrek} alt="Startrek Icon" />
+                            </IconLink>
+                        </IconsBox>
+                        <Tagline>
+                            <p>
+                                Web developer specializing in translation and
+                                documentation of complex systems.
+                            </p>
+                        </Tagline>
+                        <ResumeLink href={Pdf}>Check out my CV here</ResumeLink>
+                        <Headshot2 src={headshot} />
+                    </ColumnsLeft>
+                    <Headshot src={headshot} />
+                </Columns>
+            </Section>
 
-          <SectionContainer>
-            <TitleBox>
-              <SectionTitle>My Skills</SectionTitle>
-            </TitleBox>
-            <SkillsBox>
-              <SkillsListBox>
-                {listOfSkills.map( skill => <Skill key={`${skill}`}> {skill} </Skill> ) }
-              </SkillsListBox>
-              <BlurbBox>
-                <Blurb>I have been using computers to learn, create and explore since I was a kid.  
-                  My first access to computerized networks was through BBS systems ( Dragon's Lair!) and some of my earliest memories were playing a copy of Rogue on
-                  my grandparent's old Macintosh.  Over the past 20 years I've used computers
-                  to create and perform electronic music - and in the past 5 years I decided to 
-                  focus full time on digging into the code behind the software that I've used
-                  for so long.  
+            <Section>
+                <SectionTitleBox>
+                    <SectionTitle>My Skills</SectionTitle>
+                </SectionTitleBox>
+                <Blurb>
+                    4+ years of experience in a variety of languages and
+                    frameworks, specializing in web development. I have worked
+                    on e-commerce sites, institutional web sites, implemented
+                    forms, database handlers, backend code, and worked with both
+                    server side rendered web pages and client side rendered web
+                    applications (SPAs).
                 </Blurb>
+                <SkillsListBox>
+                    {listOfSkills.map((skill) => (
+                        <Skill key={`${skill}`}> {skill} </Skill>
+                    ))}
+                </SkillsListBox>
+                <ResumeLink onClick={() => navigate("/about")}>
+                    More about me...
+                </ResumeLink>
+            </Section>
 
-                <PdfLink onClick={ () => navigate("/about")}>More about me...</PdfLink>
-              </BlurbBox>
-            </SkillsBox>
+            <Section>
+                <SectionTitleBox>
+                    <SectionTitle>My Projects</SectionTitle>
+                </SectionTitleBox>
+                {!projects ? (
+                    <p>"Loading"</p>
+                ) : (
+                    <ProjectBox>
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.name}
+                                name={project.name}
+                            />
+                        ))}
+                    </ProjectBox>
+                )}
+            </Section>
 
-          </SectionContainer>
-
-          <SectionContainer>
-            <TitleBox>
-              <SectionTitle>My Projects</SectionTitle>
-            </TitleBox> 
-            { ! projects
-              ? <p>"Loading"</p>
-              : <ProjectBox>
-                  { projects.map( (project) => <ProjectCard key={project.name} name={project.name}/> ) }
-                </ProjectBox>
-            }
-          </SectionContainer>
-
-          <SectionContainer>
-            <TitleBox>
+            {/* <Section>
+            <SectionTitleBox>
               <SectionTitle>My Blog</SectionTitle>
-            </TitleBox>
+            </SectionTitleBox>
             { ! blogs
               ? <p>"Loading"</p>
               : <BlogBox ref={ref}>
                   { blogs.slice(0, 3).map( blog => <BlogCard key={blog.id} blog={blog}/> ) }
                 </BlogBox>
             }
-          </SectionContainer>
-          
-          <SectionContainer>
-            <Contact id="contact" >Want to get in touch?  <ContactLink href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank"> Let's chat!</ContactLink> </Contact>
-          </SectionContainer>
-        </Contents>
-      </Body>
-      <Footer></Footer>
-    </div>
-  )
+          </Section> */}
+
+            <Section>
+                <Contact id="contact">
+                    Want to get in touch?{" "}
+                    <ContactLink
+                        href="mailto:w&period;matthew&period;wood&commat;gmail&period;com"
+                        target="blank"
+                    >
+                        {" "}
+                        Let's chat!
+                    </ContactLink>{" "}
+                </Contact>
+            </Section>
+        </>
+    );
 }
 
-//Page Structure Elements
-const Body = styled.div`
-  background: var(--dark);
-  width: 100vw;
-  padding-bottom: 12px;
-  padding-left: 5%;
-  padding-right: 5%;
-`
+// STRUCTURE
+const Section = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
 
-const Contents = styled.div`
-  margin-left: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+    @media (max-width: 500px) {
+        margin-bottom: 40px;
+    }
+`;
 
-  @media (max-width: 500px) {
-    margin-left: 0px;
-  }
-`
+const SectionTitleBox = styled.div`
+    align-self: flex-start;
+    margin-bottom: 24px;
+`;
 
-const SectionContainer = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 12px;
-  margin-bottom: 50px;
-
-  @media (max-width: 500px) {
-      margin-bottom: 40px;
-    } 
-`
-
-const Header = styled.div`
-  height: 200px;
-  background: linear-gradient(var(--highlight-dark), 90%, #7a99a7);
-
-  @media (max-width: 500px) {
-    height: 35vw;
-  }
-`
-const Footer = styled.div`
-  height: 200px;
-  background: linear-gradient(#19376D, 10%, var(--highlight-dark));
-`
-const TitleBox = styled.div`
-  align-self: flex-start;
-  margin-bottom: 24px;
-`
 const SectionTitle = styled.h3`
-`
+`;
 
+const Columns = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+`;
 
-
-//MyIntro Elements
-const MyIntro = styled.div`
-  margin-bottom: 84px;
-  margin-right: 48px;
-
-  @media (max-width: 500px) {
-      margin-bottom: 74px;
-    } 
-`
-const MainTitle = styled.h1`
-`
-const Subtitle = styled.h2`
-  margin-bottom:20px;
-`
-const TopBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`
-const TopBoxLeft = styled.div`
-  width: 100%;
-  @media (min-width: 840px) {
-      width: 60%;
-      display: inline;
+const ColumnsLeft = styled.div`
+    width: 60%;
+    display: inline;
+    @media (max-width: 550px) {
+        width: 100%;
     }
-`
-const TopBoxRight = styled.div`
-  width: 0%;
-  display: none;
+`;
 
-  @media (min-width: 840px) {
-      width: 35%;
-      display: flex;
+// INTRO
+const Name = styled.h1`
+`;
+
+const JobRole = styled.h2`
+    min-width: 490px;
+
+    @media (max-width: 550px) {
+        min-width: 200px;
     }
-`
+`;
+
 const IconsBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
-`
+    margin: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+`;
+
 const IconLink = styled.a`
-`
+`;
+
 const Icon = styled.img`
-  width: 34px;
-`
+    width: 34px;
+`;
+
 const IconTrek = styled.img`
-  width: 44px;
-  position: relative;
-  top: -10%;
-`
-const IntroBlurb = styled.div`
-  *{
+    width: 44px;
+    position: relative;
+    top: -10%;
+`;
+
+const Tagline = styled.div`
+    min-width: 490px;
+    margin-bottom: 51px;
     font-size: 20px;
     line-height: 28px;
-    margin: 5px;
-  }
-`
-const SubBlurb = styled.div`
-  margin-bottom: 51px;
 
-  @media (max-width: 500px) {
-    margin-bottom: 6vw;
-  }
-`
-const LastLine = styled.p`
-  @media (max-width: 500px) {
-    width: 220px;
-  }
-`
-const PdfLink = styled.a`
-  cursor: pointer;
-  text-decoration: none var(--highlight-bright);
-  background: transparent;
-  font-weight: 600;
-  color: var(--highlight-bright);
-  font-size: 20px;
-  
-  :hover{
-    transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
-  }
-`
-const HeadshotBox = styled.div`
-  margin-top: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`
-const Headshot = styled.img`
-  width: 90%;
-  box-sizing: border-box;
-  border: 3px solid black;
-  border-radius: 5px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-`
-
-// MySkills Section
-const SkillsBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-
-  @media (min-width: 840px) {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      align-items: start;
-    } 
-`
-const BlurbBox = styled.div`
-  font-size: 19px;
-  line-height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-  font-weight: 400;
-
-  @media (min-width: 840) {
-    width: 500px;
-  }
-`
-const Blurb = styled.p`
-  margin-bottom: 24px;
-  width: 100%;
-
-  @media (min-width: 840) {
-    width: 500px;
-  }
-`
-const SkillsListBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  min-width: 300px;
-  width: 100%;
-  margin-bottom: 24px;
-`
-const Skill = styled.div`
-  background: black;
-  color: var(--highlight-bright);
-  border-radius: 5px;
-  padding: 5px;
-  margin: 3px;
-
-  transition: 0.5s;
-  :hover{
-    color: magenta;
-    transition: 0.5s;
-  }
-`
-
-// MyProjects Section
-const ProjectBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`
-
-// MyBlog Section
-const BlogBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  @media (min-width: 840px) {
-      flex-direction: row;
+    @media (max-width: 550px) {
+        margin-bottom: 6vw;
+        min-width: 100%;
     }
-`
+`;
+
+const ResumeLink = styled.a`
+    cursor: pointer;
+    text-decoration: none var(--tertiary);
+    font-weight: 600;
+    color: var(--tertiary);
+    font-size: 20px;
+
+    :hover {
+        transition: 0.5s;
+        color: var(--secondary);
+    }
+`;
+
+const Headshot = styled.img`
+    max-width: 300px;
+    width: 90%;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-radius: 2px;
+
+    @media (max-width: 895px) {
+        display: none;
+    }
+`;
+
+const Headshot2 = styled.img`
+    max-width: 300px;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-top: 24px;
+    @media (min-width: 550px) {
+        display: none;
+    }
+`;
 
 
-// Contact Section
-const Contact = styled.p`
-  font-size: 33px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  line-height: 38px;
-`
-const ContactLink = styled.a`
-  cursor: pointer;
-  text-decoration: none var(--highlight-bright);
-  background: transparent;
-  font-weight: 600;
-  color: var(--highlight-bright);
-  font-size: 33px;
 
-  :hover{
+
+// SKILLS
+const Blurb = styled.p`
+    font-size: 19px;
+    line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    width: 100%;
+
+    @media (min-width: 840) {
+        width: 500px;
+    }
+`;
+const SkillsListBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 300px;
+    max-width: 800px;
+    margin-bottom: 24px;
+`;
+const Skill = styled.div`
+    background: black;
+    color: var(--tertiary);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
+
     transition: 0.5s;
-    color: magenta;
-    text-decoration: underline magenta;
-  }
-`
+    :hover {
+        color: var(--secondary);
+        transition: 0.5s;
+    }
+`;
 
-export default HomePage
+// PROJECTS
+const ProjectBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;
+
+// BLOG
+const BlogBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 840px) {
+        flex-direction: row;
+    }
+`;
+
+// CONTACT
+const Contact = styled.p`
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 38px;
+    align-self: start;
+`;
+const ContactLink = styled.a`
+    cursor: pointer;
+    text-decoration: none var(--tertiary);
+    background: transparent;
+    font-weight: 600;
+    color: var(--tertiary);
+    font-size: 33px;
+
+    :hover {
+        transition: 0.5s;
+        color: var(--secondary);
+        text-decoration: underline var(--secondary);
+    }
+`;
+
+export default HomePage;

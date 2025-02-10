@@ -1,32 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-    /* https://colorhunt.co/palette/13005a00337c1c82ad03c988 */
-    /* https://colorhunt.co/palette/08d9d6252a34ff2e63eaeaea */
-    /* https://colorhunt.co/palette/222831393e4600adb5eeeeee */
-    /* https://colorhunt.co/palette/0c134f1d267d5c469cd4adfc */
-
     :root{
-        --dark: #1B5A57;
-        --bright: #FFFFFF;
-        --text: rgba(255, 255, 255, 0.7);
-        --highlight-bright: #67f5dd;
-        --highlight-dark: #576CBC;
-        --paragraph-box: #204c6d;
-        /* --dark: #193D67; */
-        /* --dark: #0B2447; */
-        /* --dark: #1C1056; */
-        /* --bright: #F5F5F5; */
-        /* --text: #A5D7E8; */
-        /* --text: #F3F7FC; */
-        /* --text: #576CBC; */
-        /* --text: #99ACC4; */
-        /* --bright: #E1E4E8; */
-        /* --highlight-dark: #142c3c; */
-        /* --highlight-dark: #193D67; */
-        /* --highlight-dark: #19376D; */
-        /* --paragraph-box: #698F3F; */
-        /* overflow-x: hidden; */
+        --primary: #FDFFFC;
+        --secondary: #235789;
+        --tertiary: #C1292E;
+        --text: black;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -55,53 +34,59 @@ const GlobalStyle = createGlobalStyle`
     footer, header, hgroup, menu, nav, section {
         display: block;
     }
-    html{
+
+    html {
         overflow-x: hidden;
         height: 100%;
-        /* scroll-behavior: smooth; */
     }
+
     body {
         overflow-x: hidden;
-        /* scroll-behavior: smooth; */
         font-family: 'Montserrat', sans-serif;
-        background: var(--highlight-dark);
+        background: var(--primary);
         line-height: 1;
     }
+
     ol, ul {
         list-style: none;
     }
+
     blockquote, q {
         quotes: none;
     }
+
     blockquote:before, blockquote:after,
     q:before, q:after {
         content: '';
         content: none;
     }
+
     table {
         border-collapse: collapse;
         border-spacing: 0;
     }
-    
 
-
+    .container {
+        max-width: 1024px;
+        margin: auto;
+        padding: 5%;
+        padding-top: min(24px, 5%);
+    }
     
     *{
         color: var(--text);
         /* -webkit-font-smoothing: antialiased; */
         font-weight: 400;
         letter-spacing: 0.3px;
-        /* margin-left: 0.4em; */
     }
 
     h1{
-        padding-top: 20px;
-        color: var(--bright);
+        padding-bottom: 20px;
+        color: var(--text);
         font-weight: 500;
         font-size: 80px;
         font-variation-settings: "wght" 450;
         background: transparent;
-        /* -webkit-font-smoothing: antialiased; */
 
         @media (max-width: 500px) {
             font-size: 16vw;
@@ -109,7 +94,7 @@ const GlobalStyle = createGlobalStyle`
     } 
     
     h2{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 500;
         font-size: 48px;
         font-variation-settings: "wght" 450;
@@ -120,29 +105,21 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h3{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 500;
         font-size: 48px;
         font-variation-settings: "wght" 450;
-        border-bottom: 3px solid black;
     }
 
     h4{
-        color: var(--bright);
+        color: var(--text);
         font-weight: 600;
         font-size: 20px;
         font-variation-settings: "wght" 450;
-        /* border-bottom: 3px solid black; */
     }
 
     h5{
-        border-bottom: 2px solid;
         padding-bottom: 2px;
-        /* color: var(--bright);
-        font-weight: 600;
-        font-size: 20px;
-        font-variation-settings: "wght" 450;
-        border-bottom: 3px solid black; */
     }
 
     p{
@@ -150,7 +127,6 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 18px;
         line-height: 25px;
     }
-    
 `
 
 // OPTIONAL SCRIPT TO MAKE BACKGROUND DIFFERENT COLOR DEPENDING ON SCROLL POSITION
