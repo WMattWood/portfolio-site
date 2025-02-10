@@ -37,7 +37,7 @@ const ProjectPage = () => {
 
 // STRUCTURE
 const Body = styled.div`
-    background: var(--secondary);
+    background: var(--primary);
     padding-bottom: 12px;
 `;
 

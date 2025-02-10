@@ -3,8 +3,8 @@
         <symbol id="email" viewBox="0 0 1024 1024">
 
             <svg 
-                stroke="red" 
-                fill="red" 
+                stroke="#C1292E" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em" >
@@ -18,7 +18,7 @@
 
             <svg 
                 stroke="currentColor" 
-                fill="red" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em" > 
@@ -43,7 +43,7 @@
 
             <svg 
                 stroke="currentColor" 
-                fill="red" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em">
@@ -57,7 +57,7 @@
 
             <svg 
                 stroke="currentColor" 
-                fill="red" 
+                fill="#C1292E" 
                 stroke-width="2px" 
                 height="2em" 
                 width="2em" 

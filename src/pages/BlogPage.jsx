@@ -57,7 +57,7 @@ function BlogPage() {
 
 // STRUCTURE
 const Body = styled.div`
-    background: var(--secondary);
+    background: var(--primary);
     padding-bottom: 12px;
 `;
 
@@ -70,7 +70,7 @@ const Contents = styled.div`
 
 const Footer = styled.div`
     height: 200px;
-    background: var(--secondary);
+    background: var(--primary);
 `;
 
 // ELEMENTS

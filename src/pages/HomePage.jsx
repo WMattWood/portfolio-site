@@ -266,14 +266,14 @@ const Tagline = styled.div`
 
 const ResumeLink = styled.a`
     cursor: pointer;
-    text-decoration: none var(--emphasis);
+    text-decoration: none var(--tertiary);
     font-weight: 600;
-    color: var(--emphasis);
+    color: var(--tertiary);
     font-size: 20px;
 
     :hover {
         transition: 0.5s;
-        color: var(--links);
+        color: var(--secondary);
     }
 `;
 
@@ -326,14 +326,14 @@ const SkillsListBox = styled.div`
 `;
 const Skill = styled.div`
     background: black;
-    color: var(--emphasis);
+    color: var(--tertiary);
     border-radius: 5px;
     padding: 5px;
     margin: 3px;
 
     transition: 0.5s;
     :hover {
-        color: var(--links);
+        color: var(--secondary);
         transition: 0.5s;
     }
 `;
@@ -366,16 +366,16 @@ const Contact = styled.p`
 `;
 const ContactLink = styled.a`
     cursor: pointer;
-    text-decoration: none var(--emphasis);
+    text-decoration: none var(--tertiary);
     background: transparent;
     font-weight: 600;
-    color: var(--emphasis);
+    color: var(--tertiary);
     font-size: 33px;
 
     :hover {
         transition: 0.5s;
-        color: var(--links);
-        text-decoration: underline var(--links);
+        color: var(--secondary);
+        text-decoration: underline var(--secondary);
     }
 `;
 
