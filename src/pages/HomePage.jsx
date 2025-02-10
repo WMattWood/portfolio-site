@@ -325,16 +325,18 @@ const SkillsListBox = styled.div`
     margin-bottom: 24px;
 `;
 const Skill = styled.div`
-    background: black;
-    color: var(--tertiary);
+    background: white;
+    color: var(--secondary);
     border-radius: 5px;
     padding: 5px;
     margin: 3px;
 
-    transition: 0.5s;
+    /* transition: 0.2s; */
     :hover {
-        color: var(--secondary);
-        transition: 0.5s;
+        background: var(--tertiary);
+        color: white;
+        /* transition: 0.2s; */
+        cursor: pointer;
     }
 `;
 
