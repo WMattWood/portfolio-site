@@ -1,15 +1,15 @@
 import { useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import headshot from "../assets/headshot.jpeg";
+import headshot from "../assets/headshot2.jpeg";
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
 import Navbar from "../components/Navbar";
 import { GlobalContext } from "../GlobalContext";
-import Linkedin from "../assets/linkedin.svg";
-import Github from "../assets/github.svg";
-import Email from "../assets/email.svg";
-import Startrek from "../assets/startrek.svg";
+import LinkedinIcon from "../assets/linkedin.svg?react";
+import GithubIcon from "../assets/github.svg?react";
+import EmailIcon from "../assets/email.svg?react";
+import StartrekIcon from "../assets/startrek.svg?react";
 import Pdf from "../assets/Matthew_Wood_CV.pdf";
 
 function HomePage() {
@@ -77,30 +77,10 @@ function HomePage() {
                         <Name>Matthew Wood</Name>
                         <JobRole>Fullstack Developer</JobRole>
                         <IconsBox>
-                            <IconLink
-                                href="https://github.com/WMattWood"
-                                target="blank"
-                            >
-                                <Icon src={Github} alt="Github Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="https://www.linkedin.com/in/WMattWood"
-                                target="blank"
-                            >
-                                <Icon src={Linkedin} alt="Linkedin Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="mailto:w.matthew.wood@gmail.com"
-                                target="blank"
-                            >
-                                <Icon src={Email} alt="Generic Email Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="https://www.youtube.com/watch?v=ZPoqNeR3_UA"
-                                target="blank"
-                            >
-                                <IconTrek src={Startrek} alt="Startrek Icon" />
-                            </IconLink>
+                            <a href="https://github.com/WMattWood" target="blank"> <GithubIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="https://www.linkedin.com/in/WMattWood" target="blank"> <LinkedinIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="mailto:w.matthew.wood@gmail.com" target="blank"> <EmailIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="https://www.youtube.com/watch?v=ZPoqNeR3_UA" target="blank"> <StartrekIcon width="44" fill="var(--tertiary)" /> </a>
                         </IconsBox>
                         <Tagline>
                             <p>
@@ -237,19 +217,6 @@ const IconsBox = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 200px;
-`;
-
-const IconLink = styled.a`
-`;
-
-const Icon = styled.img`
-    width: 34px;
-`;
-
-const IconTrek = styled.img`
-    width: 44px;
-    position: relative;
-    top: -10%;
 `;
 
 const Tagline = styled.div`
