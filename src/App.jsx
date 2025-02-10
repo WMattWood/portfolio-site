@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes as Pages, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import AboutPage from './pages/AboutPage'
 import Blogpage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
@@ -12,17 +12,15 @@ function App() {
   return (
     <div class="container">
     <BrowserRouter>
-    <ScrollToTop />
-    <GlobalStyle />
-      
-      <Pages>
+      <ScrollToTop />
+      <GlobalStyle />
+      <Routes>
         <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/blog" element={<Blogpage />} />
-      </Pages>
-      
+      </Routes>
     </BrowserRouter>
     </div>
   )
