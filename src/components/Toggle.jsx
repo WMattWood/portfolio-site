@@ -59,11 +59,8 @@ const Slider = styled.span`
 `;
 
 const Toggle = ({ checked, onChange }) => {
-//   const [isChecked, setIsChecked] = useState(false);
 
-  const handleToggle = () => {
-    onChange(!checked);
-  };
+  const handleToggle = () => onChange(!checked)
 
   return (
     <SwitchLabel>
