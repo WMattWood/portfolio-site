@@ -88,7 +88,7 @@ function HomePage() {
                                 documentation of complex systems.
                             </p>
                         </Tagline>
-                        <ResumeLink href={Pdf}>Check out my CV here</ResumeLink>
+                        <Link href={Pdf} style={{'font-size': '20px'}}>Check out my CV here</Link>
                         <Headshot2 src={headshot} />
                     </ColumnsLeft>
                     <Headshot src={headshot} />
@@ -112,9 +112,9 @@ function HomePage() {
                         <Skill key={`${skill}`}> {skill} </Skill>
                     ))}
                 </SkillsListBox>
-                <ResumeLink onClick={() => navigate("/about")}>
+                <Link style={{'font-size': '20px'}} onClick={() => navigate("/about")}>
                     More about me...
-                </ResumeLink>
+                </Link>
             </Section>
 
             <Section>
@@ -149,14 +149,8 @@ function HomePage() {
 
             <Section>
                 <Contact id="contact">
-                    Want to get in touch?{" "}
-                    <ContactLink
-                        href="mailto:w&period;matthew&period;wood&commat;gmail&period;com"
-                        target="blank"
-                    >
-                        {" "}
-                        Let's chat!
-                    </ContactLink>{" "}
+                    Want to get in touch?{" "} 
+                    <Link href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank" > {" "} Let's chat! </Link>{" "} 
                 </Contact>
             </Section>
         </>
@@ -231,19 +225,6 @@ const Tagline = styled.div`
     }
 `;
 
-const ResumeLink = styled.a`
-    cursor: pointer;
-    text-decoration: none var(--tertiary);
-    font-weight: 600;
-    color: var(--tertiary);
-    font-size: 20px;
-
-    :hover {
-        transition: 0.5s;
-        color: var(--secondary);
-    }
-`;
-
 const Headshot = styled.img`
     max-width: 300px;
     width: 90%;
@@ -272,7 +253,7 @@ const Headshot2 = styled.img`
 
 // SKILLS
 const Blurb = styled.p`
-    font-size: 19px;
+    font-size: 18px;
     line-height: 22px;
     font-weight: 400;
     margin-bottom: 24px;
@@ -298,12 +279,13 @@ const Skill = styled.div`
     padding: 5px;
     margin: 3px;
 
-    /* transition: 0.2s; */
+    transition: 2s;
     :hover {
         background: var(--tertiary);
         color: white;
-        /* transition: 0.2s; */
+        transition: 0.1s;
         cursor: pointer;
+        /* scale: 2; */
     }
 `;
 
@@ -333,18 +315,21 @@ const Contact = styled.p`
     line-height: 38px;
     align-self: start;
 `;
-const ContactLink = styled.a`
-    cursor: pointer;
-    text-decoration: none var(--tertiary);
-    background: transparent;
+
+const Link = styled.a`
+    text-decoration: none;
     font-weight: 600;
     color: var(--tertiary);
-    font-size: 33px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
 
+    transition: 0.1s;
     :hover {
-        transition: 0.5s;
-        color: var(--secondary);
-        text-decoration: underline var(--secondary);
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
+        cursor: pointer;
     }
 `;
 

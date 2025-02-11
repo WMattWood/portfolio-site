@@ -44,6 +44,7 @@ const Navbar = () => {
 // STRUCTURE
 const Header = styled.header`
     height: 120px;
+    font-size: 20px;
 `;
 
 const FrameHorizontal = styled.div`
@@ -71,30 +72,41 @@ const TitleBox = styled.div``;
 
 const Title = styled.h5`
     cursor: pointer;
-    margin-top: 12px;
-    margin-left: 4px;
     position: absolute;
-    transition: 0.5s;
+    border-radius: 5px;
+    padding: 5px;
 
+    transition: 0.1s;
     :hover {
-        transition: 0.5s;
-        color: red;
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
     }
 `;
 
 const Link = styled.h5`
     cursor: pointer;
-    transition: 0.5s;
+    /* transition: 0.5s; */
     margin: 12px 0px 12px 24px;
     z-index: 1;
 
-    :hover {
+    /* :hover {
         transition: 0.5s;
         color: red;
+    } */
+
+    border-radius: 5px;
+    padding: 5px;
+    /* margin: 0px; */
+
+    transition: 0.1s;
+    :hover {
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
     }
 
     @media (max-width: 840px) {
-        cursor: pointer;
         transition: 0.5s;
         margin: -9px;
         visibility: hidden;
@@ -109,6 +121,7 @@ const FileLink = styled.a`
 
 const Icon = styled.img`
     width: 34px;
+    cursor: pointer;
 `;
 
 export default Navbar;
