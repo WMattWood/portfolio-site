@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
+
 
 const AboutPage = () => {
     return (
         <div>
-            <Navbar />
             <Body>
                 <Contents>
                     <TitleBox>

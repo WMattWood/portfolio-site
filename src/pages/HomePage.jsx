@@ -4,7 +4,7 @@ import styled from "styled-components";
 import headshot from "../assets/headshot2.jpeg";
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
-import Navbar from "../components/Navbar";
+
 import { GlobalContext } from "../GlobalContext";
 import LinkedinIcon from "../assets/linkedin.svg?react";
 import GithubIcon from "../assets/github.svg?react";
@@ -70,7 +70,6 @@ function HomePage() {
 
     return (
         <>
-            <Navbar />
             <Section>
                 <Columns>
                     <ColumnsLeft>

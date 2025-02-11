@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext, useEffect, useId } from "react";
 import { useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
+
 import BlogCardFull from "../components/BlogCardFull";
 import { GlobalContext } from "../GlobalContext";
 
@@ -33,7 +33,6 @@ function BlogPage() {
 
     return (
         <div>
-            <Navbar />
             <Body>
                 <Contents>
                     <TitleBox>

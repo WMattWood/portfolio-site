@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { GlobalContext } from "../GlobalContext";
 import { useContext } from "react";
-import Navbar from "../components/Navbar";
+
 import ProjectCard from "../components/ProjectCard";
 
 const ProjectPage = () => {
@@ -9,7 +9,6 @@ const ProjectPage = () => {
 
     return (
         <>
-            <Navbar />
             <Body>
                 <Contents>
                     <Section>
