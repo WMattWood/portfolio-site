@@ -100,9 +100,11 @@ function HomePage() {
                 </SectionTitleBox>
                 <Blurb>
                     I have been building things with code since 2009 and working
-                    with code in a professional context since 2022.  My primary
-                    driver is making things easier for user, whether developers, 
-                    customers, or professionals are the target audience.
+                    with code in a professional context since 2022.  One of primary
+                    drivers is making things simpler for the user - for customers, 
+                    for developers, or for other professionals. I have hands-on experience
+                    with a variety of languages and frameworks, specializing in
+                    building for the web.
                     {/* 4+ years of experience in a variety of languages and
                     frameworks, specializing in web development. I have worked
                     on e-commerce sites, institutional web sites, implemented
