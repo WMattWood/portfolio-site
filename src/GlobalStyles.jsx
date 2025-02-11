@@ -1,25 +1,36 @@
 import { createGlobalStyle } from 'styled-components'
 
+const themes = {
+    light: {
+        primary: "#FDFFFC",
+        secondary: "#235789",
+        tertiary: "#C1292E",
+        text: "#000000",
+    },
+    astro:{
+        primary: "#345995",
+        secondary: "#091132",
+        tertiary: "#ff0000",
+        text: "#dfeed9"
+    },
+    dark:{
+        primary: "#091132",
+        secondary: "#091132",
+        tertiary: "#ff0000",
+        text: "#dfeed9"
+    }
+
+}
+
 const GlobalStyle = createGlobalStyle`
     :root{
-        /* light */
-        --primary: #FDFFFC;
-        --secondary: #235789;
-        --tertiary: #C1292E;
-        --text: black;
-
-        /* astro */
-        /* --primary: #345995;
-        --secondary: #091132;
-        --tertiary: red;
-        --text: #dfeed9; */
-
-        /* dark */
-        /* --primary: #091132;
-        --secondary: #091132;
-        --tertiary: red;
-        --text: #dfeed9; */
-
+        // deconstructs the theme object
+        ${({ theme: { primary, secondary, tertiary, text } }) => `
+            --primary: ${primary};
+            --secondary: ${secondary};
+            --tertiary: ${tertiary};
+            --text: ${text};
+        `}
     }
 
     html, body, div, span, applet, object, iframe,
@@ -156,4 +167,4 @@ const GlobalStyle = createGlobalStyle`
 //     }
 // });
 
-export default GlobalStyle
+export { GlobalStyle, themes }

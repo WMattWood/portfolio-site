@@ -1,19 +1,27 @@
-
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { GlobalStyle, themes } from './GlobalStyles'
 import AboutPage from './pages/AboutPage'
 import Blogpage from './pages/BlogPage'
 import HomePage from './pages/HomePage'
 import ProjectPage from './pages/ProjectPage'
 import ScrollToTop from './utilities/ScrollToTop';
-import GlobalStyle from './GlobalStyles'
+import Toggle from "./components/Toggle";
+
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  }
 
   return (
     <div class="container">
     <BrowserRouter>
       <ScrollToTop />
-      <GlobalStyle />
+      <GlobalStyle theme={themes[theme]}/>
+      <Toggle checked={theme === "dark"} onChange={toggleTheme}>Switch Theme</Toggle>
       <Routes>
         <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
