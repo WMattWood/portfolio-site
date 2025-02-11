@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MediaQuery from "react-responsive";
-import Hamburger from "../assets/hamburger.svg";
+// import Hamburger from "../assets/hamburger.svg";
+import Hamburger from "../assets/hamburger.svg?react";
 import Pdf from "../assets/Matthew_Wood_CV.pdf";
 import Toggle from './Toggle';
 
@@ -22,7 +23,7 @@ const Navbar = ({theme, toggleTheme}) => {
                     {/* <Link onClick={() => navigate("/about")}>About</Link> */}
                     <Link onClick={() => navigate("/projects")}>Projects</Link>
                     {/* <Link onClick={ () => navigate("/blog")}>Blog</Link> */}
-                    <Link onClick={() => navigate("/#contact")}>Contact</Link>
+                    {/* <Link onClick={() => navigate("/#contact")}>Contact</Link> */}
                     <FileLink href={Pdf}>
                         <Link>CV</Link>
                     </FileLink>
@@ -31,12 +32,13 @@ const Navbar = ({theme, toggleTheme}) => {
 
             <MediaQuery maxWidth={840}>
                 <FrameVertical>
-                    <Icon src={Hamburger} onClick={() => setShowNav(!showNav)} />
+                    {/* <Icon src={Hamburger} onClick={() => setShowNav(!showNav)} /> */}
+                    <Hamburger onClick={() => setShowNav(!showNav)} width="44px" fill="var(--tertiary)" />
                     <Link className={showNav ? "clicked" : null} onClick={() => navigate("/t")}> Home </Link>
                     {/* <Link className={showNav ? "clicked" : null} onClick={() => navigate("/about")}> About </Link> */}
                     <Link className={showNav ? "clicked" : null} onClick={() => navigate("/projects")}> Projects </Link>
                     {/* <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link> */}
-                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/#contact")} > Contact </Link>
+                    {/* <Link className={showNav ? "clicked" : null} onClick={() => navigate("/#contact")} > Contact </Link> */}
                     <FileLink href={Pdf}> <Link className={showNav ? "clicked" : null}>CV</Link> </FileLink>
                 </FrameVertical>
             </MediaQuery>
