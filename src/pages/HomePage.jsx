@@ -99,21 +99,25 @@ function HomePage() {
                     <SectionTitle>My Skills</SectionTitle>
                 </SectionTitleBox>
                 <Blurb>
-                    4+ years of experience in a variety of languages and
+                    I have been building things with code since 2009 and working
+                    with code in a professional context since 2022.  My primary
+                    driver is making things easier for user, whether developers, 
+                    customers, or professionals are the target audience.
+                    {/* 4+ years of experience in a variety of languages and
                     frameworks, specializing in web development. I have worked
                     on e-commerce sites, institutional web sites, implemented
-                    forms, database handlers, backend code, and worked with both
+                    forms, database handlers, backend code, and worked aswith both
                     server side rendered web pages and client side rendered web
-                    applications (SPAs).
+                    applications (SPAs). */}
                 </Blurb>
                 <SkillsListBox>
                     {listOfSkills.map((skill) => (
                         <Skill key={`${skill}`}> {skill} </Skill>
                     ))}
                 </SkillsListBox>
-                <Link style={{'font-size': '20px'}} onClick={() => navigate("/about")}>
+                {/* <Link style={{'font-size': '20px'}} onClick={() => navigate("/about")}>
                     More about me...
-                </Link>
+                </Link> */}
             </Section>
 
             <Section>

@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage'
 import ProjectPage from './pages/ProjectPage'
 import ScrollToTop from './utilities/ScrollToTop';
 import Navbar from "./components/Navbar";
-import Toggle from "./components/Toggle";
 
 
 function App() {
@@ -22,12 +21,11 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <GlobalStyle theme={themes[theme]}/>
-      <Toggle checked={theme === "dark"} onChange={toggleTheme}>Switch Theme</Toggle>
-      <Navbar/>
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="*" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="/about" element={<AboutPage />} /> */}
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/blog" element={<Blogpage />} />
       </Routes>

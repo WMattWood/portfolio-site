@@ -4,20 +4,22 @@ import { useNavigate } from "react-router-dom";
 import MediaQuery from "react-responsive";
 import Hamburger from "../assets/hamburger.svg";
 import Pdf from "../assets/Matthew_Wood_CV.pdf";
+import Toggle from './Toggle';
 
-const Navbar = () => {
+const Navbar = ({theme, toggleTheme}) => {
     const navigate = useNavigate();
     const [showNav, setShowNav] = useState(false);
 
     return (
         <Header>
-            <TitleBox>
-                <Title onClick={() => navigate("/")}>Home</Title>
-            </TitleBox>
+            <ToggleBox>
+                <Toggle checked={theme === "dark"} onChange={toggleTheme}>Switch Theme</Toggle>
+            </ToggleBox>
 
             <MediaQuery minWidth={840}>
                 <FrameHorizontal>
-                    <Link onClick={() => navigate("/about")}>About</Link>
+                    <Link onClick={() => navigate("/")}>Home</Link>
+                    {/* <Link onClick={() => navigate("/about")}>About</Link> */}
                     <Link onClick={() => navigate("/projects")}>Projects</Link>
                     {/* <Link onClick={ () => navigate("/blog")}>Blog</Link> */}
                     <Link onClick={() => navigate("/#contact")}>Contact</Link>
@@ -30,7 +32,8 @@ const Navbar = () => {
             <MediaQuery maxWidth={840}>
                 <FrameVertical>
                     <Icon src={Hamburger} onClick={() => setShowNav(!showNav)} />
-                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/about")}> About </Link>
+                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/t")}> Home </Link>
+                    {/* <Link className={showNav ? "clicked" : null} onClick={() => navigate("/about")}> About </Link> */}
                     <Link className={showNav ? "clicked" : null} onClick={() => navigate("/projects")}> Projects </Link>
                     {/* <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link> */}
                     <Link className={showNav ? "clicked" : null} onClick={() => navigate("/#contact")} > Contact </Link>
@@ -43,6 +46,7 @@ const Navbar = () => {
 
 // STRUCTURE
 const Header = styled.header`
+    position: relative;
     height: 120px;
     font-size: 20px;
 `;
@@ -68,36 +72,18 @@ const FrameVertical = styled.div`
 `;
 
 // ELEMENTS
-const TitleBox = styled.div``;
-
-const Title = styled.h5`
-    cursor: pointer;
+const ToggleBox = styled.div`
     position: absolute;
-    border-radius: 5px;
-    padding: 5px;
-
-    transition: 0.1s;
-    :hover {
-        background: var(--tertiary);
-        color: white;
-        transition: 0.1s;
-    }
+    top: 7px; 
+    left: 5px; 
 `;
 
 const Link = styled.h5`
     cursor: pointer;
-    /* transition: 0.5s; */
     margin: 12px 0px 12px 24px;
     z-index: 1;
-
-    /* :hover {
-        transition: 0.5s;
-        color: red;
-    } */
-
     border-radius: 5px;
     padding: 5px;
-    /* margin: 0px; */
 
     transition: 0.1s;
     :hover {
