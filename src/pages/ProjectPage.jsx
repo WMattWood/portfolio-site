@@ -9,42 +9,27 @@ const ProjectPage = () => {
 
     return (
         <>
-            <Body>
-                <Contents>
-                    <Section>
-                        <TitleBox>
-                            <SectionTitle>My Projects</SectionTitle>
-                        </TitleBox>
-                        {!projects ? (
-                            <p>"Loading"</p>
-                        ) : (
-                            <ProjectBox>
-                                {projects.map((project) => (
-                                    <ProjectCard
-                                        key={project.name}
-                                        name={project.name}
-                                    />
-                                ))}
-                            </ProjectBox>
-                        )}
-                    </Section>
-                </Contents>
-            </Body>
+            <Title>Projects</Title>
+            <Section>
+                { !projects ? ( <p>"Loading"</p> ) 
+                : (
+                    <ProjectBox>
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.name}
+                                name={project.name}
+                            />
+                        ))}
+                    </ProjectBox>
+                )}
+            </Section>
         </>
     );
 };
 
 // STRUCTURE
-const Body = styled.div`
-    background: var(--primary);
-    padding-bottom: 12px;
-`;
-
-const Contents = styled.div`
-    margin-left: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+const Title = styled.h1`
+    margin-bottom: 40px;
 `;
 
 const Section = styled.div`
@@ -62,17 +47,5 @@ const ProjectBox = styled.div`
     flex-direction: column;
     width: 100%;
 `;
-
-// ELEMENTS
-const TitleBox = styled.div`
-    align-self: flex-start;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin-bottom: 40px;
-    margin-top: 24px;
-`;
-
-const SectionTitle = styled.h3``;
 
 export default ProjectPage;
