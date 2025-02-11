@@ -2,10 +2,16 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     :root{
-        --primary: #FDFFFC;
+        /* --primary: #FDFFFC;
         --secondary: #235789;
         --tertiary: #C1292E;
-        --text: black;
+        --text: black; */
+
+        --primary: #345995;
+        --secondary: #091132;
+        --tertiary: #B0C8A7;
+        --text: #dfeed9;
+
     }
 
     html, body, div, span, applet, object, iframe,
