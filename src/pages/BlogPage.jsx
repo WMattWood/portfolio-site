@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext, useEffect, useId } from "react";
 import { useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
+
 import BlogCardFull from "../components/BlogCardFull";
 import { GlobalContext } from "../GlobalContext";
 
@@ -33,7 +33,6 @@ function BlogPage() {
 
     return (
         <div>
-            <Navbar />
             <Body>
                 <Contents>
                     <TitleBox>
@@ -57,7 +56,7 @@ function BlogPage() {
 
 // STRUCTURE
 const Body = styled.div`
-    background: var(--secondary);
+    background: var(--primary);
     padding-bottom: 12px;
 `;
 
@@ -70,7 +69,7 @@ const Contents = styled.div`
 
 const Footer = styled.div`
     height: 200px;
-    background: var(--secondary);
+    background: var(--primary);
 `;
 
 // ELEMENTS

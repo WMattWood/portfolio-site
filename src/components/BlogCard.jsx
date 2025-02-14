@@ -39,7 +39,7 @@ const Text = styled.div`
     transition: 0.1s;
 
     * {
-        color: var(--primary);
+        color: var(--tertiary);
         font-weight: 500;
         font-size: 18px;
         -webkit-font-smoothing: antialiased;

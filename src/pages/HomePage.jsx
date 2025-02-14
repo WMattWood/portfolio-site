@@ -1,15 +1,15 @@
 import { useEffect, useContext, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import headshot from "../assets/headshot.jpeg";
+import headshot from "../assets/headshot2.jpeg";
 import ProjectCard from "../components/ProjectCard";
 import BlogCard from "../components/BlogCard";
-import Navbar from "../components/Navbar";
+
 import { GlobalContext } from "../GlobalContext";
-import Linkedin from "../assets/linkedin.svg";
-import Github from "../assets/github.svg";
-import Email from "../assets/email.svg";
-import Startrek from "../assets/startrek.svg";
+import LinkedinIcon from "../assets/linkedin.svg?react";
+import GithubIcon from "../assets/github.svg?react";
+import EmailIcon from "../assets/email.svg?react";
+import StartrekIcon from "../assets/startrek.svg?react";
 import Pdf from "../assets/Matthew_Wood_CV.pdf";
 
 function HomePage() {
@@ -70,37 +70,16 @@ function HomePage() {
 
     return (
         <>
-            <Navbar />
             <Section>
                 <Columns>
                     <ColumnsLeft>
                         <Name>Matthew Wood</Name>
                         <JobRole>Fullstack Developer</JobRole>
                         <IconsBox>
-                            <IconLink
-                                href="https://github.com/WMattWood"
-                                target="blank"
-                            >
-                                <Icon src={Github} alt="Github Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="https://www.linkedin.com/in/WMattWood"
-                                target="blank"
-                            >
-                                <Icon src={Linkedin} alt="Linkedin Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="mailto:w.matthew.wood@gmail.com"
-                                target="blank"
-                            >
-                                <Icon src={Email} alt="Generic Email Icon" />
-                            </IconLink>
-                            <IconLink
-                                href="https://www.youtube.com/watch?v=ZPoqNeR3_UA"
-                                target="blank"
-                            >
-                                <IconTrek src={Startrek} alt="Startrek Icon" />
-                            </IconLink>
+                            <a href="https://github.com/WMattWood" target="blank"> <GithubIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="https://www.linkedin.com/in/WMattWood" target="blank"> <LinkedinIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="mailto:w.matthew.wood@gmail.com" target="blank"> <EmailIcon width="34" fill="var(--tertiary)"/> </a>
+                            <a href="https://www.youtube.com/watch?v=ZPoqNeR3_UA" target="blank"> <StartrekIcon width="44" fill="var(--tertiary)" /> </a>
                         </IconsBox>
                         <Tagline>
                             <p>
@@ -108,7 +87,7 @@ function HomePage() {
                                 documentation of complex systems.
                             </p>
                         </Tagline>
-                        <ResumeLink href={Pdf}>Check out my CV here</ResumeLink>
+                        <Link href={Pdf} style={{'font-size': '20px'}}>Check out my CV here</Link>
                         <Headshot2 src={headshot} />
                     </ColumnsLeft>
                     <Headshot src={headshot} />
@@ -120,21 +99,27 @@ function HomePage() {
                     <SectionTitle>My Skills</SectionTitle>
                 </SectionTitleBox>
                 <Blurb>
-                    4+ years of experience in a variety of languages and
+                    I have been building things with code since 2009 and working
+                    with code in a professional context since 2022.  One of primary
+                    drivers is making things simpler for the user - for customers, 
+                    for developers, or for other professionals. I have hands-on experience
+                    with a variety of languages and frameworks, specializing in
+                    building for the web.
+                    {/* 4+ years of experience in a variety of languages and
                     frameworks, specializing in web development. I have worked
                     on e-commerce sites, institutional web sites, implemented
-                    forms, database handlers, backend code, and worked with both
+                    forms, database handlers, backend code, and worked aswith both
                     server side rendered web pages and client side rendered web
-                    applications (SPAs).
+                    applications (SPAs). */}
                 </Blurb>
                 <SkillsListBox>
                     {listOfSkills.map((skill) => (
                         <Skill key={`${skill}`}> {skill} </Skill>
                     ))}
                 </SkillsListBox>
-                <ResumeLink onClick={() => navigate("/about")}>
+                {/* <Link style={{'font-size': '20px'}} onClick={() => navigate("/about")}>
                     More about me...
-                </ResumeLink>
+                </Link> */}
             </Section>
 
             <Section>
@@ -169,14 +154,8 @@ function HomePage() {
 
             <Section>
                 <Contact id="contact">
-                    Want to get in touch?{" "}
-                    <ContactLink
-                        href="mailto:w&period;matthew&period;wood&commat;gmail&period;com"
-                        target="blank"
-                    >
-                        {" "}
-                        Let's chat!
-                    </ContactLink>{" "}
+                    Want to get in touch?{" "} 
+                    <Link href="mailto:w&period;matthew&period;wood&commat;gmail&period;com" target="blank" > {" "} Let's chat! </Link>{" "} 
                 </Contact>
             </Section>
         </>
@@ -239,19 +218,6 @@ const IconsBox = styled.div`
     width: 200px;
 `;
 
-const IconLink = styled.a`
-`;
-
-const Icon = styled.img`
-    width: 34px;
-`;
-
-const IconTrek = styled.img`
-    width: 44px;
-    position: relative;
-    top: -10%;
-`;
-
 const Tagline = styled.div`
     min-width: 490px;
     margin-bottom: 51px;
@@ -261,19 +227,6 @@ const Tagline = styled.div`
     @media (max-width: 550px) {
         margin-bottom: 6vw;
         min-width: 100%;
-    }
-`;
-
-const ResumeLink = styled.a`
-    cursor: pointer;
-    text-decoration: none var(--emphasis);
-    font-weight: 600;
-    color: var(--emphasis);
-    font-size: 20px;
-
-    :hover {
-        transition: 0.5s;
-        color: var(--links);
     }
 `;
 
@@ -305,7 +258,7 @@ const Headshot2 = styled.img`
 
 // SKILLS
 const Blurb = styled.p`
-    font-size: 19px;
+    font-size: 18px;
     line-height: 22px;
     font-weight: 400;
     margin-bottom: 24px;
@@ -325,16 +278,19 @@ const SkillsListBox = styled.div`
     margin-bottom: 24px;
 `;
 const Skill = styled.div`
-    background: black;
-    color: var(--emphasis);
+    background: white;
+    color: var(--secondary);
     border-radius: 5px;
     padding: 5px;
     margin: 3px;
 
-    transition: 0.5s;
+    transition: 2s;
     :hover {
-        color: var(--links);
-        transition: 0.5s;
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
+        cursor: pointer;
+        /* scale: 2; */
     }
 `;
 
@@ -364,18 +320,21 @@ const Contact = styled.p`
     line-height: 38px;
     align-self: start;
 `;
-const ContactLink = styled.a`
-    cursor: pointer;
-    text-decoration: none var(--emphasis);
-    background: transparent;
-    font-weight: 600;
-    color: var(--emphasis);
-    font-size: 33px;
 
+const Link = styled.a`
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--tertiary);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
+
+    transition: 0.1s;
     :hover {
-        transition: 0.5s;
-        color: var(--links);
-        text-decoration: underline var(--links);
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
+        cursor: pointer;
     }
 `;
 

@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
+
 
 const AboutPage = () => {
     return (
         <div>
-            <Navbar />
             <Body>
                 <Contents>
                     <TitleBox>
@@ -112,7 +111,7 @@ const AboutPage = () => {
 
 // STRUCTURE
 const Body = styled.div`
-    background: var(--secondary);
+    background: var(--primary);
     padding-bottom: 12px;
 `;
 
@@ -156,19 +155,19 @@ const Keyword = styled.p`
     background: transparent;
     margin-bottom: 24px;
     font-weight: 600;
-    color: var(--emphasis);
+    color: var(--tertiary);
 `;
 
 const ContactLink = styled.a`
     cursor: pointer;
     background: transparent;
     font-weight: 600;
-    color: var(--emphasis);
+    color: var(--tertiary);
     font-size: 33px;
 
     :hover {
         transition: 0.5s;
-        color: var(--links);
+        color: var(--secondary);
     }
 `;
 

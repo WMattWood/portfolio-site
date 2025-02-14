@@ -1,13 +1,36 @@
 import { createGlobalStyle } from 'styled-components'
 
+const themes = {
+    light: {
+        primary: "#FDFFFC",
+        secondary: "#235789",
+        tertiary: "#C1292E",
+        text: "#000000",
+    },
+    astro:{
+        primary: "#345995",
+        secondary: "#091132",
+        tertiary: "#ff0000",
+        text: "#dfeed9"
+    },
+    dark:{
+        primary: "#091132",
+        secondary: "#091132",
+        tertiary: "#ff0000",
+        text: "#dfeed9"
+    }
+
+}
+
 const GlobalStyle = createGlobalStyle`
     :root{
-        --primary: #345995;
-        --secondary: #091132;
-        --tertiary: #B0C8A7;
-        --emphasis: #a92b2b;
-        --text: #dfeed9;
-        --links: #ffffff;
+        // deconstructs the theme object
+        ${({ theme: { primary, secondary, tertiary, text } }) => `
+            --primary: ${primary};
+            --secondary: ${secondary};
+            --tertiary: ${tertiary};
+            --text: ${text};
+        `}
     }
 
     html, body, div, span, applet, object, iframe,
@@ -45,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         overflow-x: hidden;
         font-family: 'Montserrat', sans-serif;
-        background: var(--secondary);
+        background: var(--primary);
         line-height: 1;
     }
 
@@ -144,4 +167,4 @@ const GlobalStyle = createGlobalStyle`
 //     }
 // });
 
-export default GlobalStyle
+export { GlobalStyle, themes }

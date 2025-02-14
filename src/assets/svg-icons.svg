@@ -3,8 +3,8 @@
         <symbol id="email" viewBox="0 0 1024 1024">
 
             <svg 
-                stroke="red" 
-                fill="red" 
+                stroke="#C1292E" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em" >
@@ -17,8 +17,8 @@
         <symbol id="github" viewBox="0 0 496 512">
 
             <svg 
-                stroke="currentColor" 
-                fill="red" 
+                stroke="current" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em" > 
@@ -42,8 +42,8 @@
         <symbol id="linkedin" viewBox="0 0 448 512">
 
             <svg 
-                stroke="currentColor" 
-                fill="red" 
+                stroke="current" 
+                fill="#C1292E" 
                 stroke-width="0" 
                 height="1em" 
                 width="1em">
@@ -56,8 +56,8 @@
         <symbol id="startrek" viewBox="0 0 1024 1024">
 
             <svg 
-                stroke="currentColor" 
-                fill="red" 
+                stroke="current" 
+                fill="#C1292E" 
                 stroke-width="2px" 
                 height="2em" 
                 width="2em" 

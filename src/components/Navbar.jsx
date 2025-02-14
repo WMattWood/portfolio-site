@@ -2,25 +2,28 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MediaQuery from "react-responsive";
-import Hamburger from "../assets/hamburger.svg";
+// import Hamburger from "../assets/hamburger.svg";
+import Hamburger from "../assets/hamburger.svg?react";
 import Pdf from "../assets/Matthew_Wood_CV.pdf";
+import Toggle from './Toggle';
 
-const Navbar = () => {
+const Navbar = ({theme, toggleTheme}) => {
     const navigate = useNavigate();
     const [showNav, setShowNav] = useState(false);
 
     return (
         <Header>
-            <TitleBox>
-                <Title onClick={() => navigate("/")}>Home</Title>
-            </TitleBox>
+            <ToggleBox>
+                <Toggle checked={theme === "dark"} onChange={toggleTheme}>Switch Theme</Toggle>
+            </ToggleBox>
 
             <MediaQuery minWidth={840}>
                 <FrameHorizontal>
-                    <Link onClick={() => navigate("/about")}>About</Link>
+                    <Link onClick={() => navigate("/")}>Home</Link>
+                    {/* <Link onClick={() => navigate("/about")}>About</Link> */}
                     <Link onClick={() => navigate("/projects")}>Projects</Link>
                     {/* <Link onClick={ () => navigate("/blog")}>Blog</Link> */}
-                    <Link onClick={() => navigate("/#contact")}>Contact</Link>
+                    {/* <Link onClick={() => navigate("/#contact")}>Contact</Link> */}
                     <FileLink href={Pdf}>
                         <Link>CV</Link>
                     </FileLink>
@@ -29,11 +32,13 @@ const Navbar = () => {
 
             <MediaQuery maxWidth={840}>
                 <FrameVertical>
-                    <Icon src={Hamburger} onClick={() => setShowNav(!showNav)} />
-                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/about")}> About </Link>
+                    {/* <Icon src={Hamburger} onClick={() => setShowNav(!showNav)} /> */}
+                    <Hamburger onClick={() => setShowNav(!showNav)} width="44px" fill="var(--tertiary)" />
+                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/t")}> Home </Link>
+                    {/* <Link className={showNav ? "clicked" : null} onClick={() => navigate("/about")}> About </Link> */}
                     <Link className={showNav ? "clicked" : null} onClick={() => navigate("/projects")}> Projects </Link>
                     {/* <Link className={ showNav ? "clicked" : null } onClick={ () => navigate("/blog")}>Blog</Link> */}
-                    <Link className={showNav ? "clicked" : null} onClick={() => navigate("/#contact")} > Contact </Link>
+                    {/* <Link className={showNav ? "clicked" : null} onClick={() => navigate("/#contact")} > Contact </Link> */}
                     <FileLink href={Pdf}> <Link className={showNav ? "clicked" : null}>CV</Link> </FileLink>
                 </FrameVertical>
             </MediaQuery>
@@ -43,7 +48,9 @@ const Navbar = () => {
 
 // STRUCTURE
 const Header = styled.header`
+    position: relative;
     height: 120px;
+    font-size: 20px;
 `;
 
 const FrameHorizontal = styled.div`
@@ -67,34 +74,27 @@ const FrameVertical = styled.div`
 `;
 
 // ELEMENTS
-const TitleBox = styled.div``;
-
-const Title = styled.h5`
-    cursor: pointer;
-    margin-top: 12px;
-    margin-left: 4px;
+const ToggleBox = styled.div`
     position: absolute;
-    transition: 0.5s;
-
-    :hover {
-        transition: 0.5s;
-        color: red;
-    }
+    top: 7px; 
+    left: 5px; 
 `;
 
 const Link = styled.h5`
     cursor: pointer;
-    transition: 0.5s;
     margin: 12px 0px 12px 24px;
     z-index: 1;
+    border-radius: 5px;
+    padding: 5px;
 
+    transition: 0.1s;
     :hover {
-        transition: 0.5s;
-        color: red;
+        background: var(--tertiary);
+        color: white;
+        transition: 0.1s;
     }
 
     @media (max-width: 840px) {
-        cursor: pointer;
         transition: 0.5s;
         margin: -9px;
         visibility: hidden;
@@ -109,6 +109,7 @@ const FileLink = styled.a`
 
 const Icon = styled.img`
     width: 34px;
+    cursor: pointer;
 `;
 
 export default Navbar;
