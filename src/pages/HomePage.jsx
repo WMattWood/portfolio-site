@@ -19,29 +19,30 @@ function HomePage() {
     const { projects, blogs } = useContext(GlobalContext);
     const listOfSkills = [
         "Javascript",
-        "CSS",
-        "HTML",
         "Python",
         "Ruby",
         "ASP",
+        "HTML",
+        "CSS",
         ".NET",
+        "ADODB",
         "VBScript",
-        "Ruby on Rails",
+        // "Ruby on Rails",
         "SQL",
         "Node.js",
         "React",
-        "Jest",
-        "Mocha",
-        "Minitest",
+        // "Jest",
+        // "Mocha",
+        // "Minitest",
         "CLI",
-        "Github",
-        "MongoDB",
-        "Firebase",
-        "Zoho CRM",
+        // "Github",
+        // "MongoDB",
+        // "Firebase",
+        // "Zoho CRM",
         "GraphQL",
-        "REST",
+        // "REST",
         "Azure Devops",
-        "ADODB",
+     
         "Powershell",
         "Bash/Zsh",
     ];
@@ -100,9 +101,9 @@ function HomePage() {
                 </SectionTitleBox>
                 <Blurb>
                     I have been building things with code since 2009 and working
-                    with code in a professional context since 2022.  One of primary
-                    drivers is making things simpler for the user - for customers, 
-                    for developers, or for other professionals. I have hands-on experience
+                    with code in a professional context since 2022.  My primary
+                    driver is making things simpler for the user - for customers, 
+                    for other developers, or  professionals coming from other fields. I have hands-on experience
                     with a variety of languages and frameworks, specializing in
                     building for the web.
                     {/* 4+ years of experience in a variety of languages and
